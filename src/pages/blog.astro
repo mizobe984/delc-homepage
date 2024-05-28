@@ -1,8 +1,9 @@
 ---
-    import BaseLayout from '../layouts/BaseLayout.astro';
-	import BlogPost from '../components/BlogPost.astro';
-	const allPosts = await Astro.glob('../pages/posts/*.md');
-	const pageTitle = "私のAstro学習ブログ";
+import { getCollection } from "astro:content";
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogPost from '../components/BlogPost.astro';
+const allPosts = await getCollection("posts");
+const pageTitle = "私のAstro学習ブログ";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -10,7 +11,9 @@
 		        <p>ここには、私がAstroを学んでいく旅の様子を投稿します。</p>
         
         <ul>
-			{allPosts.map((post) => <BlogPost url={post.url} title={post.frontmatter.title} />)}
+			{
+				allPosts.map((post) => <BlogPost url={`/posts/${post.slug}/`} title={post.data.title} />)
+			}
         </ul>
 
 		<script>
