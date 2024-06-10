@@ -1,0 +1,20 @@
+;:root{
+    --color: rgb(255, 255, 255);
+}
+
+.businessContents{
+    padding: 4rem 0;
+    /*background-color: #def4ff;*/
+    background-color: var(--color);
+}
+
+.businessContents .header{
+    font-size: 40px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.businessContents .info{
+    width: 50%;
+    padding: 1rem 0;
+}

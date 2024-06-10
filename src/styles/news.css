@@ -1,0 +1,39 @@
+.news{
+    padding: 20px 0;
+}
+
+.news .header{
+    height: 60%;
+    position: relative;
+    margin: 1rem 0 0 0;
+    padding: 0.3rem 0 0 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.news .title{
+    
+    font-size: 40px;
+    font-weight: bold;
+    grid-column: 1;
+
+}
+
+.news .more{
+    grid-column: 3;
+
+    position: absolute;
+    top: 8.5%;
+    right: 2.6%;
+	text-align: center;
+	text-decoration: none;
+	width: 120px;
+	padding: 0.45rem;
+}
+
+.news .newsButton{
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    border: solid 3px #000000;
+}
