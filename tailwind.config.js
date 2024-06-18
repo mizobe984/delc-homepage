@@ -77,6 +77,9 @@ module.exports = {
         "accordion-up": "accordion-up 0.2s ease-out",
         fadeInUp: 'fadeInUp 1s ease-out',
       },
+      fontFamily: {
+        'noto-sans-jp': ['Noto Sans JP', 'sans-serif'],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

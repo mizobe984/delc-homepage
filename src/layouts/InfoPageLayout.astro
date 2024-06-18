@@ -1,0 +1,85 @@
+---
+import Header from '../components/DelcHeader.astro';
+import Footer from '../components/DelcFooter.astro';
+
+import '../styles/delcGlobal.css';
+import '../styles/delcInfoGlobal.css';
+
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+import { ViewTransitions,slide } from "astro:transitions";
+const { 
+    companyName,
+    pageTitle,
+    pageTitleRuby,
+    tabTitle,
+    
+    menu1,
+    menu2,
+    menu3,
+
+    } = Astro.props;
+---
+
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{tabTitle}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap">
+
+    <Header />
+
+    <div class ="header-block">
+    <div class = "company-header">{companyName}</div>
+    
+    <div class = "page-title-block">
+        <div class = "page-title-ruby font-noto-sans-jp">{pageTitleRuby}</div>
+        <div class = "page-title">{pageTitle}</div>
+        <!--パンくずリスト-->
+        <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/toppage">トップ</BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink href="/businessGuide">{pageTitleRuby}</BreadcrumbLink>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+        </Breadcrumb>
+    </div>
+    </div>
+
+    <div class="side-menu-block">
+        <div class="side-menu" style="text-align: reft;">
+          <p1>{pageTitle}</p1>
+          <a href="//">{menu1}</a>
+          <a href="//">{menu2}</a>
+          <a href="//">{menu3}</a>
+        </div>
+    </div>
+    
+
+    <div class="main-block">      
+    <slot />
+    </div>
+
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+.header-block{
+    background-color:aliceblue ;
+    padding: 0 0 2.5rem 0;
+}
+
+.page-title-block{
+    display: block;
+    
+    margin: 5rem 0 0 4rem;
+  }
+
+  .page-title{
+    max-width: 400px;
+    font-size: 2.5rem;
+    margin: 0 0 0.3rem 0;
+  }
+
+  .page-title-ruby{
+    font-size: 1.2rem;
+    margin: 0 0 -0.4rem 0.1rem;
+  }
+
+  .side-menu-block{
+    background-color: #ffffff; /* 背景色 */
+    height:auto;
+
+    padding: 2rem 0 2rem 2rem;
+
+    border: 1px solid #acacac;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);  
+  }
+
+  .side-menu-block .side-menu{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start; /* 初期値 */
+
+  }
+
+  .side-menu-block .side-menu p1 {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+
+  .side-menu-block .side-menu a {
+    padding: 0.8rem 0 0.8rem 1.5rem;
+
+    text-decoration: none;
+    /*font-size: 1rem;*/
+    font-size: 1rem/*clamp(0.3rem, calc(0.25vw + 0.8rem), 1rem)*/;
+    font-weight: bold;
+    text-transform: uppercase;
+  
+    background-color: #ffffff; /* 背景色 */
+  }
+
+  .side-menu-block .side-menu a:hover,
+  .side-menu-block .side-menu a:focus {
+  background-color: #ebedff;
+}
