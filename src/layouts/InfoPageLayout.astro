@@ -14,6 +14,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb"
 
+import localLogoImage from '../images/branding.svg';
 import { ViewTransitions,slide } from "astro:transitions";
 const { 
     companyName,
@@ -43,7 +44,8 @@ const {
     <Header />
 
     <div class ="header-block">
-    <div class = "company-header">{companyName}</div>
+      <a href="/toppage/",div class = "company-header">
+      <img src={localLogoImage.src},div class="company-logo"/>{companyName}</div></a>
     
     <div class = "page-title-block">
         <div class = "page-title-ruby font-noto-sans-jp">{pageTitleRuby}</div>
