@@ -2,8 +2,13 @@
 import Footer from './Footer.astro';
 import FooterLink from './FooterLink.astro';
 import Social from './FooterLink.astro';
+import { Button } from "@/components/ui/button"
 ---
 <style>
+:root {
+  --left-margin: 3.5rem;
+}
+
   footer {
     display: flex;
     width: 100%;
@@ -18,7 +23,8 @@ import Social from './FooterLink.astro';
   }
 
   textcolor{
-    color: white;  
+    color: hsl(0, 0%, 100%);  
+    text-decoration-color: hsl(0, 0%, 100%);
   }
 
   colorBox{
@@ -26,119 +32,102 @@ import Social from './FooterLink.astro';
 
     display: grid;
     grid-template-rows: 4rem 2rem 1.4rem 1.4rem 1.4rem 1fr;
-    grid-template-columns: 12rem auto 13rem;
+    grid-template-columns: 20rem auto 20rem;
 
     gap: 10px; /* 要素間の隙間を調整（オプション） */
 
     background-color: darkblue;
   }
 
-  company{
+  company-branding{
+
+  grid-row: 1;
+  grid-column: 1;
+  width: 100px;
+
+  margin: 1rem 0 -1.2rem var(--left-margin);
+
+  mask-image: url(../images/branding.svg);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: hsl(0, 0%, 100%);
+  }
+
+  company-logo{
 
     grid-row: 1;
     grid-column: 1;
+    width: 100px;
     
-    margin: 1rem 0 -1.2rem 0;
-    padding: 0 1rem;
+    margin: 1rem 0 -1.2rem calc(var(--left-margin) + 5rem);
 
-    font-size: 50px;
-    font-weight: bold;
-
-    justify-self: end;
+    mask-image: url(../images/logo.svg);
+	  mask-size: contain;
+	  mask-repeat: no-repeat;
+	  mask-position: center;
+    background-color: hsl(0, 0%, 100%);
   }
 
   subcompany{
     grid-row: 2;
     grid-column: 1;
+    width: 120px;
 
-    padding: 0 1rem;
-
-    justify-self: end;
-
+    margin: 0 0 0  calc(var(--left-margin) + 4.2rem);
   }
 
-  tel{
-
+  post-code{
     grid-row: 3;
     grid-column: 1;
-    justify-self: end;
-    align-self: start;
+    width: 300px;
 
+    margin: 0 0 0  calc(var(--left-margin) + 1.5rem);
   }
 
-  fax{
+  location{
     grid-row: 4;
     grid-column: 1;
-    justify-self: end;
-    align-self: start;
+    width: 300px;
 
+    margin: 0 0 0  calc(var(--left-margin) + 1.5rem);
   }
 
-  tel-namuber{
-    grid-row: 3;
-    grid-column: 2;
-    justify-self: start;
-    align-self: center;
-
-    font-size: 1rem;
-
-  }
-
-  fax-namuber{
-    grid-row: 4;
-    grid-column: 2;
-    justify-self: start;
-    align-self: center;
-
-    font-size: 1rem;
-  }
-
-  reception-time{
+  tel-fax{
     grid-row: 5;
     grid-column: 1;
-    justify-self: end;
+    width: 300px;
 
+    margin: 0 0 0 calc(var(--left-margin) + 1.5rem);
   }
 
-  time{
-    grid-row: 5;
-    grid-column: 2;
-    justify-self: start;
+  privacy-policy{
+    grid-row: 6;
+    grid-column: 1;
 
+    margin: 1rem 0 1rem calc(var(--left-margin) + 1.5rem);
+    text-decoration:underline;
+    text-decoration-color: hsl(0, 0%, 100%);
   }
 
   copyright{
     grid-row: 6;
-    grid-column: 2;
+    grid-column: 3;
     justify-self: center;
 
     padding: 1rem 0 1rem 0;
   }
 </style>
   
-<!--footer>
-  <textcolor>
-    <link>
-    <FooterLink page = "Top" pageTitle = "トップ" />
-    <FooterLink page = "Business-guide" pageTitle = "事業案内" />
-    <FooterLink page = "Company" pageTitle = "会社概要" />
-    <FooterLink page = "Recruitment" pageTitle = "求人案内" />
-    <FooterLink page = "Access" pageTitle = "アクセス" />
-    <FooterLink page = "Contact" pageTitle = "お問い合わせ" />
-    </link>
-  </textcolor>
-</footer-->
-
 <textcolor>
 <colorBox>
-  <company>DELC</company>
+  <company-branding/>
+  <company-logo/>
   <subcompany>株式会社デルク</subcompany>
-  <tel>電話:</tel>
-  <tel-namuber>03-5985-4109</tel-namuber>
-  <fax>FAX:</fax>
-  <fax-namuber>03-5985-4147</fax-namuber>
-  <reception-time>受付時間:</reception-time>
-  <time> 平日 AM 10:00 〜 PM 19:00</time>
-  <copyright>Copyright(c) 2019 株式会社デルク. All Rights Reserved.</copyright>
+  <post-code>〒171-0022</post-code>
+  <location>東京都豊島区南池袋2-5-3 SSビル2F</location>
+  <tel-fax>TEL:03-5985-4109 FAX:03-5985-4147</tel-fax>
+  <Button variant="link" asChild><privacy-policy>プライバシーポリシー</privacy-policy></Button>
+  <copyright>©Delc Inc.</copyright>
 </colorBox>
 </textcolor>

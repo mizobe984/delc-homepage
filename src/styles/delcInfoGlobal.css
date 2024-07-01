@@ -1,13 +1,18 @@
 .header-block{
-  display: flex; /* 中の要素を横並びにする */
     background-color:aliceblue ;
-    padding: 0 0 2.5rem 0;
+    padding: 1rem 0 2.5rem 0;
+    border-bottom:1px solid #acacac;
+}
+
+.overall-style{
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 3.3fr;
 }
 
 .page-title-block{
     display: block;
-    
-    margin: 5rem 0 0 4rem;
+    margin: 0 0 0 2rem;
   }
 
   .page-title{
@@ -21,34 +26,37 @@
     margin: 0 0 -0.4rem 0.1rem;
   }
 
+  .page-title-block .breadcrumb{
+    margin: 0 0 0 0.2rem;
+  }
+
   .side-menu-block{
-    background-color: #ffffff; /* 背景色 */
+    grid-row: 1;
+    grid-column: 1;
+
+    background-color: hsl(0, 100%, 100%); /* 背景色 */
     height:auto;
+    padding: 2rem 0 2rem 0;
 
-    padding: 2rem 0 2rem 2rem;
-
-    border: 1px solid #acacac;
-    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);  
+    border-right: 1px solid #acacac;
   }
 
   .side-menu-block .side-menu{
     display:flex;
     flex-direction:column;
     align-items:flex-start; /* 初期値 */
-
   }
 
   .side-menu-block .side-menu p1 {
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     font-weight: bold;
+    padding-left: 25%;
   }
 
   .side-menu-block .side-menu a {
-    padding: 0.8rem 0 0.8rem 1.5rem;
-
-    text-decoration: none;
-    /*font-size: 1rem;*/
-    font-size: 1rem/*clamp(0.3rem, calc(0.25vw + 0.8rem), 1rem)*/;
+    padding: 0.85rem 0 0.85rem 5rem;
+    width: 100%;
+    font-size: 1.1rem/*clamp(0.3rem, calc(0.25vw + 0.8rem), 1rem)*/;
     font-weight: bold;
     text-transform: uppercase;
   
@@ -58,4 +66,39 @@
   .side-menu-block .side-menu a:hover,
   .side-menu-block .side-menu a:focus {
   background-color: #ebedff;
-}
+  }
+
+  .main-block{
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  .main-title-block{
+    display:flex;
+    margin: 1.5rem 0 0 1.2rem;
+    flex-direction:column;
+    align-items:flex-start; /* 初期値 */
+
+  }
+
+  .main-title{
+    font-size:3rem;
+    margin: -0.7rem 0 0 0;
+  }
+
+  .main-jp-title{
+    font-size:1rem;
+  }
+
+  table.no-hover-effect tr:hover {
+    background-color: inherit !important; /* または背景色を何も変更しない */
+    color: inherit !important; /* テキストカラーも同様に変更しない */
+  }
+
+  .large-text {
+    font-size: 1.05rem; /* 必要に応じてフォントサイズを調整 */
+  }
+
+  .text-margin{
+    margin: 1rem 0 0 0;
+  }

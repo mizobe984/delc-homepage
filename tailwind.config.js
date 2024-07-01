@@ -78,7 +78,7 @@ module.exports = {
         fadeInUp: 'fadeInUp 1s ease-out',
       },
       fontFamily: {
-        'noto-sans-jp': ['Noto Sans JP', 'sans-serif'],
+        body: ["Oswald Variable", "Noto Sans JP Variable", "sans-serif"],
       },
     },
   },

@@ -4,7 +4,11 @@ import Footer from '../components/DelcFooter.astro';
 import '../styles/delcGlobal.css';
 import { ViewTransitions,slide } from "astro:transitions";
 const { pageTitle,tabTitle } = Astro.props;
-import localLogoImage from '../images/branding.svg';
+import localBrandingImage from '../images/branding.svg';
+import localLogoImage from '../images/logo.svg';
+
+import "@fontsource-variable/noto-sans-jp"
+import "@fontsource-variable/oswald"
 ---
 
 <html lang="ja">
@@ -16,11 +20,11 @@ import localLogoImage from '../images/branding.svg';
     <title>{tabTitle}</title>
     <ViewTransitions />
   </head>
-  <body>
+  <body class="font-body">
     <Header />
     <a href="/toppage/",div class = "company-header">
-    <img src={localLogoImage.src},div class="company-logo"/>
-    <h1 transition:animate={slide({ duration: '1.0s'})}>{pageTitle}</h1></a>
+    <div class="company-branding"/>
+    <div class="company-logo"/></a>
     </div>
     <slot />
     <Footer />
