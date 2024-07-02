@@ -88,6 +88,10 @@ html {
   display: unset;
 }
 
+a:link{
+  text-decoration:underline;
+}
+
 @media screen and (min-width: 920px) {
   .nav-links {
   
@@ -132,5 +136,6 @@ html {
   .dark .nav-links a {
     color: #fff;
   }
+
 }
 
