@@ -19,19 +19,15 @@ import {
 
 import localBrandingImage from '../images/branding.svg';
 import { ViewTransitions,slide } from "astro:transitions";
+
 const { 
     companyName,
     pageTitle,
     pageTitleRuby,
     tabTitle,
     
-    menu1,
-    menu2,
-    menu3,
-
-    destinationURL1,
-    destinationURL2,
-    destinationURL3
+    menus,
+    destinationURLs
 } = Astro.props;
 ---
 
@@ -64,10 +60,12 @@ const {
               <BreadcrumbItem>
                 <BreadcrumbLink href="/toppage">HOME</BreadcrumbLink>
               </BreadcrumbItem>
+              {destinationURLs.map(data => (
               <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbLink href={"/"+destinationURL1}>{pageTitleRuby}</BreadcrumbLink>
+                <BreadcrumbItem>
+                <BreadcrumbLink href={"/"+data.url}>{data.ruby}</BreadcrumbLink>
               </BreadcrumbItem>
+                ))}
             </BreadcrumbList>
           </Breadcrumb>
         </div>
@@ -78,9 +76,9 @@ const {
     <div class="side-menu-block">
         <div class="side-menu" style="text-align: reft;">
           <p1>{pageTitle}</p1>
-          <a href={"/" +destinationURL1}>{'・'+menu1}</a>
-          <a href={"/" +destinationURL2}>{'・'+menu2}</a>
-          <a href={"/" +destinationURL3}>{'・'+menu3}</a>
+          {menus && menus.length > 0 ? (menus.map((menu: { url: string; text: string; }) => (
+            <a href={"/" +menu.url}>{'・'+menu.text}</a>
+          ))):(<li>No items available</li>)}
         </div>
     </div>
     

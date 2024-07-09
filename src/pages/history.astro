@@ -24,17 +24,19 @@ const pageTitle = "COMPANY";
 const pageTitleRuby = "会社情報";
 const tabTitle = "会社情報";
 
-const company = "会社情報";
-const location = "所在地";
-const history = "沿革";
-
 const companyInformation = "沿革";
 const information = "HISTORY";
 
-const companyURL = "company"
-const locationURL = "location"
-const historyURL = "history"
+const destinationURLs = [
+  {url: "company",ruby: "会社情報"},
+  {url: "history",ruby: "沿革"}
+];
 
+const menus = [
+  {url: "company",text: "会社情報"},
+  {url: "location",text: "所在地"},
+  {url: "history",text: "沿革"}
+];
 ---
 
 <BaseLayout companyName={companyName}
@@ -42,12 +44,9 @@ pageTitle={pageTitle}
 pageTitleRuby={pageTitleRuby}
 tabTitle={tabTitle}
 
-menu1={company}
-menu2={location}
-menu3={history}
-destinationURL1={companyURL}
-destinationURL2={locationURL}
-destinationURL3={historyURL}
+menus={menus}
+
+destinationURLs={destinationURLs}
 >
 
 <div class = "main-title-block">
