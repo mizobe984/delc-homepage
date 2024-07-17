@@ -7,11 +7,9 @@ import { Label } from "@/components/ui/label"
 
 import '@/styles/globals.css'
 import '@/styles/contact.css'
-import '@/styles/baseTopPageTextBox.css'
 
 import BaseLayout from '../layouts/InfoPageLayout.astro';
 import Greeting from '../components/Greeting.jsx';
-import InputForm from '../components/InputForm.jsx';
 
 import {
   Table,
@@ -39,6 +37,7 @@ const menus = [
   {url: "contact",text: "お問い合わせ"}
 ];
 
+const hide=1;
 ---
 
 <BaseLayout companyName={companyName}
@@ -47,6 +46,8 @@ pageTitleRuby={pageTitleRuby}
 tabTitle={tabTitle}
 
 menus={menus}
+menuShow={hide}
+anchor={false}
 
 destinationURLs={destinationURLs}
 >
@@ -55,18 +56,6 @@ destinationURLs={destinationURLs}
     <div class = "main-jp-title">{companyInformation}</div>
     <div class = "main-title">{information}</div>
 </div>
-
-<!--div>
-  <label>unique name</label>
-  <input
-    type="text"
-    name="name"
-    placeholder="Enter your name"
-  />
-  <p>error</p>
-</div>
-
-<InputForm /-->
 
 <div class ="contents">
   <div class="company">
@@ -102,6 +91,5 @@ destinationURLs={destinationURLs}
     <Button variant="outline">送信 Send</Button>
     </div>
 </div>
-
 
 </BaseLayout>

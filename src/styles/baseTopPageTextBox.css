@@ -41,6 +41,12 @@
     grid-column: 1;
 }
 
+.businessContents .image{
+    grid-row: 1;
+    grid-column: 2;
+
+}
+
 .logo-image{
     position: relative;
     width: 500px;

@@ -37,6 +37,8 @@ const menus = [
   {url: "location",text: "所在地"},
   {url: "history",text: "沿革"}
 ];
+
+const show=2;
 ---
 
 <BaseLayout companyName={companyName}
@@ -45,6 +47,8 @@ pageTitleRuby={pageTitleRuby}
 tabTitle={tabTitle}
 
 menus={menus}
+menuShow={show}
+anchor={false}
 
 destinationURLs={destinationURLs}
 >

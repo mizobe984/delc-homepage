@@ -10,8 +10,10 @@ import BaseLayout from '../layouts/WebPageBaseLayout.astro';
 import Greeting from '../components/Greeting';
 
 import localBirdImage from '../images/test_mainImg.jpg';
-
 import localLogoImage from '../images/branding.svg';
+import localContactImage from '../images/tai-bui-iPsOfXA79U4-unsplash.jpg';
+import localRecruitImage from '../images/_hero12.jpg';
+
 
 import NewsList from '../components/NewsList.jsx';
 
@@ -81,10 +83,15 @@ const tabTitle = "DELC(株式会社デルク)";
 <div class = "businessContents" style="--color: #white;">
   <div class="rounded-xl flex items-center space-x-4 animate-fadeInUp">
   <div class = "element-padding">
-    <p class = "header">事業案内</p>
-    <p class = "info">デルクのゲームデバッグは2014年以来、スマートフォン向けを中心にサービスを展開、タイトなスケジュールの中でも最大級の「スピードと安心」をお届けできるよう努力を怠ることなくサービスを磨き続け、お蔭様で今では沢山のクライアントにご好評いただくまでに至りました。…</p>
+    <p class = "header">求人案内</p>
+    <p class = "info">経験者はもちろん、全くの未経験でも1ヵ月後にはリーダーに抜擢される方が多数います！
+      あなたのやる気、そして良いゲームにしたいという熱意をアピールしてください！…</p>
+      
+      <div class ="image">
+      <img src={localRecruitImage.src} style="display: block; margin: auto;" />
+      </div>
 
-    <Button variant="outline">VIEW MORE</Button>
+    <div class = "view-button"><Button variant="outline">VIEW MORE</Button></div>
 
   </div>
   </div>
@@ -93,14 +100,18 @@ const tabTitle = "DELC(株式会社デルク)";
 <div class = "businessContents" style="--color: rgb(240,250,255);">
   <div class="rounded-xl flex items-center space-x-4 animate-fadeInUp">
   <div class = "element-padding">
-    <p class = "header">求人案内</p>
-    <p class = "info">経験者はもちろん、全くの未経験でも1ヵ月後にはリーダーに抜擢される方が多数います！
-      あなたのやる気、そして良いゲームにしたいという熱意をアピールしてください！…</p>
-
+    <p class = "header">お問い合わせ</p>
+    <p class = "info">デルクのゲームデバッグは2014年以来、スマートフォン向けを中心にサービスを展開、タイトなスケジュールの中でも最大級の「スピードと安心」をお届けできるよう努力を怠ることなくサービスを磨き続け、お蔭様で今では沢山のクライアントにご好評いただくまでに至りました。…</p>
+    
+    <div class ="image">
+    <img src={localContactImage.src} style="display: block; margin: auto;" />
+    </div>
+    <div class = "view-button">
     <Button variant="outline">VIEW MORE</Button>
-
+  </div>
   </div>
   </div>
 </div>
+
 
 </BaseLayout>

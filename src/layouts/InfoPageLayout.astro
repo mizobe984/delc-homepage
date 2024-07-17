@@ -1,6 +1,7 @@
 ---
 import Header from '../components/DelcHeader.astro';
 import Footer from '../components/DelcFooter.astro';
+import SideMenu from '../components/SideMenu.astro';
 
 import '../styles/delcGlobal.css';
 import '../styles/delcInfoGlobal.css';
@@ -18,7 +19,7 @@ import {
 } from "@/components/ui/breadcrumb"
 
 import localBrandingImage from '../images/branding.svg';
-import { ViewTransitions,slide } from "astro:transitions";
+import { ViewTransitions,fade,slide } from "astro:transitions";
 
 const { 
     companyName,
@@ -27,6 +28,9 @@ const {
     tabTitle,
     
     menus,
+    menuShow,
+    anchor,
+
     destinationURLs
 } = Astro.props;
 ---
@@ -72,20 +76,12 @@ const {
     </div>
     </div>
 
+    <!--サイドメニュー-->
     <div class = "overall-style">
-    <div class="side-menu-block">
-        <div class="side-menu" style="text-align: reft;">
-          <p1>{pageTitle}</p1>
-          {menus && menus.length > 0 ? (menus.map((menu: { url: string; text: string; }) => (
-            <a href={"/" +menu.url}>{'・'+menu.text}</a>
-          ))):(<li>No items available</li>)}
-        </div>
-    </div>
-    
-
-    <div class="main-block">      
-    <slot />
-    </div>
+      <SideMenu title={pageTitle} menus={menus} show={menuShow} anchor={anchor}/>   
+      <div class="main-block" style={`--dynamic-grid-column: ${menuShow};`}>      
+        <slot />
+      </div>
     </div>
 
     <Footer />
@@ -93,4 +89,4 @@ const {
       import "../scripts/menu.js";
     </script>
   </body>
-</html>
+</html>  
