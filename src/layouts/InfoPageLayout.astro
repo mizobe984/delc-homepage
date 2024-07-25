@@ -21,6 +21,8 @@ import {
 import localBrandingImage from '../images/branding.svg';
 import { ViewTransitions,fade,slide } from "astro:transitions";
 
+import { IconData } from '../components/IconData.tsx';
+
 const { 
     companyName,
     pageTitle,
@@ -29,10 +31,12 @@ const {
     
     menus,
     menuShow,
+    mainBlockSize,
     anchor,
 
     destinationURLs
 } = Astro.props;
+
 ---
 
 <html lang="ja">
@@ -62,12 +66,12 @@ const {
           <Breadcrumb>
             <BreadcrumbList>
               <BreadcrumbItem>
-                <BreadcrumbLink href="/toppage">HOME</BreadcrumbLink>
+                <BreadcrumbLink href="/toppage"><div class="breadcrumb-flex-block">{IconData.map(icon => icon.name === "home" ? (<icon.icon />) : (null))}<!--House style="width: 20px; margin: 0 0.15rem;"/-->HOME</div></BreadcrumbLink>
               </BreadcrumbItem>
               {destinationURLs.map(data => (
               <BreadcrumbSeparator />
                 <BreadcrumbItem>
-                <BreadcrumbLink href={"/"+data.url}>{data.ruby}</BreadcrumbLink>
+                <BreadcrumbLink href={"/"+data.url}><div class="breadcrumb-flex-block">{IconData.map(icon => icon.name === data.url ? (<icon.icon />) : (null))}{data.ruby}</div></BreadcrumbLink>
               </BreadcrumbItem>
                 ))}
             </BreadcrumbList>
@@ -79,7 +83,7 @@ const {
     <!--サイドメニュー-->
     <div class = "overall-style">
       <SideMenu title={pageTitle} menus={menus} show={menuShow} anchor={anchor}/>   
-      <div class="main-block" style={`--dynamic-grid-column: ${menuShow};`}>      
+      <div class="main-block" style={`--dynamic-grid-column: ${mainBlockSize};`}>      
         <slot />
       </div>
     </div>

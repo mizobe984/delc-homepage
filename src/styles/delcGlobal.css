@@ -6,6 +6,10 @@ html {
   body {
     width: 100%;
   }
+
+  .home-main-block{
+    z-index:-1;
+  }
   
   * {
     box-sizing: border-box;
@@ -48,94 +52,12 @@ html {
     margin: 0 0 0 1.3rem;
   }
 
-  /* ナビゲーションのスタイル */
-  .hamburger {
-    position: fixed; /* ウィンドウを基準に画面に固定 */
-    top: 0px; /* 上下の固定位置を上から0pxにする */
-    left: 0px;
-    z-index:1000;
-
-    width: 40px;
-    margin: 1rem 1rem;
-  }
-  
-.nav-links {
-  display: none;
-  top: 5rem;
-  right: 0px;
-  margin: 0;
-
-}
-
-.nav-links a {
-  display: block;
-  text-align: center;
-  padding: 10px 0;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-
-}
 
 
-.nav-links a:hover,
-.nav-links a:focus {
-  background-color: #ebedff;
-}
-
-.expanded {
-  display: unset;
+.underline{
+  display: flex;
 }
 
 .underline a:link{
   text-decoration:underline;
 }
-
-@media screen and (min-width: 920px) {
-  .nav-links {
-  
-  height: 45px; /* 高さを45pxに指定 */
-  background-color: #ffffff; /* 背景色 */
-  box-sizing: border-box; /* padding分を含んで幅を100%にするため */
-  position: fixed; /* ウィンドウを基準に画面に固定 */
-  top: 10px; /* 上下の固定位置を上から0pxにする */
-  right: 0px;
-  display: flex; /* 中の要素を横並びにする */
-  align-items: center; /* 中の要素を上下中央に並べる */
-  margin:0 20px 0 auto;/**/
-  
-  border: 1px solid #acacac;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-}
-
-  /*判定範囲*/
-  .nav-links a {
-  text-decoration: none;
-  font-size: clamp(0.3rem, calc(0.25vw + 0.8rem), 1rem);
-  font-weight: bold;
-  text-transform: uppercase;
-
-  list-style: none; /* リストの[・]を消す */
-  background-color: 0 0 0; /* 背景色 */
-
-    display: inline-block;
-    padding: 9.7px 1rem;
-    margin:auto auto;
-  }
-
-  .hamburger {
-    display: none;
-  }
-
-  html.dark {
-    background-color: #0d0950;
-    color: #fff;
-  }
-  
-  .dark .nav-links a {
-    color: #fff;
-  }
-
-}
-

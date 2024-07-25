@@ -1,6 +1,7 @@
 ---
 import { Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { ExternalLink } from 'lucide-astro'
 
 import '@/styles/globals.css'
 import '@/styles/news.css'
@@ -47,6 +48,7 @@ tabTitle={tabTitle}
 
 menus={menus}
 menuShow={show}
+mainBlockSize={2}
 anchor={false}
 
 destinationURLs={destinationURLs}
@@ -83,7 +85,7 @@ destinationURLs={destinationURLs}
       </TableRow>
       <TableRow disableHover>
         <TableCell className="font-medium">適格請求書発行事業者登録番号</TableCell>
-        <TableCell><a href="https://www.invoice-kohyo.nta.go.jp/regno-search/detail?selRegNo=7013301035178",div class = "underline">国税庁適格請求書発行事業者公表サイト</a></TableCell>
+        <TableCell><a href="https://www.invoice-kohyo.nta.go.jp/regno-search/detail?selRegNo=7013301035178",div class = "underline">国税庁適格請求書発行事業者公表サイト<ExternalLink/></a></TableCell>
       </TableRow>
       <TableRow disableHover>
         <TableCell className="font-medium">事業内容</TableCell>

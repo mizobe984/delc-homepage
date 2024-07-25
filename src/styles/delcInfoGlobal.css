@@ -10,6 +10,12 @@
 
 .overall-style{
   display: grid;
+  z-index:-1;
+}
+
+.breadcrumb-flex-block{
+  display: flex;
+  align-items: center;
 }
 
 .page-title-block{
@@ -50,6 +56,7 @@
 
   .side-menu-block .side-menu a {
     width: 100%;
+    
     font-size: 1.1rem/*clamp(0.3rem, calc(0.25vw + 0.8rem), 1rem)*/;
     font-weight: bold;
     text-transform: uppercase;
@@ -94,7 +101,7 @@
 
   @media (min-width: 768px) {
     .overall-style{
-      grid-template-columns: 1 auto;
+      grid-template-columns: 17rem 1fr;
       grid-template-rows: auto;
     }
 
