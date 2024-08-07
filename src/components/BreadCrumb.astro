@@ -1,0 +1,35 @@
+---
+import '../styles/delcInfoGlobal.css';
+
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb"
+
+import { IconData } from '../components/IconData.tsx';
+
+const{destinationURLs} = Astro.props;
+---
+
+
+<breadCrumb>
+    <div class = "breadcrumb">
+        <Breadcrumb>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="/"><div class="breadcrumb-flex-block">{IconData.map(icon => icon.name === "home" ? (<icon.icon />) : (null))}HOME</div></BreadcrumbLink>
+            </BreadcrumbItem>
+            {destinationURLs.map(data => (
+            <BreadcrumbSeparator />
+              <BreadcrumbItem>
+              <BreadcrumbLink href={"/"+data.url}><div class="breadcrumb-flex-block">{IconData.map(icon => icon.name === data.url ? (<icon.icon />) : (null))}{data.ruby}</div></BreadcrumbLink>
+            </BreadcrumbItem>
+              ))}
+          </BreadcrumbList>
+        </Breadcrumb>
+      </div>
+</breadCrumb>

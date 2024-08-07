@@ -1,3 +1,8 @@
+:root{
+  --color: hsl(199, 100%, 96%);
+  --border-color: hsl(0, 0%, 65%);
+}
+
 html {
     background-color: #ffffff;
     font-family: sans-serif;
@@ -52,7 +57,11 @@ html {
     margin: 0 0 0 1.3rem;
   }
 
-
+  .header-block{
+    background-color:var(--color);
+    padding: 1rem 0 2.5rem 0;
+    border-bottom:1px solid var(--border-color);
+}
 
 .underline{
   display: flex;
