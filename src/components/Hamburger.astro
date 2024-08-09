@@ -2,10 +2,18 @@
 import { ChevronRight } from "lucide-react"
  
 import { Button } from "@/components/ui/button"
+import IconButton  from "./IconButton.astro"
+
+import { AlignJustify } from "lucide-astro";
+import { Cross } from "lucide-astro";
+
+import '../styles/header.css';
+
 ---
 
 <div class="hamburger">
-  <Button variant="outline" size="icon">
-    <ChevronRight className="h-4 w-4" />
-  </Button>
+  <IconButton iconName="AlignJustify" size="medium" >    
+  </IconButton>
 </div>
+
+

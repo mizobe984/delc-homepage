@@ -1,0 +1,29 @@
+---
+import { Button } from "@/components/ui/button"
+import * as LucideIcons from "lucide-astro";
+
+const { iconName, size = 'medium', bgColor = 'bg-white', textColor = 'text-black', hoverBgColor = '', hoverTextColor = '', paddingY = '', children, ...props } = Astro.props;
+
+const IconComponent = LucideIcons[iconName] || null;
+
+const buttonSizeClasses = {
+  small: `px-2 text-sm ${paddingY || 'py-1'}`,
+  medium: `px-3 text-base ${paddingY || 'py-2'}`,
+  large: `px-4 text-lg ${paddingY || 'py-3'}`
+};
+
+const iconSizeClasses = {
+  small: "w-4 h-4",  // 16px
+  medium: "w-5 h-5", // 20px
+  large: "w-6 h-6"   // 24px
+};
+
+const hoverClasses = `${hoverBgColor ? `hover:${hoverBgColor}` : ''} ${hoverTextColor ? `hover:${hoverTextColor}` : ''}`;
+---
+
+<Button className={`${buttonSizeClasses[size]} ${bgColor} ${textColor} ${hoverClasses}`} {...props}>
+    {IconComponent && (
+      <IconComponent class={`${iconSizeClasses[size]} ${textColor}`} />
+    )}
+    {children}
+</Button>
