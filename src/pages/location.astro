@@ -1,14 +1,14 @@
 ---
-import { Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Loader2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 import { ExternalLink } from 'lucide-astro'
 
 import '@/styles/globals.css'
 import '@/styles/baseTopPageTextBox.css'
 import '@/styles/location.css'
 
-import BaseLayout from '../layouts/WithSideMenuLayout.astro';
-import Greeting from '../components/Greeting.jsx';
+import BaseLayout from '../layouts/WithSideMenuLayout.astro'
+import Greeting from '../components/Greeting.jsx'
 
 import {
   Table,
@@ -18,73 +18,87 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from '@/components/ui/table'
 
-const companyName = "DELC";
-const pageTitle = "COMPANY";
-const pageTitleRuby = "会社情報";
-const tabTitle = "会社情報";
+const companyName = 'DELC'
+const pageTitle = 'LOCATION'
+const pageTitleRuby = '所在地'
+const tabTitle = '会社情報'
 
-const companyInformation = "所在地";
-const information = "LOCATION";
+const companyInformation = '所在地'
+const information = 'LOCATION'
 
 const destinationURLs = [
-  {url: "company",ruby: "会社情報"},
-  {url: "location",ruby: "所在地"}
-];
+  { url: 'company', ruby: '会社情報' },
+  { url: 'location', ruby: '所在地' },
+]
 
 const menus = [
-  {url: "company",text: "会社情報"},
-  {url: "location",text: "所在地"},
-  {url: "history",text: "沿革"}
-];
+  { url: 'company', text: '会社情報' },
+  { url: 'location', text: '所在地' },
+  { url: 'history', text: '沿革' },
+]
 
-const show=2;
+const show = 2
 ---
 
-<BaseLayout companyName={companyName}
-pageTitle={pageTitle}
-pageTitleRuby={pageTitleRuby}
-tabTitle={tabTitle}
-
-menus={menus}
-menuShow={show}
-mainBlockSize={2}
-anchor={false}
-
-destinationURLs={destinationURLs}
+<BaseLayout
+  companyName={companyName}
+  pageTitle={pageTitle}
+  pageTitleRuby={pageTitleRuby}
+  tabTitle={tabTitle}
+  menus={menus}
+  menuShow={show}
+  mainBlockSize={2}
+  anchor={false}
+  destinationURLs={destinationURLs}
 >
+  <!-- <div class="main-title-block">
+    <div class="main-jp-title">{companyInformation}</div>
+    <div class="main-title">{information}</div>
+  </div> -->
+  <div class="block-padding h-[32rem] mt-16">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1619.5335897589487!2d139.71499276586422!3d35.724566307236145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d642c47ce41%3A0xb2584b10ad5aa3be!2z44ix44OH44Or44Kv!5e0!3m2!1sja!2sjp!4v1719196506264!5m2!1sja!2sjp"
+      width="100%"
+      height="100%"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
 
-<div class = "main-title-block">
-    <div class = "main-jp-title">{companyInformation}</div>
-    <div class = "main-title">{information}</div>
-</div>
-
-<Table>
+  <Table>
     <TableBody>
       <TableRow disableHover>
         <TableCell>
-          <div class = "block-padding">
+          <!-- <div class="block-padding">
             〒171-0022 東京都豊島区南池袋2-5-3 SSビル2F
-          </div>
-          <div class = "block-padding">
-            <a href="https://www.google.com/maps?ll=35.724565,139.715708&z=16&t=m&hl=ja&gl=JP&mapclient=embed&cid=12851104071701668798" class="button">
-              <div class ="text-magin">
-                Google Map
-              </div>
-              <div class = "ext-img">
-                <ExternalLink/>
+          </div> -->
+          <!-- <div class="block-padding">
+            <a
+              href="https://www.google.com/maps?ll=35.724565,139.715708&z=16&t=m&hl=ja&gl=JP&mapclient=embed&cid=12851104071701668798"
+              class="button"
+            >
+              <div class="text-magin">Google Map</div>
+              <div class="ext-img">
+                <ExternalLink />
               </div>
             </a>
-          </div>
+          </div> -->
 
-          <div class = "block-padding">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1619.5335897589487!2d139.71499276586422!3d35.724566307236145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d642c47ce41%3A0xb2584b10ad5aa3be!2z44ix44OH44Or44Kv!5e0!3m2!1sja!2sjp!4v1719196506264!5m2!1sja!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </div>
-          
-          </TableCell>
+          <!-- <div class="block-padding h-96">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1619.5335897589487!2d139.71499276586422!3d35.724566307236145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188d642c47ce41%3A0xb2584b10ad5aa3be!2z44ix44OH44Or44Kv!5e0!3m2!1sja!2sjp!4v1719196506264!5m2!1sja!2sjp"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div> -->
+        </TableCell>
       </TableRow>
     </TableBody>
   </Table>
-
 </BaseLayout>

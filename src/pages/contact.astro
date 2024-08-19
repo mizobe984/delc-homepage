@@ -1,15 +1,17 @@
 ---
-import { Loader2 } from 'lucide-react'
-import { useState } from 'react'
+// import { Loader2 } from 'lucide-react'
+// import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 
+import '@/styles/baseTopPageTextBox.css'
 import '@/styles/globals.css'
 import '@/styles/contact.css'
 
-import BaseLayout from '../layouts/WithSideMenuLayout.astro'
-import Greeting from '../components/Greeting.jsx'
+// import BaseLayout from '../layouts/WithSideMenuLayout.astro'
+import BaseLayout from '../layouts/BaseLayout.astro'
+// import Greeting from '../components/Greeting.jsx'
 
 import {
   Table,
@@ -21,69 +23,61 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-const companyName = 'DELC'
+// const companyName = 'DELC'
 const pageTitle = 'CONTACT'
 const pageTitleRuby = 'お問い合わせ'
 const tabTitle = 'お問い合わせ'
 
-const companyInformation = 'お問い合わせ'
-const information = 'CONTACT'
+// const companyInformation = 'お問い合わせ'
+// const information = 'CONTACT'
 
 const destinationURLs = [{ url: 'contact', ruby: 'お問い合わせ' }]
 
-const menus = [{ url: 'contact', text: 'お問い合わせ' }]
+// const menus = [{ url: 'contact', text: 'お問い合わせ' }]
 
-const hide = 1
+// const hide = 1
 ---
 
 <BaseLayout
-  companyName={companyName}
   pageTitle={pageTitle}
   pageTitleRuby={pageTitleRuby}
   tabTitle={tabTitle}
-  menus={menus}
-  menuShow={hide}
-  mainBlockSize={'1/3'}
-  anchor={false}
   destinationURLs={destinationURLs}
 >
-  <div class="main-title-block">
-    <div class="main-jp-title">{companyInformation}</div>
-    <div class="main-title">{information}</div>
-  </div>
+  <div class="bg-secondary expand">
+    <div class="contents max-w-[36rem] mx-8">
+      <div class="company">
+        <Label htmlFor="company">会社名<span class="req">*</span></Label>
+        <Input type="text" id="company" placeholder="" required />
+      </div>
+      <div class="firstName">
+        <Label htmlFor="firstName">姓<span class="req">*</span></Label>
+        <Input type="text" id="firstName" placeholder="" />
+      </div>
+      <div class="lastName">
+        <Label htmlFor="lastName">名<span class="req">*</span></Label>
+        <Input type="text" id="lastName" placeholder="" />
+      </div>
+      <div class="email">
+        <Label htmlFor="email">Eメール<span class="req">*</span></Label>
+        <Input type="email" id="email" placeholder="" />
+      </div>
+      <div class="tel">
+        <Label htmlFor="tel">電話番号<span class="req">*</span></Label>
+        <Input type="tel" id="tel" placeholder="" />
+      </div>
+      <div class="url">
+        <Label htmlFor="url">ウェブサイトURL</Label>
+        <Input type="url" id="url" placeholder="" />
+      </div>
+      <div class="message">
+        <Label htmlFor="message">メッセージ<span class="req">*</span></Label>
+        <Input type="text" id="message" placeholder="" />
+      </div>
 
-  <div class="contents">
-    <div class="company">
-      <Label htmlFor="company">会社名<span class="req">*</span></Label>
-      <Input type="text" id="company" placeholder="" required />
-    </div>
-    <div class="firstName">
-      <Label htmlFor="firstName">姓<span class="req">*</span></Label>
-      <Input type="text" id="firstName" placeholder="" />
-    </div>
-    <div class="lastName">
-      <Label htmlFor="lastName">名<span class="req">*</span></Label>
-      <Input type="text" id="lastName" placeholder="" />
-    </div>
-    <div class="email">
-      <Label htmlFor="email">Eメール<span class="req">*</span></Label>
-      <Input type="email" id="email" placeholder="" />
-    </div>
-    <div class="tel">
-      <Label htmlFor="tel">電話番号<span class="req">*</span></Label>
-      <Input type="tel" id="tel" placeholder="" />
-    </div>
-    <div class="url">
-      <Label htmlFor="url">ウェブサイトURL</Label>
-      <Input type="url" id="url" placeholder="" />
-    </div>
-    <div class="message">
-      <Label htmlFor="message">メッセージ<span class="req">*</span></Label>
-      <Input type="text" id="message" placeholder="" />
-    </div>
-
-    <div class="button">
-      <Button variant="outline">送信 Send</Button>
+      <div class="button">
+        <Button>送信 Send</Button>
+      </div>
     </div>
   </div>
 </BaseLayout>

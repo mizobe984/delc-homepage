@@ -1,72 +1,87 @@
-:root{
-  --color: hsl(199, 100%, 96%);
-  --border-color: hsl(0, 0%, 65%);
+/* :root { */
+/* --color: hsl(199, 100%, 96%); */
+/* --color: hsl(var(--background)); */
+/* --border-color: hsl(0, 0%, 65%); */
+/* } */
+
+body {
+  margin: 0 auto;
+  width: 100%;
+  /* max-width: 80ch; */
+  padding: 0 1.5rem;
+  line-height: 1.5;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
 }
 
-html {
-    background-color: #ffffff;
-    font-family: sans-serif;
-  }
-  
-  body {
-    width: 100%;
-  }
-
-  .home-main-block{
-    z-index:-1;
-  }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  .company-branding{
-    margin: 0 0 0 0;
-    width: 60px;
-    height: 60px;
-
-    mask-image: url(../images/branding.svg);
-	  mask-size: contain;
-	  mask-repeat: no-repeat;
-	  mask-position: center;
-    background-color: hsl(0, 0%, 0%);
-  }
-
-  .company-logo{
-    margin: -14.5px 0 0 0;
-    width: 90px;
-    height: 90px;
-
-    mask-image: url(../images/logo.svg);
-	  mask-size: contain;
-	  mask-repeat: no-repeat;
-	  mask-position: center;
-    background-color: hsl(0, 0%, 0%);
-
-  }
-
-  .company-header{
-    display: flex; /* 中の要素を横並びにする */
-    width: 165px;
-    height: 70px;
-    margin: 15px;
-    padding: 4px 0;
-  }
-
-  .company-sub-header{
-    margin: 0 0 0 1.3rem;
-  }
-
-  .header-block{
-    background-color:var(--color);
-    padding: 1rem 0 2.5rem 0;
-    border-bottom:1px solid var(--border-color);
+.expand {
+  margin-right: calc(50% - 50vw);
+  margin-left: calc(50% - 50vw);
+  padding-right: calc(50vw - 50%);
+  padding-right: calc(50vw - 50%);
 }
 
-.underline{
+.home-main-block {
+  z-index: -1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.company-branding {
+  /* margin: 0 0 0 0; */
+  width: 72px;
+  /* height: 60px; */
+
+  mask-image: url(../images/branding.svg);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  /* background-color: hsl(var(--foreground)); */
+}
+
+.company-logo {
+  margin-left: -0.8rem;
+  width: 110px;
+  /* height: 90px; */
+
+  mask-image: url(../images/logo.svg);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  /* background-color: hsl(var(--foreground)); */
+
+}
+
+.company-header {
+  display: flex;
+  position: sticky;
+  top: 2.5rem;
+  /* 中の要素を横並びにする */
+  /* width: 165px; */
+  height: 48px;
+  margin-left: 1rem;
+  /* margin: 5rem 1rem; */
+  /* padding: 4px 0; */
+}
+
+.company-sub-header {
+  margin: 0 0 0 1.3rem;
+}
+
+.header-block {
+  /* background-color: var(--color); */
+  background-color: hsl(var(--secondary));
+  color: hsl(var(--secondary-foreground));
+  /* padding: 1rem 0 2.5rem 0; */
+  /* border-bottom: 1px solid hsl(var(--border)); */
+}
+
+.underline {
   display: flex;
 }
 
-.underline a:link{
-  text-decoration:underline;
+.underline a:link {
+  text-decoration: underline;
 }

@@ -21,7 +21,7 @@ const{destinationURLs} = Astro.props;
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem>
-              <BreadcrumbLink href="/"><div class="breadcrumb-flex-block">{IconData.map(icon => icon.name === "home" ? (<icon.icon />) : (null))}HOME</div></BreadcrumbLink>
+              <BreadcrumbLink href="/"><div class="breadcrumb-flex-block">{IconData.map(icon => icon.name === "home" ? (<icon.icon />) : (null))}<!-- HOME --></div></BreadcrumbLink>
             </BreadcrumbItem>
             {destinationURLs.map(data => (
             <BreadcrumbSeparator />

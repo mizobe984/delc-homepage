@@ -1,24 +1,25 @@
 /* ナビゲーションのスタイル */
 .hamburger {
-    position: fixed; /* ウィンドウを基準に画面に固定 */
-    top: 0px; /* 上下の固定位置を上から0pxにする */
-    right: 0px;
-    z-index:9000;
+  position: fixed;
+  /* ウィンドウを基準に画面に固定 */
+  top: 2.5rem;
+  /* 上下の固定位置を上から0pxにする */
+  right: 1.5rem;
+  z-index: 9000;
 
-    width: 55px;
-    margin: 1rem 0.3rem;
-  }
+  /* width: 64px; */
+  /* margin: 1rem 0.3rem; */
+}
 
-  .custom-class {
-  }
-  
-.company-hamburger{
+.custom-class {}
+
+.company-hamburger {
   font-size: 1.2rem;
   font-weight: bold;
   padding: 0 0 0 0.9rem;
 }
 
-.services-hamburger{
+.services-hamburger {
   font-size: 1.2rem;
   font-weight: bold;
   padding: 0 0 0 0.9rem;
@@ -39,7 +40,7 @@
 }
 
 .nav-links {
-  z-index:9000;
+  z-index: 9000;
   display: none;
   top: 5rem;
   right: 0px;
@@ -58,18 +59,19 @@
 
 .nav-links a:hover,
 .nav-links a:focus {
-  background-color: #ebedff;
+  background-color: hsl(var(--secondary));
+  /* background-color: #ebedff; */
 }
 
-.nl-element{
-    display: flex;
-    align-items: center;
+.nl-element {
+  display: flex;
+  align-items: center;
 }
 
 .dli-chevron-down {
   margin-right: 1rem;
   margin-left: 0.7rem;
- 
+
   display: inline-block;
   color: #333;
   line-height: 1;
@@ -83,7 +85,7 @@
 }
 
 .expanded {
-    display: unset;
+  display: unset;
 }
 
 .expanded-grid {
@@ -97,12 +99,12 @@
 /*PCサイズ*/
 @media screen and (min-width: 920px) {
 
-  .company-hamburger{
+  .company-hamburger {
     display: flex;
 
   }
-  
-  .services-hamburger{
+
+  .services-hamburger {
     display: flex;
 
   }
@@ -120,33 +122,41 @@
     grid-column: -1/-5;
     background-color: hsl(0, 0%, 100%);
     border: 1px solid #acacac;
-  
+
   }
 
   .nav-links {
-  display: block; /* 中の要素を横並びにする */
-  width: 700px;
-  height: 45px; /* 高さを45pxに指定 */
-  background-color: #ffffff; /* 背景色 */
-  box-sizing: border-box; /* padding分を含んで幅を100%にするため */
-  position: fixed; /* ウィンドウを基準に画面に固定 */
-  top: 10px; /* 上下の固定位置を上から0pxにする */
-  right: 0px;
-  /*align-items: center; /* 中の要素を上下中央に並べる */
+    display: block;
+    /* 中の要素を横並びにする */
+    width: 640px;
+    height: 45px;
+    /* 高さを45pxに指定 */
+    background-color: hsl(var(--background));
+    opacity: 85%;
+    /* 背景色 */
+    box-sizing: border-box;
+    /* padding分を含んで幅を100%にするため */
+    position: fixed;
+    /* ウィンドウを基準に画面に固定 */
+    top: 2rem;
+    /* 上下の固定位置を上から0pxにする */
+    /* right: 0px; */
+    /*align-items: center; /* 中の要素を上下中央に並べる */
 
-  margin:0 20px 0 auto;/**/
+    margin: 0 1.5rem 0 auto;
+    /**/
 
-  border: 1px solid #acacac;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+    /* border: 1px solid hsl(var(--border)); */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   }
 
-  .nav-links-block{
+  .nav-links-block {
     /*display: flex;*/
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: auto auto;
     place-items: center;
-  }  
+  }
 
   /*判定範囲*/
   .nav-links a {
@@ -159,18 +169,20 @@
     text-transform: uppercase;
 
 
-    
-    list-style: none; /* リストの[・]を消す */
-    background-color: 0 0 0; /* 背景色 */
+
+    list-style: none;
+    /* リストの[・]を消す */
+    background-color: 0 0 0;
+    /* 背景色 */
 
     display: inline-block;
   }
 
-  .nl-element{
+  .nl-element {
     display: flex;
     justify-content: center;
     align-items: center;
-    }
+  }
 
   .hamburger {
     display: none;
@@ -180,46 +192,47 @@
     background-color: #0d0950;
     color: #fff;
   }
-  
+
   .dark .nav-links a {
     color: #fff;
   }
 
   .dli-chevron-down {
-    background-color: #ffffff; /* 背景色 */
+    background-color: #ffffff;
+    /* 背景色 */
 
   }
 }
 
 @media screen and (max-width: 919px) {
-  .company-hamburger{
+  .company-hamburger {
     padding: 0.8rem 0;
     margin: 0 1rem;
-  
+
   }
-  
-  .services-hamburger{
+
+  .services-hamburger {
     padding: 0.8rem 0;
     margin: 0 1rem;
-  
+
   }
-  
+
   .company-links-detail {
     margin: 0 1rem;
 
   }
-  
+
   .services-links-detail {
     margin: 0 1rem;
 
   }
-      
-  .border-bottom{
+
+  .border-bottom {
     border-bottom: 1px solid #acacac;
   }
 
   .nav-links a {
     padding: 0.8rem 0;
-    margin: 0 1rem;  
+    margin: 0 1rem;
   }
 }

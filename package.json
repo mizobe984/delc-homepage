@@ -15,7 +15,6 @@
     "@astrojs/rss": "^4.0.7",
     "@astrojs/tailwind": "^5.1.0",
     "@fontsource-variable/noto-sans-jp": "^5.0.19",
-    "@fontsource-variable/oswald": "^5.0.20",
     "@hookform/resolvers": "^3.9.0",
     "@radix-ui/react-label": "^2.1.0",
     "@radix-ui/react-navigation-menu": "^1.1.4",

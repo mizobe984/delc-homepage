@@ -1,0 +1,26 @@
+---
+import { cn } from '@/lib/utils'
+import '@/styles/delcGlobal.css'
+const { color } = Astro.props
+---
+
+<div class="relative h-[21rem] z-10">
+  <a href="/" class="company-header group w-40">
+    <div
+      class={cn(
+        'company-branding',
+        color || 'bg-foreground',
+        'group-hover:-rotate-[25deg] transition-all',
+      )}
+    >
+    </div>
+    <div
+      class={cn(
+        'company-logo',
+        color || 'bg-foreground',
+        'group-hover:-translate-y-[1px] transition-all',
+      )}
+    >
+    </div>
+  </a>
+</div>

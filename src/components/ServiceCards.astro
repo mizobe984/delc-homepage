@@ -1,0 +1,67 @@
+---
+import { cn } from '@/lib/utils'
+import { Button } from './ui/button'
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardContent,
+  CardDescription,
+  CardFooter,
+} from './ui/card'
+
+type ParameterTable = {
+  title: string
+  description: string
+  url: string
+}
+
+const parameterTable: ParameterTable[] = [
+  {
+    title: 'デバッグ事業',
+    description: 'Testify Solutions',
+    url: 'services/#debug',
+  },
+  {
+    title: 'SES事業',
+    description: 'TechTalent Hub',
+    url: 'services/#ses',
+  },
+  {
+    title: 'SaaS事業',
+    description: 'Vertical Platform',
+    url: 'services/#saas',
+  },
+]
+---
+
+<div class="ml-3 mt-5">
+  {
+    parameterTable.map((data, index) => {
+      const mlIndent = cn(index === 0 ? '' : index === 1 ? 'ml-8' : 'ml-16')
+      return (
+        <Card
+          className={cn(
+            'flex justify-between',
+            'w-[28rem] pt-5 mt-3',
+            mlIndent,
+            'rounded-none rounded-e-full',
+            'bg-gradient-to-b from-background via-background to-secondary',
+          )}
+        >
+          <div>
+            <CardContent>
+              <CardTitle className="text-lg">{data.title}</CardTitle>
+              <CardDescription>{data.description}</CardDescription>
+            </CardContent>
+          </div>
+          <CardFooter>
+            <Button>
+              <a href={data.url}>VIEW MORE</a>
+            </Button>
+          </CardFooter>
+        </Card>
+      )
+    })
+  }
+</div>
