@@ -34,7 +34,7 @@
 
 .side-menu-block {
   line-height: 3.5rem;
-  border: 4px double hsl(var(--border));
+  border: 4px double hsl(var(--foreground));
   position: sticky;
   top: 2.5rem;
   padding: 0.5rem 2rem 12rem 1.5rem;

@@ -1,17 +1,17 @@
 ---
-import { Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { Loader2 } from 'lucide-react'
+import { Button } from '@/components/ui/button'
 
 import '@/styles/globals.css'
 import '@/styles/baseTopPageTextBox.css'
-import '@/styles/privacyPolicy.css'
+// import "@/styles/privacyPolicy.css";
+import '@/styles/services.css'
+import BaseLayout from '@/layouts/WithSideMenuLayout.astro'
+import Greeting from '../components/Greeting.jsx'
 
-import BaseLayout from '../layouts/WithSideMenuLayout.astro';
-import Greeting from '../components/Greeting.jsx';
-
-import localDebugImage from '../images/john-schnobrich-FlPc9_VocJ4-unsplash.jpg';
-import localSesImage from '../images/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg';
-import localSaasImage from '../images/sean-lim-NPlv2pkYoUA-unsplash.jpg';
+import localDebugImage from '../images/john-schnobrich-FlPc9_VocJ4-unsplash.jpg'
+import localSesImage from '../images/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg'
+import localSaasImage from '../images/sean-lim-NPlv2pkYoUA-unsplash.jpg'
 
 import {
   Table,
@@ -21,111 +21,113 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from '@/components/ui/table'
 
-const companyName = "DELC";
-const pageTitle = "SERVICES";
-const pageTitleRuby = "サービス案内";
-const tabTitle = "サービス案内";
+const companyName = 'DELC'
+const pageTitle = 'SERVICES'
+const pageTitleRuby = 'サービス案内'
+const tabTitle = 'サービス案内'
 
-const companyInformation = "サービス案内";
-const information = "SERVICES";
+const companyInformation = 'サービス案内'
+const information = 'SERVICES'
 
-const destinationURLs = [
-  {url: "services",ruby: "サービス"},
-];
+const destinationURLs = [{ url: 'services', ruby: 'サービス' }]
 
 const menus = [
-  {url: "debug",text: "デバッグ事業"},
-  {url: "ses",text: "SES事業"},
-  {url: "saas",text: "SaaS事業"},
-];
+  { url: 'debug', text: 'デバッグ事業' },
+  { url: 'ses', text: 'SES事業' },
+  { url: 'saas', text: 'SaaS事業' },
+]
 
-const show=2;
+const show = 2
 ---
 
-<BaseLayout companyName={companyName}
-pageTitle={pageTitle}
-pageTitleRuby={pageTitleRuby}
-tabTitle={tabTitle}
-
-menus={menus}
-menuShow={show}
-mainBlockSize={2}
-anchor={true}
-
-destinationURLs={destinationURLs}
+<BaseLayout
+  companyName={companyName}
+  pageTitle={pageTitle}
+  pageTitleRuby={pageTitleRuby}
+  tabTitle={tabTitle}
+  menus={menus}
+  menuShow={show}
+  mainBlockSize={2}
+  anchor={true}
+  destinationURLs={destinationURLs}
 >
-
-<div class = "main-title-block">
-    <div class = "main-jp-title">{companyInformation}</div>
-    <div class = "main-title">{information}</div>
-</div>
-
-<Table>
+  <Table>
     <TableBody>
       <TableRow disableHover>
-        <TableCell>
-          <div id="debug">
-            <h1><div class= "pp-title">デバッグ事業</div></h1>
+        <TableCell className="items-center">
+          <div class="pp-category">
+            <h1 id="debug">デバッグ事業</h1>
+
+            <img src={localDebugImage.src} />
+
+            <h2>サービス概要</h2>
+            <p>
+              お客様のゲームやソフトウェアに対し、ユーザー目線でのデバッグや改善提案および、タイムリーなコミュニケーションを重視して検証を行います。
+              豊富な実績から導出されたソリューションを用いて早期の不具合発見、再発防止を目指しお客様のサービス品質向上を実現いたします。
+            </p>
+            <h2>実績紹介</h2>
+            <h3>1. ガイドラインチェックサービス</h3>
+            <p>
+              PC/iOS/android対応アプリ
+              プラットフォーマーにおける各種ガイドライン審査を主に行っております。
+            </p>
+            <h3>2. ソーシャルネイティブアプリのイニシャルデバッグ</h3>
+            <p>
+              iOS/android対応RPG
+              正常動作確認、データ検証、表示検証、イレギュラーチェックなどリリース前における総合デバッグを行っております。
+            </p>
+            <h3>3. WEBアプリの単体・結合テスト</h3>
+            <p>
+              リリース直前のサービスに対するテストケースの作成及び単体テスト、結合テストを主に行っております。
+            </p>
+            <h3>4. ソーシャルネイティブアプリの運営デバッグ</h3>
+            <p>
+              iOS/android対応IPタイトル
+              定期的にリリースされる追加施策の正常動作確認やキャラチェック、シナリオチェックなど、リリース後の総合デバッグを行っております。
+            </p>
+
+            <h2>対応環境</h2>
+            <ul>
+              <li>android</li>
+              <li>Steam PC</li>
+              <li>SONY PS4/PS5</li>
+              <li>Nintendo Switch</li>
+            </ul>
           </div>
-            <img src={localDebugImage.src} style="display: block; margin: auto;" />
 
-            <h1><div class= "bottom-line">サービス概要</div></h1>
-            <p><div class = "text-style">お客様のゲームやソフトウェアに対し、ユーザー目線でのデバッグや改善提案および、タイムリーなコミュニケーションを重視して検証を行います。
-                豊富な実績から導出されたソリューションを用いて早期の不具合発見、再発防止を目指しお客様のサービス品質向上を実現いたします。</div></p>
-            <h1><div class= "pp-title">実績紹介</div></h1>
-            <h1><div class= "bottom-line">1. ガイドラインチェックサービス</div></h1>
-            <p><div class = "text-style">PC/iOS/android対応アプリ
-                プラットフォーマーにおける各種ガイドライン審査を主に行っております。</div></p>
+          <div class="pp-category">
+            <h1 id="ses">SES事業</h1>
+            <img src={localSesImage.src} />
 
-            <h1><div class= "bottom-line">2. ソーシャルネイティブアプリのイニシャルデバッグ</div></h1>
-            <p><div class = "text-style">iOS/android対応RPG
-                正常動作確認、データ検証、表示検証、イレギュラーチェックなどリリース前における総合デバッグを行っております。</div></p>
+            <h2>サービス概要</h2>
+            <p>
+              フリーランスのエンジニアと企業をマッチングさせ、個人の働き方やプロジェクトのニーズに合わせた最適なマッチングを行います。
+              QAやRPAなど特定の領域に強い、ハイスキルかつ豊富なプロフェッショナル人材プールにより、迅速なマッチングと課題解決を支援します。
+            </p>
+            <h2>実績紹介</h2>
+            <h3>1. ソーシャルネイティブアプリのプロジェクト</h3>
+            <p>
+              PC/iOS/android対応アプリ
+              QA領域のPMOとして、テスト管理、テスト計画管理、エンジニアチームとの連携やフロー改善業務などを主に行っております。
+            </p>
+            <h3>2. VRアプリのプロジェクト</h3>
+            <p>
+              QAエンジニアとして、仕様の把握、テスト設計と実施、エンジニアチームへのバグレポート提出と改修依頼を行っております。
+            </p>
+          </div>
 
-            <h1><div class= "bottom-line">3. WEBアプリの単体・結合テスト</div></h1>
-            <p><div class = "text-style">リリース直前のサービスに対するテストケースの作成及び単体テスト、結合テストを主に行っております。</div></p>
-
-            <h1><div class= "bottom-line">4. ソーシャルネイティブアプリの運営デバッグ</div></h1>
-            <p><div class = "text-style">iOS/android対応IPタイトル
-                定期的にリリースされる追加施策の正常動作確認やキャラチェック、シナリオチェックなど、リリース後の総合デバッグを行っております。</div></p>
-                
-            <h1><div class= "pp-title">対応環境</div></h1>
-            <p><div class = "text-style">
-                <p>android</p>
-                <p>Steam PC</p>
-                <p>SONY PS4/PS5</p>
-                <p>Nintendo Switch</p></div></p>
-
-            <div id="ses">
-            <h1><div class= "pp-title">SES事業</div></h1>
-            </div>
-            <img src={localSesImage.src} style="display: block; margin: auto;" />
-
-            <h1><div class= "bottom-line">サービス概要</div></h1>
-            <p><div class = "text-style">フリーランスのエンジニアと企業をマッチングさせ、個人の働き方やプロジェクトのニーズに合わせた最適なマッチングを行います。
-                QAやRPAなど特定の領域に強い、ハイスキルかつ豊富なプロフェッショナル人材プールにより、迅速なマッチングと課題解決を支援します。</div></p>
-            <h1><div class= "pp-title">実績紹介</div></h1>
-            <h1><div class= "bottom-line">1. ソーシャルネイティブアプリのプロジェクト</div></h1>
-            <p><div class = "text-style">PC/iOS/android対応アプリ
-                QA領域のPMOとして、テスト管理、テスト計画管理、エンジニアチームとの連携やフロー改善業務などを主に行っております。</div></p>
-
-            <h1><div class= "bottom-line">2. VRアプリのプロジェクト</div></h1>
-            <p><div class = "text-style">QAエンジニアとして、仕様の把握、テスト設計と実施、エンジニアチームへのバグレポート提出と改修依頼を行っております。</div></p>
-            
-            <div id="saas">
-            <h1><div class= "pp-title">SaaS事業</div></h1>
-            </div>
-
-            <img src={localSaasImage.src} style="display: block; margin: auto;" />
-
-            <h1><div class= "bottom-line">サービス概要</div></h1>
-            <p><div class = "text-style">ゲーム・ソフトウェアにおける革新的なバーティカルプラットフォームの開発を進めており、近日中にサービス公開を予定しています。</div></p-->
-
+          <div class="pp-category">
+            <h1 id="saas">SaaS事業</h1>
+            <img src={localSaasImage.src} />
+            <h2>サービス概要</h2>
+            <p>
+              ゲーム・ソフトウェアにおける革新的なバーティカルプラットフォームの開発を進めており、近日中にサービス公開を予定しています。
+            </p>
+          </div>
         </TableCell>
       </TableRow>
-
     </TableBody>
   </Table>
-
 </BaseLayout>
