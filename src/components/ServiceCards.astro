@@ -10,34 +10,12 @@ import {
   CardFooter,
 } from './ui/card'
 
-type ParameterTable = {
-  title: string
-  description: string
-  url: string
-}
-
-const parameterTable: ParameterTable[] = [
-  {
-    title: 'デバッグ事業',
-    description: 'Testify Solutions',
-    url: 'services/#debug',
-  },
-  {
-    title: 'SES事業',
-    description: 'TechTalent Hub',
-    url: 'services/#ses',
-  },
-  {
-    title: 'SaaS事業',
-    description: 'Vertical Platform',
-    url: 'services/#saas',
-  },
-]
+import { serviceTable } from '@/lib/serviceTable'
 ---
 
 <div class="ml-3 mt-5">
   {
-    parameterTable.map((data, index) => {
+    serviceTable.map((data, index) => {
       const mlIndent = cn(index === 0 ? '' : index === 1 ? 'ml-8' : 'ml-16')
       return (
         <Card
