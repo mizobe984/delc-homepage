@@ -6,7 +6,7 @@ import '@/styles/globals.css'
 import '@/styles/baseTopPageTextBox.css'
 // import "@/styles/privacyPolicy.css";
 import '@/styles/services.css'
-import BaseLayout from '@/layouts/WithSideMenuLayout.astro'
+import WithSideMenuLayout from '@/layouts/WithSideMenuLayout.astro'
 import Greeting from '../components/Greeting.jsx'
 
 import localDebugImage from '../images/john-schnobrich-FlPc9_VocJ4-unsplash.jpg'
@@ -27,6 +27,7 @@ const companyName = 'DELC'
 const pageTitle = 'SERVICES'
 const pageTitleRuby = 'サービス案内'
 const tabTitle = 'サービス案内'
+const menuTitle = 'SERVICES'
 
 const companyInformation = 'サービス案内'
 const information = 'SERVICES'
@@ -42,11 +43,12 @@ const menus = [
 const show = 2
 ---
 
-<BaseLayout
+<WithSideMenuLayout
   companyName={companyName}
   pageTitle={pageTitle}
   pageTitleRuby={pageTitleRuby}
   tabTitle={tabTitle}
+  menuTitle={menuTitle}
   menus={menus}
   menuShow={show}
   mainBlockSize={2}
@@ -130,4 +132,4 @@ const show = 2
       </TableRow>
     </TableBody>
   </Table>
-</BaseLayout>
+</WithSideMenuLayout>
