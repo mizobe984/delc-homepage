@@ -1,13 +1,8 @@
 ---
-import { Loader2 } from 'lucide-react'
-import { Button } from '@/components/ui/button'
-
 import '@/styles/globals.css'
 import '@/styles/baseTopPageTextBox.css'
-// import "@/styles/privacyPolicy.css";
 import '@/styles/services.css'
 import WithSideMenuLayout from '@/layouts/WithSideMenuLayout.astro'
-import Greeting from '../components/Greeting.jsx'
 
 import localDebugImage from '../images/john-schnobrich-FlPc9_VocJ4-unsplash.jpg'
 import localSesImage from '../images/fatos-bytyqi-Agx5_TLsIf4-unsplash.jpg'
@@ -23,38 +18,26 @@ import {
   TableRow,
 } from '@/components/ui/table'
 
-const companyName = 'DELC'
-const pageTitle = 'SERVICES'
-const pageTitleRuby = 'サービス案内'
-const tabTitle = 'サービス案内'
-const menuTitle = 'SERVICES'
-
-const companyInformation = 'サービス案内'
-const information = 'SERVICES'
-
-const destinationURLs = [{ url: 'services', ruby: 'サービス' }]
-
-const menus = [
-  { url: 'debug', text: 'デバッグ事業' },
-  { url: 'ses', text: 'SES事業' },
-  { url: 'saas', text: 'SaaS事業' },
-]
-
-const show = 2
+import type { SideMenuParams } from '@/lib/types'
+const params: SideMenuParams = {
+  companyName: 'DELC',
+  pageTitle: 'SERVICES',
+  pageTitleRuby: 'サービス案内',
+  tabTitle: 'サービス案内',
+  menuTitle: 'SERVICES',
+  menus: [
+    { url: 'debug', text: 'デバッグ事業' },
+    { url: 'ses', text: 'SES事業' },
+    { url: 'saas', text: 'SaaS事業' },
+  ],
+  menuShow: 2,
+  mainBlockSize: 2,
+  anchor: true,
+  destinationURLs: [{ url: 'services', ruby: 'サービス' }],
+}
 ---
 
-<WithSideMenuLayout
-  companyName={companyName}
-  pageTitle={pageTitle}
-  pageTitleRuby={pageTitleRuby}
-  tabTitle={tabTitle}
-  menuTitle={menuTitle}
-  menus={menus}
-  menuShow={show}
-  mainBlockSize={2}
-  anchor={true}
-  destinationURLs={destinationURLs}
->
+<WithSideMenuLayout {...params}>
   <Table>
     <TableBody>
       <TableRow disableHover>

@@ -20,44 +20,27 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table'
+import type { SideMenuParams } from '@/lib/types'
 
-const companyName = 'DELC'
-const pageTitle = 'INFORMATION'
-const pageTitleRuby = '会社概要'
-const tabTitle = '会社情報'
-const menuTitle = 'COMPANY'
-
-const companyInformation = '会社概要'
-const information = 'INFORMATION'
-
-const destinationURLs = [{ url: 'company', ruby: '会社情報' }]
-
-const menus = [
-  { url: 'company', text: '会社概要' },
-  { url: 'location', text: '所在地' },
-  { url: 'history', text: '沿革' },
-]
-
-const show = 2
+const params: SideMenuParams = {
+  companyName: 'DELC',
+  pageTitle: 'INFORMATION',
+  pageTitleRuby: '会社概要',
+  tabTitle: '会社情報',
+  menuTitle: 'COMPANY',
+  menus: [
+    { url: 'company', text: '会社概要' },
+    { url: 'location', text: '所在地' },
+    { url: 'history', text: '沿革' },
+  ],
+  menuShow: 2,
+  mainBlockSize: 2,
+  anchor: false,
+  destinationURLs: [{ url: 'company', ruby: '会社情報' }],
+}
 ---
 
-<WithSideMenuLayout
-  companyName={companyName}
-  pageTitle={pageTitle}
-  pageTitleRuby={pageTitleRuby}
-  tabTitle={tabTitle}
-  menuTitle={menuTitle}
-  menus={menus}
-  menuShow={show}
-  mainBlockSize={2}
-  anchor={false}
-  destinationURLs={destinationURLs}
->
-  <!-- <div class="main-title-block">
-    <div class="main-jp-title">{companyInformation}</div>
-    <div class="main-title">{information}</div>
-  </div> -->
-
+<WithSideMenuLayout {...params}>
   <Table className="mt-24">
     <TableHeader>
       <TableRow disableHover>

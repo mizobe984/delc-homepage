@@ -1,43 +1,20 @@
 ---
 import BaseLayout from './BaseLayout.astro'
-import Header from '../components/DelcHeader.astro'
-import Footer from '../components/DelcFooter.astro'
 import SideMenu from '../components/SideMenu.astro'
-import BreadCrumb from '@/components/BreadCrumb.astro'
-
 import '../styles/delcInfoGlobal.css'
-
-// import localBrandingImage from '../images/branding.svg'
-import { ViewTransitions, fade, slide } from 'astro:transitions'
-
 const {
-  companyName,
-  pageTitle,
-  pageTitleRuby,
-  tabTitle,
-  menuTitle,
-
+  menuTitle: title,
   menus,
-  menuShow,
+  menuShow: show,
   mainBlockSize,
   anchor,
-
-  destinationURLs,
 } = Astro.props
-
-// const color = 'hsl(199, 100%, 96%)'
-// const borderColor = 'hsl(0, 0%, 65%)'
 ---
 
-<BaseLayout
-  pageTitle={pageTitle}
-  tabTitle={tabTitle}
-  pageTitleRuby={pageTitleRuby}
-  destinationURLs={destinationURLs}
->
+<BaseLayout {...Astro.props}>
   <!--サイドメニュー-->
   <div class="overall-style">
-    <SideMenu title={menuTitle} menus={menus} show={menuShow} anchor={anchor} />
+    <SideMenu {title} {menus} {show} {anchor} />
     <div
       class="main-block md:min-h-[58rem]"
       style={`--dynamic-grid-column: ${mainBlockSize};`}

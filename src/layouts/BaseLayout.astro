@@ -5,12 +5,9 @@ import BrandingLogo from '@/components/BrandingLogo.astro'
 import '../styles/delcGlobal.css'
 import { ViewTransitions, slide } from 'astro:transitions'
 const { pageTitle, tabTitle, pageTitleRuby, destinationURLs } = Astro.props
-// import localBrandingImage from '../images/branding.svg'
-// import localLogoImage from '../images/logo.svg'
 
 import '@fontsource-variable/noto-sans-jp'
 import BreadCrumb from '@/components/BreadCrumb.astro'
-// import '@fontsource-variable/oswald'
 ---
 
 <html lang="ja">
@@ -24,6 +21,8 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
   </head>
   <body class="font-body">
     <Header />
+
+    <!-- HERO SECTION -->
     <div
       class="relative h-[32rem] xl:h-[44rem] overflow-clip expand border-b border-b-secondary"
     >
@@ -44,7 +43,7 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
             </div>
           )
         }
-        <slot name="top" />
+        <slot name="hero" />
       </div>
     </div>
 
