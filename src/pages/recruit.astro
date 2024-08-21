@@ -1,14 +1,14 @@
 ---
-import { ExternalLink, Loader2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { ExternalLink, Loader2 } from 'lucide-react'
+import Button from '@/components/Button.astro'
 import { WifiOff } from 'lucide-astro'
 
 import '@/styles/globals.css'
 import '@/styles/baseTopPageTextBox.css'
 import '@/styles/recruit.css'
 
-import BaseLayout from '../layouts/WithSideMenuLayout.astro';
-import Greeting from '../components/Greeting.jsx';
+import BaseLayout from '../layouts/WithSideMenuLayout.astro'
+import Greeting from '../components/Greeting.jsx'
 
 import {
   Table,
@@ -18,56 +18,50 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from "@/components/ui/table"
+} from '@/components/ui/table'
 
-const companyName = "DELC";
-const pageTitle = "RECRUIT";
-const pageTitleRuby = "採用情報";
-const tabTitle = "採用情報";
+const companyName = 'DELC'
+const pageTitle = 'RECRUIT'
+const pageTitleRuby = '採用情報'
+const tabTitle = '採用情報'
 
-const companyInformation = "採用情報";
-const information = "RECRUIT";
+const companyInformation = '採用情報'
+const information = 'RECRUIT'
 
-const destinationURLs = [
-  {url: "recruit",ruby: "採用情報"},
-];
+const destinationURLs = [{ url: 'recruit', ruby: '採用情報' }]
 
-const menus = [
-  {url: "recruit",text: "採用情報"},
-  
-];
+const menus = [{ url: 'recruit', text: '採用情報' }]
 
-const hide=1;
+const hide = 1
 ---
 
-<BaseLayout companyName={companyName}
-pageTitle={pageTitle}
-pageTitleRuby={pageTitleRuby}
-tabTitle={tabTitle}
-
-menus={menus}
-menuShow={hide}
-mainBlockSize={'1/3'}
-anchor={false}
-
-destinationURLs={destinationURLs}
+<BaseLayout
+  companyName={companyName}
+  pageTitle={pageTitle}
+  pageTitleRuby={pageTitleRuby}
+  tabTitle={tabTitle}
+  menus={menus}
+  menuShow={hide}
+  mainBlockSize={'1/3'}
+  anchor={false}
+  destinationURLs={destinationURLs}
 >
+  <div class="main-title-block">
+    <div class="main-jp-title">{companyInformation}</div>
+    <div class="main-title">{information}</div>
+  </div>
 
-<div class = "main-title-block">
-    <div class = "main-jp-title">{companyInformation}</div>
-    <div class = "main-title">{information}</div>
-</div>
-
-<Table>
+  <Table>
     <TableBody>
       <TableRow disableHover>
         <TableCell>
-            <a href="https://herp.careers/v1/delc" class="button"><div class ="text-magin">Click here</div><div class = "ext-img"><ExternalLink/></div></a>
-                
+          <a href="https://herp.careers/v1/delc" class="button"
+            ><div class="text-magin">Click here</div><div class="ext-img">
+              <ExternalLink />
+            </div></a
+          >
         </TableCell>
       </TableRow>
-
     </TableBody>
   </Table>
-
 </BaseLayout>
