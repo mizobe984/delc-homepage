@@ -1,17 +1,11 @@
 ---
 import { NavigationMenu } from './DelcNavigation'
 import Hamburger from './Hamburger.astro'
-// import Navigation from './DelcNavigation'
 ---
 
 <header>
   <nav>
     <Hamburger />
-    <!--ThemeIcon /-->
-    <!-- <Navigation /> -->
-
-    <div class="fixed z-50 bg-background top-10 right-8 p-1 shadow">
-      <NavigationMenu client:load />
-    </div>
+    <NavigationMenu client:load />
   </nav>
 </header>

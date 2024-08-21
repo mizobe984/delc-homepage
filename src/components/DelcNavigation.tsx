@@ -1,10 +1,7 @@
 "use client"
 
 import * as React from "react"
-// import Link from "next/link"
-
 import { cn } from "@/lib/utils"
-// import { Icons } from "@/components/icons"
 import {
   NavigationMenu as BaseNavigationMenu,
   NavigationMenuContent,
@@ -15,14 +12,13 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 
-import { serviceTable } from '@/lib/serviceTable'
-import { companyTable } from "@/lib/companyTable";
 
 import { Building, Presentation, UserSearch, Mail } from 'lucide-react'
+import { companyTable, serviceTable } from "@/lib/data.json"
 
 export function NavigationMenu() {
   return (
-    <BaseNavigationMenu>
+    <BaseNavigationMenu className="fixed z-50 bg-background top-10 right-8 p-1 shadow-lg max-md:hidden opacity-85">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger><a href="/company" className="flex items-center justify-center"><Building />COMPANY</a></NavigationMenuTrigger>
