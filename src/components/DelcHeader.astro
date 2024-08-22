@@ -1,11 +1,13 @@
 ---
 import { NavigationMenu } from './DelcNavigation'
-import Hamburger from './Hamburger.astro'
+import { Drawer } from '@/components/Drawer'
 ---
 
 <header>
-  <nav>
-    <Hamburger />
+  <div class="md:hidden">
+    <Drawer client:load />
+  </div>
+  <div class="max-md:hidden">
     <NavigationMenu client:load />
-  </nav>
+  </div>
 </header>

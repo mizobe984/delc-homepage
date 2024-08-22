@@ -18,7 +18,7 @@ import { companyTable, serviceTable } from "@/lib/data.json"
 
 export function NavigationMenu() {
   return (
-    <BaseNavigationMenu className="fixed z-50 bg-background top-10 right-8 p-1 shadow-lg max-md:hidden opacity-85">
+    <BaseNavigationMenu className="fixed z-50 bg-background top-10 right-8 p-1 shadow-lg">
       <NavigationMenuList>
         <NavigationMenuItem>
           <NavigationMenuTrigger><a href="/company" className="flex items-center justify-center"><Building />COMPANY</a></NavigationMenuTrigger>

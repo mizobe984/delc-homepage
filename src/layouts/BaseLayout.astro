@@ -21,40 +21,41 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
   </head>
   <body class="font-body">
     <Header />
-
-    <!-- HERO SECTION -->
-    <div
-      class="relative h-[32rem] xl:h-[44rem] overflow-clip expand border-b border-b-secondary"
-    >
+    <div class="px-4">
+      <!-- HERO SECTION -->
       <div
-        class="absolute hero-logo-image min-w-full h-[800px] xl:h-[1200px] top-24 xl:top-12 max-md:top-8 left-0 max-md:left-1/4"
+        class="relative h-[32rem] xl:h-[44rem] overflow-clip expand border-b border-b-secondary"
       >
+        <div
+          class="absolute hero-logo-image min-w-full h-[800px] xl:h-[1200px] top-24 xl:top-12 max-md:top-8 left-0 max-md:left-1/4"
+        >
+        </div>
+        <BrandingLogo />
+        <div
+          class="absolute z-40 bottom-0 ml-12 mb-12 max-md:ml-6 animate-fadeInUp"
+        >
+          {
+            destinationURLs && destinationURLs.length > 0 && (
+              <div class="page-title-block">
+                <div class="page-title-ruby">{pageTitleRuby}</div>
+                <div class="page-title">{pageTitle}</div>
+                <BreadCrumb destinationURLs={destinationURLs} />
+              </div>
+            )
+          }
+          <slot name="hero" />
+        </div>
       </div>
-      <BrandingLogo />
-      <div
-        class="absolute z-40 bottom-0 ml-12 mb-12 max-md:ml-6 animate-fadeInUp"
-      >
-        {
-          destinationURLs && destinationURLs.length > 0 && (
-            <div class="page-title-block">
-              <div class="page-title-ruby">{pageTitleRuby}</div>
-              <div class="page-title">{pageTitle}</div>
-              <BreadCrumb destinationURLs={destinationURLs} />
-            </div>
-          )
-        }
-        <slot name="hero" />
+
+      <div class="home-main-block">
+        <slot />
       </div>
+
+      <Footer />
+
+      <script>
+        import '../scripts/menu.js'
+      </script>
     </div>
-
-    <div class="home-main-block">
-      <slot />
-    </div>
-
-    <Footer />
-
-    <script>
-      import '../scripts/menu.js'
-    </script>
   </body>
 </html>
