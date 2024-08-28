@@ -1,3 +1,7 @@
+.bg-clr {
+  background-color: hsl(163, 23%, 25%);
+}
+
 /* ナビゲーションのスタイル */
 .hamburger {
   position: fixed;
@@ -10,8 +14,6 @@
   /* width: 64px; */
   /* margin: 1rem 0.3rem; */
 }
-
-.custom-class {}
 
 .company-hamburger {
   font-size: 1.2rem;
@@ -26,22 +28,23 @@
 }
 
 .company-links-detail {
-  display: none;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
+  width: 100%;
+  flex-flow: column;
 }
 
 .services-links-detail {
-  display: none;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
+  width: 100%;
+  flex-flow: column;
 }
 
 .nav-links {
   z-index: 9000;
-  display: none;
   top: 5rem;
   right: 0px;
   background-color: hsl(hue, saturation, lightness);
@@ -49,81 +52,64 @@
 
 .nav-links a {
   display: block;
+
   text-align: center;
-  text-decoration: none;
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
 }
 
-
 .nav-links a:hover,
 .nav-links a:focus {
   background-color: hsl(var(--secondary));
-  /* background-color: #ebedff; */
 }
 
 .nl-element {
   display: flex;
   align-items: center;
+  pointer-events: none;
 }
 
-.dli-chevron-down {
-  margin-right: 1rem;
-  margin-left: 0.7rem;
-
-  display: inline-block;
-  color: #333;
-  line-height: 1;
-  width: 0.8em;
-  height: 0.8em;
-  border: 0.1em solid currentColor;
-  border-left: 0;
-  border-bottom: 0;
-  box-sizing: border-box;
-  transform: translateY(-30%) rotate(135deg);
+.expanded{
+  display: block !important;
 }
 
-.expanded {
-  display: unset;
-}
-
-.expanded-grid {
-  width: 100.3%;
-  flex-flow: column;
-  display: grid;
+.expanded-grid{
+  
+  display: grid !important;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   grid-template-rows: auto;
+  width: 100.3%;
+  flex-flow: column;
 }
 
-/*PCサイズ*/
-@media screen and (min-width: 920px) {
 
-  .company-hamburger {
-    display: flex;
+.branding-logo{
+  
+}
 
-  }
+.cmp-branding {
+  /* margin: 0 0 0 0; */
+  width: 45px;
+  height: 45px;
 
-  .services-hamburger {
-    display: flex;
+  mask-image: url(../images/branding.svg);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
 
-  }
+.cmp-logo {
+  width: 80px;
+  height: 45px;
 
-  .company-links-detail {
-    grid-row: 2;
-    grid-column: -1/-5;
-    background-color: hsl(0, 0%, 100%);
-    border: 1px solid #acacac;
+  mask-image: url(../images/logo.svg);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
 
-  }
-
-  .services-links-detail {
-    grid-row: 2;
-    grid-column: -1/-5;
-    background-color: hsl(0, 0%, 100%);
-    border: 1px solid #acacac;
-
-  }
+@media screen and (min-width: 920px) { /*PCサイズ*/
 
   .nav-links {
     display: block;
@@ -140,18 +126,14 @@
     /* ウィンドウを基準に画面に固定 */
     top: 2rem;
     /* 上下の固定位置を上から0pxにする */
-    /* right: 0px; */
-    /*align-items: center; /* 中の要素を上下中央に並べる */
 
     margin: 0 1.5rem 0 auto;
-    /**/
 
-    /* border: 1px solid hsl(var(--border)); */
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   }
 
-  .nav-links-block {
-    /*display: flex;*/
+  /*グリッド設定*/
+  .nav-links .nav-links-block {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: auto auto;
@@ -159,29 +141,52 @@
   }
 
   /*判定範囲*/
-  .nav-links a {
+  .nav-links .nav-links-block .link-block {
     width: 100%;
-    padding: 0.45rem 1rem;
-    margin: auto auto;
-
+    padding: 0.5rem 0 0.5rem 0rem;
     text-decoration: none;
-    font-weight: bold;
     text-transform: uppercase;
 
-
-
-    list-style: none;
-    /* リストの[・]を消す */
     background-color: 0 0 0;
     /* 背景色 */
-
-    display: inline-block;
   }
 
   .nl-element {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+
+  .company-pulldown-menu{
+    display: contents;
+  }
+
+  .services-pulldown-menu{
+    display: contents;
+  }
+
+  .company-hamburger {
+  }
+
+  .services-hamburger {
+  }
+
+  .company-links-detail {
+    display: none;
+    grid-row: 2;
+    grid-column: 1/5;
+    background-color: hsl(0, 0%, 100%);
+    border: 1px solid #acacac;
+
+  }
+
+  .services-links-detail {
+    display: none;
+    grid-row: 2;
+    grid-column: -1/-5;
+    background-color: hsl(0, 0%, 100%);
+    border: 1px solid #acacac;
+
   }
 
   .hamburger {
@@ -202,29 +207,71 @@
     /* 背景色 */
 
   }
+  
+  .nav-links-block .relative{
+    display: none;
+  }
 }
 
-@media screen and (max-width: 919px) {
-  .company-hamburger {
-    padding: 0.8rem 0;
-    margin: 0 1rem;
+@media screen and (max-width: 919px) { /*スマホ*/
 
+.hamburger{
+  z-index: 9001;
+}
+
+.nav-links{
+  display: none;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #fff;
+}
+
+.nav-links .nav-links-block {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, minmax(auto, 1fr));
+  place-items: center;
+}
+
+.link-block {
+  width: 100%;
+}
+
+.company-pulldown-menu{
+  display: contents;
+}
+
+.services-pulldown-menu{
+  display: contents;
+}
+
+.nl-element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+  .company-hamburger {
+    width: 100%;
   }
 
   .services-hamburger {
-    padding: 0.8rem 0;
-    margin: 0 1rem;
-
+    width: 100%;
   }
 
   .company-links-detail {
-    margin: 0 1rem;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
+  
   }
 
   .services-links-detail {
-    margin: 0 1rem;
-
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
+  
   }
 
   .border-bottom {
@@ -232,7 +279,20 @@
   }
 
   .nav-links a {
-    padding: 0.8rem 0;
-    margin: 0 1rem;
+    padding: 1.2rem 0;
+    margin: 0 0;
   }
+
+  .branding-logo{
+    display: flex;
+    position: sticky;
+    
+    margin:0 0.7rem;    /* 中の要素を横並びにする */
+    /* width: 165px; */
+  }
+
+  .space{
+    height: 40px;
+  }  
+
 }

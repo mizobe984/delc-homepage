@@ -3,38 +3,76 @@ import { Building } from 'lucide-astro'
 import { Presentation } from 'lucide-astro'
 import { UserSearch } from 'lucide-astro'
 import { Mail } from 'lucide-astro'
+import { ChevronDown} from 'lucide-astro'
 
 import '../styles/header.css'
+
+import { cn } from '@/lib/utils'
 ---
 
-<div class="nav-links">
-    <!-- <div class="nav-links" style="text-align: right;"> -->
+
+<div class="nav-links">      
     <div class="nav-links-block">
-        <div class="company-hamburger border-bottom">
+
+        <div class="relative h-[5rem]">
+            <a href="/" class="group w-40">
+              <div class="branding-logo">
+                <div
+                class={cn(
+                  'cmp-branding',
+                  'bg-clr',
+                  'group-hover:opacity-55 transition-all',
+                )}
+              >
+              </div>
+              <div
+                class={cn(
+                  'cmp-logo',
+                  'bg-clr',
+                  'group-hover:-translate-y-[1px] transition-all',
+                )}
+              >
+              </div>
+              </div>
+            </a>
+          </div>
+          
+        <div class="company-pulldown-menu">
+        <a href="/company/" class="company-hamburger link-block">
             <div class="nl-element">
-                <Building />COMPANY<span class="dli-chevron-down"></span>
+                <Building />COMPANY<ChevronDown />
             </div>
-        </div>
+        </a>
         <div class="company-links-detail border-bottom">
-            <a href="/company/" data-astro-reload>会社情報</a>
-            <a href="/location/" data-astro-reload>所在地</a>
-            <a href="/history/" data-astro-reload>沿革</a>
+            <a href="/company/" class="link-block" data-astro-reload>会社情報</a>
+            <a href="/location/" class="link-block" data-astro-reload>所在地</a>
+            <a href="/history/" class="link-block" data-astro-reload>沿革</a>
         </div>
-        <div class="services-hamburger border-bottom">
+        </div>
+
+        <div class="services-pulldown-menu">
+        <a href="/services/" class="services-hamburger link-block">
             <div class="nl-element">
-                <Presentation />SERVICES<span class="dli-chevron-down"></span>
+                <Presentation />SERVICES<ChevronDown />
             </div>
-        </div>
+        </a>
         <div class="services-links-detail border-bottom">
-            <a href="/services/#debug" data-astro-reload>デバッグ事業</a>
-            <a href="/services/#ses" data-astro-reload>SES事業</a>
-            <a href="/services/#saas" data-astro-reload>SAAS事業</a>
+            <a href="/services/#debug" class="link-block" data-astro-reload>デバッグ事業</a>
+            <a href="/services/#ses" class="link-block" data-astro-reload>SES事業</a>
+            <a href="/services/#saas" class="link-block" data-astro-reload>SAAS事業</a>
         </div>
-        <a href="https://herp.careers/v1/delc" class="border-bottom"
+        </div>
+
+        <a href="https://herp.careers/v1/delc" class="link-block border-bottom"
             ><div class="nl-element"><UserSearch />RECRUIT</div></a
         >
-        <a href="/contact/" class="border-bottom"
+
+        <a href="/contact/" class="border-bottom link-block border-bottom"
             ><div class="nl-element"><Mail />CONTACT</div></a
         >
+        
+        <div class ="space"></div>
     </div>
 </div>
+
+
