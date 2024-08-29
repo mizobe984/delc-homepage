@@ -1,83 +1,19 @@
 ---
-// import { Loader2 } from 'lucide-react'
-// import { useState } from 'react'
-import Button from '@/components/Button.astro'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-
 import '@/styles/baseTopPageTextBox.css'
 import '@/styles/globals.css'
 import '@/styles/contact.css'
 
-// import BaseLayout from '../layouts/WithSideMenuLayout.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
-// import Greeting from '../components/Greeting.jsx'
+import { ContactForm } from '@/components/ContactForm'
 
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
-
-// const companyName = 'DELC'
 const pageTitle = 'CONTACT'
 const pageTitleRuby = 'お問い合わせ'
 const tabTitle = 'お問い合わせ'
-
-// const companyInformation = 'お問い合わせ'
-// const information = 'CONTACT'
-
 const destinationURLs = [{ url: 'contact', ruby: 'お問い合わせ' }]
-
-// const menus = [{ url: 'contact', text: 'お問い合わせ' }]
-
-// const hide = 1
 ---
 
-<BaseLayout
-  pageTitle={pageTitle}
-  pageTitleRuby={pageTitleRuby}
-  tabTitle={tabTitle}
-  destinationURLs={destinationURLs}
->
-  <div class="bg-secondary expand">
-    <div class="contents max-w-[36rem] mx-8">
-      <div class="company">
-        <Label htmlFor="company">会社名<span class="req">*</span></Label>
-        <Input type="text" id="company" placeholder="" required />
-      </div>
-      <div class="firstName">
-        <Label htmlFor="firstName">姓<span class="req">*</span></Label>
-        <Input type="text" id="firstName" placeholder="" />
-      </div>
-      <div class="lastName">
-        <Label htmlFor="lastName">名<span class="req">*</span></Label>
-        <Input type="text" id="lastName" placeholder="" />
-      </div>
-      <div class="email">
-        <Label htmlFor="email">Eメール<span class="req">*</span></Label>
-        <Input type="email" id="email" placeholder="" />
-      </div>
-      <div class="tel">
-        <Label htmlFor="tel">電話番号<span class="req">*</span></Label>
-        <Input type="tel" id="tel" placeholder="" />
-      </div>
-      <div class="url">
-        <Label htmlFor="url">ウェブサイトURL</Label>
-        <Input type="url" id="url" placeholder="" />
-      </div>
-      <div class="message">
-        <Label htmlFor="message">メッセージ<span class="req">*</span></Label>
-        <Input type="text" id="message" placeholder="" />
-      </div>
-
-      <div class="button">
-        <Button>送信 Send</Button>
-      </div>
-    </div>
+<BaseLayout {pageTitle} {pageTitleRuby} {tabTitle} {destinationURLs}>
+  <div class="bg-secondary expand -mb-32 pt-8 pb-32 pl-8">
+    <ContactForm client:load />
   </div>
 </BaseLayout>

@@ -6,6 +6,8 @@ import '../styles/delcGlobal.css'
 import { ViewTransitions, slide } from 'astro:transitions'
 const { pageTitle, tabTitle, pageTitleRuby, destinationURLs } = Astro.props
 
+import { Toaster } from '@/components/ui/toaster'
+
 import '@fontsource-variable/noto-sans-jp'
 import BreadCrumb from '@/components/BreadCrumb.astro'
 ---
@@ -52,6 +54,8 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
     </div>
 
     <Footer />
+
+    <Toaster client:idle />
 
     <script>
       import '../scripts/menu.js'
