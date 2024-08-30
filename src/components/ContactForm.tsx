@@ -2,7 +2,7 @@
  * 備忘録: このファイルは、お問い合わせフォームを提供するコンポーネントです。
  *
  * このファイルは、以下のコンポーネントを提供します。
- * - ContactForm
+ * - ContactForm <- ベタ打ち (フォームのスタイリングにtailwindcssが上手く利かず)
  *
  * このファイルは、以下のファイルからインポートされます。
  * - src/pages/contact.astro
@@ -21,7 +21,7 @@
  * - @components/ui/textarea <- shadcn-uiで生成
  * - @components/ui/use-toast <- shadcn-uiで生成 Toast通知 別途Toasterをレイアウトに組み込む
  * - @components/ui/button <- shadcn-uiで生成　onClickイベントを使用(onSubmit) Enterキーで送信できないようにするため
- *
+ * 
  */
 'use client'
 
@@ -30,7 +30,7 @@ import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import { Button } from '@/components/ui/button'
 import {
-  Form as BaseForm,
+  Form,
   FormControl,
   FormField,
   FormItem,
@@ -44,7 +44,7 @@ import { init, send } from '@emailjs/browser'
 import { useState } from 'react'
 
 const MESSEGE_MAX_LENGTH = 999
-const validations = {
+const paramSchema = {
   company: z
     .string()
     .min(1, { message: '必須項目です' })
@@ -82,12 +82,13 @@ const validations = {
 }
 
 export function ContactForm() {
-  const FormSchema = z.object(validations)
+  const formSchema = z.object(paramSchema)
+  type FormData = z.infer<typeof formSchema>
 
-  const form = useForm<z.infer<typeof FormSchema>>({
-    resolver: zodResolver(FormSchema),
+  const form = useForm<FormData>({
+    resolver: zodResolver(formSchema),
     defaultValues: ((obj) => {
-      for (const key in validations) {
+      for (const key in paramSchema) {
         obj[key] = ''
       }
       return obj
@@ -96,10 +97,13 @@ export function ContactForm() {
 
   const [isDisabled, setDisabled] = useState(false)
 
-  async function onSubmit(formData: z.infer<typeof FormSchema>) {
-    const userId = import.meta.env.PUBLIC_EMAILJS_USER_ID
-    const serviceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID
-    const templateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID
+  async function onSubmit(formData: FormData) {
+
+    const {
+      PUBLIC_EMAILJS_USER_ID: userId,
+      PUBLIC_EMAILJS_SERVICE_ID: serviceId,
+      PUBLIC_EMAILJS_TEMPLATE_ID: templateId,
+    } = import.meta.env
 
     if (userId && serviceId && templateId) {
       setDisabled(true)
@@ -115,59 +119,112 @@ export function ContactForm() {
       toast({
         title: 'エラー',
         description:
-          '申し訳ございません。しばらく経ってから再度お問い合わせください',
+          // '申し訳ございません。しばらく経ってから再度お問い合わせください',
+          `${userId} ${serviceId} ${templateId}`,
         variant: 'destructive',
       })
     }
     setDisabled(false)
   }
 
-  return (
-    <BaseForm {...form}>
-      <form className="w-2/3 space-y-6 mt-16 mb-32">
-        {formUnit('company', '会社名')}
-        <div className="flex gap-3">
-          {formUnit('lastname', '姓')}
-          {formUnit('firstname', '名')}
-        </div>
-        {formUnit('email', 'Eメール')}
-        {formUnit('phone', '電話番号')}
-        {formUnit('url', 'ウェブサイトURL')}
-        {formUnit('message', 'お問い合わせ内容')}
-        <div className="pt-8">
-          <Button
-            type="button"
-            onClick={form.handleSubmit(onSubmit)}
-            disabled={isDisabled}
-          >
-            送信 send
-          </Button>
-        </div>
-      </form>
-    </BaseForm>
-  )
+  const mandatoryStyle = 'after:content-["*"] after:text-destructive'
 
-  function formUnit(name: keyof typeof validations, label: string) {
-    const mandatory =
-      name === 'url' ? '' : "after:content-['*'] after:text-destructive"
-    const FormComponent = name === 'message' ? Textarea : Input
-    return (
-      <FormField
-        disabled={isDisabled}
-        control={form.control}
-        name={name}
-        render={({ field }) => (
+  return (
+    <Form {...form}>
+      <form className="space-y-6 mt-16 mb-32 w-5/6 ml-8 max-w-[32rem]">
+
+        <FormField disabled={isDisabled} control={form.control} name="company" render={({ field }) => (
           <FormItem>
             <FormLabel>
-              <div className={mandatory}>{label}</div>
+              <div className={mandatoryStyle}>会社名</div>
             </FormLabel>
             <FormControl>
-              <FormComponent {...field} />
+              <Input {...field} />
             </FormControl>
             <FormMessage />
           </FormItem>
-        )}
-      />
-    )
-  }
+        )} />
+
+        <div className="flex gap-3">
+          <FormField disabled={isDisabled} control={form.control} name="lastname" render={({ field }) => (
+            <FormItem className='w-1/2'>
+              <FormLabel>
+                <div className={mandatoryStyle}>姓</div>
+              </FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )} />
+          <FormField disabled={isDisabled} control={form.control} name="firstname" render={({ field }) => (
+            <FormItem className='w-1/2'>
+              <FormLabel>
+                <div className={mandatoryStyle}>名</div>
+              </FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )} />
+        </div>
+
+        <FormField disabled={isDisabled} control={form.control} name="email" render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              <div className={mandatoryStyle}>Eメール</div>
+            </FormLabel>
+            <FormControl>
+              <Input {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )} />
+
+        <FormField disabled={isDisabled} control={form.control} name="phone" render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              <div className={mandatoryStyle}>電話番号</div>
+            </FormLabel>
+            <FormControl>
+              <Input {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )} />
+
+        <FormField disabled={isDisabled} control={form.control} name="url" render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              <div>ウェブサイトURL</div>
+            </FormLabel>
+            <FormControl>
+              <Input {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )} />
+
+        <FormField disabled={isDisabled} control={form.control} name="message" render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              <div className={mandatoryStyle}>お問い合わせ内容</div>
+            </FormLabel>
+            <FormControl>
+              <Textarea {...field} />
+            </FormControl>
+            <FormMessage />
+          </FormItem>
+        )} />
+
+        <div className="pt-8">
+          <Button type="button" onClick={form.handleSubmit(onSubmit)} disabled={isDisabled}>
+            送信 send
+          </Button>
+        </div>
+
+      </form>
+    </Form>
+  )
 }
