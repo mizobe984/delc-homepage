@@ -1,0 +1,31 @@
+---
+import '../styles/news.css';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+import {getCollection} from 'astro:content';
+const newsEntries = await getCollection('posts');
+---
+
+<div class ="news">
+    {newsEntries.map((entry) => (
+        <Card>
+            <a href={'/news/'+entry.slug}>
+              <CardHeader>
+                    <img src={entry.data?.image?.url || "/images/logo.svg"} alt={entry.data?.image?.alt || "株式会社デルク"}/>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>{entry.data.pubDate.toString()}</CardDescription>
+                <CardTitle>{entry.data.title}</CardTitle>
+                  {entry.body?.trim().replace(/\r?\n/g, '').slice(0, 60)}
+              </CardContent>
+            </a>
+        </Card>
+    ))}
+</div>

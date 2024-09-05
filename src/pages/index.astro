@@ -2,7 +2,7 @@
 import Button from '@/components/Button.astro'
 
 import '@/styles/globals.css'
-import '@/styles/news.css'
+import '@/styles/newsList.css'
 import '@/styles/baseTopPageTextBox.css'
 
 import BaseLayout from '../layouts/BaseLayout.astro'
@@ -58,7 +58,7 @@ const tabTitle = 'DELC(株式会社デルク)'
       <div class="title-jp">お知らせ</div>
       <div class="title">NEWS</div>
       <div class="more">
-        <Button variant="default">VIEW MORE</Button>
+        <a href="/news"><Button variant="default">VIEW MORE</Button></a>
       </div>
     </div>
     <NewsList articles={articles} />
