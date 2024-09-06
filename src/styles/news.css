@@ -15,20 +15,3 @@
     background-color: hsl(184, 24%, 78%);
 }
 
-.news-block .news-title{
-    font-size: 1.2rem;
-    font-weight: bold; 
-    justify-self: start; 
-}
-
-.news-block .news-contents{
-    padding: 0.17rem 0;
-    justify-self: start; 
-
-}
-
-.news-block .news-date{
-    font-size: 0.75rem;
-    align-self: end;
-    justify-self: start;
-}

@@ -16,7 +16,7 @@ const newsEntries = await getCollection('posts');
 <div class ="news">
     {newsEntries.map((entry) => (
         <Card>
-            <a href={'/news/'+entry.slug}>
+            <a href={'/posts/'+entry.slug}>
               <CardHeader>
                     <img src={entry.data?.image?.url || "/images/logo.svg"} alt={entry.data?.image?.alt || "株式会社デルク"}/>
               </CardHeader>
