@@ -1,5 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
+import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro'; // レイアウトの正しいパスを指定
+
+import '@/styles/globals.css'
+import '@/styles/newsList.css'
+import '@/styles/baseTopPageTextBox.css'
+import '@/styles/news.css'
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -8,6 +14,8 @@ export async function getStaticPaths() {
   }));
 }
 
+const {frontmatter} = Astro.props;
+
 const { slug } = Astro.params;
 const posts = await getCollection('posts');
 const post = posts.find((p) => p.slug === slug);
@@ -15,24 +23,36 @@ const post = posts.find((p) => p.slug === slug);
 if (!post) {
   throw new Error(`Post with slug ${slug} not found`);
 }
+
+console.log(post.data.destinationURLs);
 ---
 
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{post.data.title}</title>
-</head>
-<body>
-  <h1>{post.data.title}</h1>
-  <p>{new Date(post.data.pubDate).toLocaleDateString()}</p>
 
-  {post.data.image && (
-    <img src={post.data.image.url} alt={post.data.image.alt} />
-  )}
+<MarkdownPostLayout 
+pageTitle={post.data.title} 
+tabTitle={post.data.title}
+pageTitleRuby={post.data.pageTitleRuby}
+destinationURLs={post.data.destinationURLs}
+>
+    <Fragment slot="hero">
+      <pre
+        class="font-bold text-xl max-md:text-lg leading-8 tracking-wider whitespace-pre-line ml-6">
+      </pre>
+    </Fragment>
 
-  <article>
-    {post.body}
-  </article>
-</body>
-</html>
+  <!-- コンテンツ部分はスロットに渡す -->
+  <slot>
+    <div class="bg-secondary expand -mb-32 pt-8 pb-32 pl-8">
+    <div class="news-title">{post.data.title}</div>
+    <div class="news-padding">{new Date(post.data.pubDate).toLocaleDateString()}</div>
+
+    {post.data.image && (
+      <img src={post.data.image.url} alt={post.data.image.alt} />
+    )}
+
+    <article>
+      <div class="news-padding">{post.body}</div>
+    </article>
+    </div>
+  </slot>
+</MarkdownPostLayout>
