@@ -2,7 +2,7 @@
 import '@/styles/globals.css'
 
 import BaseLayout from '../layouts/BaseLayout.astro'
-import News from '../components/News.astro'
+import NewsMainView from '../components/NewsMainView.astro'
 
 const pageTitle = 'NEWS'
 const pageTitleRuby = 'お知らせ'
@@ -10,7 +10,7 @@ const tabTitle = 'お知らせ'
 const destinationURLs = [{ url: 'news', ruby: 'お知らせ' }]
 ---
 
-<BaseLayout {pageTitle} {pageTitleRuby} {tabTitle} {destinationURLs}>
+<BaseLayout {pageTitle} {tabTitle} {pageTitleRuby} {destinationURLs}>
   <Fragment slot="hero">
     <pre
       class="font-bold text-xl max-md:text-lg leading-8 tracking-wider whitespace-pre-line ml-6">
@@ -18,6 +18,6 @@ const destinationURLs = [{ url: 'news', ruby: 'お知らせ' }]
   </Fragment>
 
   <div class="bg-secondary expand -mb-32 pt-8 pb-32 pl-8">
-    <News/>
+    <NewsMainView/>
   </div>
 </BaseLayout>

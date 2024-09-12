@@ -11,10 +11,14 @@ import {
 
 import {getCollection} from 'astro:content';
 const newsEntries = await getCollection('posts');
+
+//並び替え
+const DescArticleLists = newsEntries.sort((a, b) => Date.parse(b.data.pubDate.toDateString()) - Date.parse(a.data.pubDate.toDateString()));
 ---
 
+<newsMainView>
 <div class ="news">
-    {newsEntries.map((entry) => (
+    {DescArticleLists.map((entry) => (
         <Card>
             <a href={'/posts/'+entry.slug}>
               <CardHeader>
@@ -29,3 +33,4 @@ const newsEntries = await getCollection('posts');
         </Card>
     ))}
 </div>
+</newsMainView>

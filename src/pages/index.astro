@@ -2,12 +2,11 @@
 import Button from '@/components/Button.astro'
 
 import '@/styles/globals.css'
-import '@/styles/newsList.css'
 import '@/styles/baseTopPageTextBox.css'
 
 import BaseLayout from '../layouts/BaseLayout.astro'
 
-import NewsList from '../components/NewsList.jsx'
+import NewsList from '../components/NewsList.astro'
 import ServiceCards from '@/components/ServiceCards.astro'
 
 type Article = {
@@ -61,7 +60,7 @@ const tabTitle = 'DELC(株式会社デルク)'
         <a href="/news"><Button variant="default">VIEW MORE</Button></a>
       </div>
     </div>
-    <NewsList articles={articles} />
+    <NewsList />
   </div>
 
   <div

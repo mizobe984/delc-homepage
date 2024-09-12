@@ -1,0 +1,32 @@
+---
+import '../styles/newsList.css';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+
+import {getCollection} from 'astro:content';
+const newsEntries = await getCollection('posts');
+
+const DescArticleLists = newsEntries.sort((a, b) => Date.parse(b.data.pubDate.toDateString()) - Date.parse(a.data.pubDate.toDateString()));
+
+const displayedArticles = DescArticleLists.slice(0, 3);
+---
+
+<newsList>
+    <div class ="newslist">
+        {displayedArticles.map((entry) => (
+            <div class ="news-block">
+                <a href={'/posts/'+entry.slug}>
+                    <p>{entry.data.pubDate.toString()}</p>
+                    <div class ="news-title">{entry.data.title}</div>
+                    {entry.body?.trim().replace(/\r?\n/g, '').slice(0, 60) + "…"}
+                </a>
+            </div>
+        ))}
+    </div>
+</newsList>
