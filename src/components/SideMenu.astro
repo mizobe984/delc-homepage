@@ -1,7 +1,7 @@
 ---
 import '../styles/delcInfoGlobal.css'
 
-const { title, menus, show, anchor } = Astro.props
+const { menus, show, anchor } = Astro.props
 ---
 
 <sideMenu>
@@ -10,7 +10,6 @@ const { title, menus, show, anchor } = Astro.props
             anchor === false ? (
                 <div class="side-menu-block">
                     <div class="side-menu">
-                        <p1>{title}</p1>
                         {menus && menus.length > 0 ? (
                             menus.map((menu: { url: string; text: string }) => (
                                 <a href={'/' + menu.url}>{'・' + menu.text}</a>
@@ -23,7 +22,6 @@ const { title, menus, show, anchor } = Astro.props
             ) : (
                 <div class="side-menu-block">
                     <div class="side-menu">
-                        <p1>{title}</p1>
                         {menus && menus.length > 0 ? (
                             menus.map((menu: { url: string; text: string }) => (
                                 <a href={'#' + menu.url}>{'・' + menu.text}</a>

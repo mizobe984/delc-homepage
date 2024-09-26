@@ -27,15 +27,7 @@
   padding: 0 0 0 0.9rem;
 }
 
-.company-links-detail {
-  font-size: 1.2rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  width: 100%;
-  flex-flow: column;
-}
-
-.services-links-detail {
+.links-detail {
   font-size: 1.2rem;
   font-weight: bold;
   text-transform: uppercase;
@@ -73,16 +65,6 @@
 .expanded{
   display: block !important;
 }
-
-.expanded-grid{
-  
-  display: grid !important;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  grid-template-rows: auto;
-  width: 100.3%;
-  flex-flow: column;
-}
-
 
 .branding-logo{
   
@@ -157,11 +139,7 @@
     align-items: center;
   }
 
-  .company-pulldown-menu{
-    display: contents;
-  }
-
-  .services-pulldown-menu{
+  .pulldown-menu{
     display: contents;
   }
 
@@ -171,22 +149,12 @@
   .services-hamburger {
   }
 
-  .company-links-detail {
+  .links-detail {
     display: none;
     grid-row: 2;
     grid-column: 1/5;
     background-color: hsl(0, 0%, 100%);
     border: 1px solid #acacac;
-
-  }
-
-  .services-links-detail {
-    display: none;
-    grid-row: 2;
-    grid-column: -1/-5;
-    background-color: hsl(0, 0%, 100%);
-    border: 1px solid #acacac;
-
   }
 
   .hamburger {
@@ -211,6 +179,15 @@
   .nav-links-block .relative{
     display: none;
   }
+
+  .open{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: auto;
+    width: 100.3%;
+    flex-flow: column;
+    }
+
 }
 
 @media screen and (max-width: 919px) { /*スマホ*/
@@ -238,11 +215,7 @@
   width: 100%;
 }
 
-.company-pulldown-menu{
-  display: contents;
-}
-
-.services-pulldown-menu{
+.pulldown-menu{
   display: contents;
 }
 
@@ -260,14 +233,7 @@
     width: 100%;
   }
 
-  .company-links-detail {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
-  
-  }
-
-  .services-links-detail {
+  .links-detail {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
