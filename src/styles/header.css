@@ -11,8 +11,6 @@
   right: 1.5rem;
   z-index: 9000;
 
-  /* width: 64px; */
-  /* margin: 1rem 0.3rem; */
 }
 
 .company-hamburger {
@@ -138,12 +136,6 @@
     display: contents;
   }
 
-  .company-hamburger {
-  }
-
-  .services-hamburger {
-  }
-
   .nav-links a {  
     text-align: center;
   }  
@@ -195,13 +187,22 @@
   z-index: 9001;
 }
 
+.expanded{
+  display: block !important;
+  max-height: 1920px !important;
+  box-shadow:0px 1px 10px 2px hsl(0, 0%, 57%);
+}
+
 .nav-links{
-  display: none;
+  
+  max-height: 0px;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  
   position: fixed;
   top: 0;
   width: 100%;
   background-color: #fff;
-  box-shadow:0px 1px 10px 2px hsl(0, 0%, 57%);
 }
 
 .nav-links .nav-links-block {
@@ -244,11 +245,11 @@
   }
 
    .nav-links a {
-    padding: 1.2rem 0 1.2rem 30px;
+    padding: 1.5rem 0 1.5rem 30px;
   }
 
   .nav-links .links-detail a{
-    padding: 1.2rem 0 1.2rem 70px;
+    padding: 1.5rem 0 1.5rem 70px;
   }
 
   .branding-logo{
@@ -271,4 +272,9 @@
     height: 40px;
   }  
 
+  .chevron-icon{
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+    display: none;
+  }
 }

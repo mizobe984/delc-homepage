@@ -3,7 +3,7 @@ import { Building } from 'lucide-astro'
 import { Presentation } from 'lucide-astro'
 import { UserSearch } from 'lucide-astro'
 import { Mail } from 'lucide-astro'
-import { ChevronDown} from 'lucide-astro'
+import { ChevronDown } from 'lucide-astro'
 
 import '../styles/header.css'
 
@@ -40,7 +40,7 @@ import { cn } from '@/lib/utils'
         <div class="pulldown-menu">
         <a href="/company/" class="company-hamburger link-block border-top">
             <div class="nl-element">
-                <Building />会社情報<ChevronDown />
+                <Building />会社情報<ChevronDown class="chevron-icon"/>
             </div>
         </a>
         <div class="links-detail">
@@ -53,7 +53,7 @@ import { cn } from '@/lib/utils'
         <div class="pulldown-menu">
         <a href="/services/" class="services-hamburger link-block border-top">
             <div class="nl-element">
-                <Presentation />事業案内<ChevronDown />
+                <Presentation />事業案内<ChevronDown class="chevron-icon"/>
             </div>
         </a>
         <div class="links-detail">
