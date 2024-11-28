@@ -5,7 +5,7 @@
     color: hsl(var(--secondary-foreground));
 }
 
-.news-block{
+.news-block {
     padding: 10px 1.4rem;
     border-bottom: 1px solid #acacac;
 }
@@ -53,8 +53,8 @@
     border: solid 3px #000000;
 }
 
-.news .news-title{
+.news .news-title {
     font-size: 17px;
-    font-weight: bold;
+    /* font-weight: bold; */
     padding: 0.1em 0;
 }
