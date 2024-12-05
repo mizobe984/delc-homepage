@@ -10,69 +10,70 @@ import '../styles/header.css'
 import { cn } from '@/lib/utils'
 ---
 
-
-<div class="nav-links">      
-    <div class="nav-links-block">
-
-        <div class="relative h-[5rem]">
-            <a href="/" class="group w-30">
-              <div class="branding-logo">
-                <div
-                class={cn(
-                  'cmp-branding',
-                  'bg-clr',
-                  'group-hover:opacity-55 transition-all',
-                )}
-              >
-              </div>
-              <div
-                class={cn(
-                  'cmp-logo',
-                  'bg-clr',
-                  'group-hover:-translate-y-[1px] transition-all',
-                )}
-              >
-              </div>
-              </div>
-            </a>
+<div class="nav-links">
+  <div class="nav-links-block">
+    <div class="relative">
+      <a href="/" class="group w-30">
+        <div class="branding-logo">
+          <div
+            class={cn(
+              'cmp-branding',
+              'bg-clr',
+              'group-hover:opacity-55 transition-all',
+            )}
+          >
           </div>
-          
-        <div class="pulldown-menu">
-        <a href="/company/" class="company-hamburger link-block border-top">
-            <div class="nl-element">
-                <Building />会社情報<ChevronDown class="chevron-icon"/>
-            </div>
-        </a>
-        <div class="links-detail">
-            <a href="/company/" class="link-block" data-astro-reload>会社情報</a>
-            <a href="/location/" class="link-block" data-astro-reload>所在地</a>
-            <a href="/history/" class="link-block" data-astro-reload>沿革</a>
+          <div
+            class={cn(
+              'cmp-logo',
+              'bg-clr',
+              'group-hover:-translate-y-[1px] transition-all',
+            )}
+          >
+          </div>
         </div>
-        </div>
-
-        <div class="pulldown-menu">
-        <a href="/services/" class="services-hamburger link-block border-top">
-            <div class="nl-element">
-                <Presentation />事業案内<ChevronDown class="chevron-icon"/>
-            </div>
-        </a>
-        <div class="links-detail">
-            <a href="/services/#debug" class="link-block" data-astro-reload>デバッグ事業</a>
-            <a href="/services/#ses" class="link-block" data-astro-reload>SES事業</a>
-            <a href="/services/#saas" class="link-block" data-astro-reload>SaaS事業</a>
-        </div>
-        </div>
-
-        <a href="/recruit/" class="link-block border-top"
-            ><div class="nl-element"><UserSearch />求人情報</div></a
-        >
-
-        <a href="/contact/" class="link-block border-top"
-            ><div class="nl-element"><Mail />お問い合わせ</div></a
-        >
-        
-        <div class ="menu-bottom-space border-top"></div>
+      </a>
     </div>
+
+    <div class="pulldown-menu">
+      <a href="/company/" class="company-hamburger link-block border-top">
+        <div class="nl-element">
+          <Building size={20} />会社情報<ChevronDown class="chevron-icon" />
+        </div>
+      </a>
+      <div class="links-detail">
+        <a href="/company/" class="link-block" data-astro-reload>会社情報</a>
+        <a href="/location/" class="link-block" data-astro-reload>所在地</a>
+        <a href="/history/" class="link-block" data-astro-reload>沿革</a>
+      </div>
+    </div>
+
+    <div class="pulldown-menu">
+      <a href="/services/" class="services-hamburger link-block border-top">
+        <div class="nl-element">
+          <Presentation size={20} />事業案内<ChevronDown class="chevron-icon" />
+        </div>
+      </a>
+      <div class="links-detail">
+        <a href="/services/#debug" class="link-block" data-astro-reload
+          >デバッグ事業</a
+        >
+        <a href="/services/#ses" class="link-block" data-astro-reload>SES事業</a
+        >
+        <a href="/services/#saas" class="link-block" data-astro-reload
+          >SaaS事業</a
+        >
+      </div>
+    </div>
+
+    <a href="/recruit/" class="link-block border-top"
+      ><div class="nl-element"><UserSearch size={20} />求人情報</div></a
+    >
+
+    <a href="/contact/" class="link-block border-top"
+      ><div class="nl-element"><Mail size={20} />お問い合わせ</div></a
+    >
+
+    <div class="menu-bottom-space border-top"></div>
+  </div>
 </div>
-
-

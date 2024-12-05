@@ -1,12 +1,12 @@
 .bg-clr {
-  background-color: hsl(163, 23%, 25%);
+  background-color: hsl(var(--foreground));
 }
 
 /* ナビゲーションのスタイル */
 .hamburger {
   position: fixed;
   /* ウィンドウを基準に画面に固定 */
-  top: 1.5rem;
+  top: 2.2rem;
   /* 上下の固定位置を上から0pxにする */
   right: 1.5rem;
   z-index: 9000;
@@ -14,20 +14,15 @@
 }
 
 .company-hamburger {
-  font-size: 1.2rem;
-  font-weight: bold;
   padding: 0 0 0 0.9rem;
 }
 
 .services-hamburger {
-  font-size: 1.2rem;
-  font-weight: bold;
   padding: 0 0 0 0.9rem;
 }
 
 .links-detail {
-  font-size: 1.2rem;
-  font-weight: bold;
+  font-size: .9rem;
   text-transform: uppercase;
   width: 100%;
   flex-flow: column;
@@ -42,9 +37,6 @@
 
 .nav-links a {
   display: block;
-
-  font-size: 1.2rem;
-  font-weight: bold;
   text-transform: uppercase;
 }
 
@@ -64,9 +56,8 @@
 }
 
 .cmp-branding {
-  /* margin: 0 0 0 0; */
-  width: 45px;
-  height: 45px;
+  width: 72px;
+  height: 48px;
 
   mask-image: url(../images/branding.svg);
   mask-size: contain;
@@ -75,8 +66,8 @@
 }
 
 .cmp-logo {
-  width: 80px;
-  height: 45px;
+  margin-left: -0.9rem;
+  width: 105px;
 
   mask-image: url(../images/logo.svg);
   mask-size: contain;
@@ -122,7 +113,7 @@
     text-decoration: none;
     text-transform: uppercase;
 
-    background-color: 0 0 0;
+    /* background-color: 0 0 0; */
     /* 背景色 */
   }
 
@@ -141,11 +132,13 @@
   }  
 
   .links-detail {
+    margin-left: 1rem;
     display: none;
     grid-row: 2;
     grid-column: 1/5;
     background-color: hsl(0, 0%, 100%);
-    border: 1px solid #acacac;
+    border: 1px solid hsl(var(--border));
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
   }
 
   .hamburger {
@@ -241,7 +234,7 @@
   }
 
   .border-top {
-    border-top: 1px solid #acacac;
+    border-top: 1px solid hsl(var(--border));
   }
 
    .nav-links a {
@@ -254,15 +247,8 @@
 
   .branding-logo{
     display: flex;
-    position: sticky;
+    margin: 1.3rem -1rem;
   }
-
-  .cmp-branding{
-    height: 35px;
-    width: 35px;
-    margin: auto 0;
-  }
-
 
   .nav-links .relative a {
     padding: 1.2rem 0 1.2rem 30px;

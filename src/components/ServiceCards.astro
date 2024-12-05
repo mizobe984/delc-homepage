@@ -43,7 +43,7 @@ const parameterTable: ParameterTable[] = [
         <Card
           className={cn(
             'flex justify-between',
-            'w-[28rem] pt-5 mt-3',
+            'w-[28rem] pt-5 mt-3 max-w-[80%]',
             mlIndent,
             'rounded-none rounded-e-full',
             'bg-gradient-to-b from-background via-background to-secondary',
@@ -51,7 +51,9 @@ const parameterTable: ParameterTable[] = [
         >
           <div>
             <CardContent>
-              <CardTitle className="text-lg">{data.title}</CardTitle>
+              <CardTitle className="text-lg font-normal">
+                {data.title}
+              </CardTitle>
               <CardDescription>{data.description}</CardDescription>
             </CardContent>
           </div>
