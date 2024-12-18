@@ -10,8 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/react": "^4.0.0",
-    "@astrojs/rss": "^4.0.9",
+    "@astrojs/react": "^4.1.1",
+    "@astrojs/rss": "^4.0.10",
     "@astrojs/tailwind": "^5.1.3",
     "@emailjs/browser": "^4.4.1",
     "@fontsource-variable/cabin": "^5.1.0",
@@ -24,7 +24,7 @@
     "@radix-ui/react-toast": "^1.2.1",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
-    "astro": "^5.0.2",
+    "astro": "^5.0.9",
     "autoprefixer": "^10.4.19",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

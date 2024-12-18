@@ -4,8 +4,11 @@ import { Presentation } from 'lucide-astro'
 import { UserSearch } from 'lucide-astro'
 import { Mail } from 'lucide-astro'
 import { ChevronDown } from 'lucide-astro'
+import { AlignJustify } from 'lucide-react'
+import { X } from 'lucide-react'
 
 import '../styles/header.css'
+import ResponsiveLink from '../components/ResponsiveLink.jsx';
 
 import { cn } from '@/lib/utils'
 ---
@@ -36,11 +39,13 @@ import { cn } from '@/lib/utils'
     </div>
 
     <div class="pulldown-menu">
-      <a href="/company/" class="company-hamburger link-block border-top">
-        <div class="nl-element">
-          <Building size={20} />会社情報<ChevronDown class="chevron-icon" />
+      <ResponsiveLink href={"/company/"} client:load>
+        <div class="link-block border-top nl-element">
+          <Building size={20} />会社情報
+          <div class = "alignJustify-icon"><AlignJustify size={16} /></div>
+          <div class = "x-icon"><X size={16} /></div>
         </div>
-      </a>
+      </ResponsiveLink>
       <div class="links-detail">
         <a href="/company/" class="link-block" data-astro-reload>会社情報</a>
         <a href="/location/" class="link-block" data-astro-reload>所在地</a>
@@ -49,11 +54,13 @@ import { cn } from '@/lib/utils'
     </div>
 
     <div class="pulldown-menu">
-      <a href="/services/" class="services-hamburger link-block border-top">
-        <div class="nl-element">
-          <Presentation size={20} />事業案内<ChevronDown class="chevron-icon" />
+      <ResponsiveLink href={"/services/"} client:load>
+        <div class="link-block border-top nl-element">
+          <Presentation size={20} />事業案内
+          <div class = "alignJustify-icon"><AlignJustify size={16} /></div>
+          <div class = "x-icon"><X size={16} /></div>
         </div>
-      </a>
+      </ResponsiveLink>
       <div class="links-detail">
         <a href="/services/#debug" class="link-block" data-astro-reload
           >デバッグ事業</a
