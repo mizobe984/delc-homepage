@@ -1,11 +1,4 @@
 
-.news{
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
-    place-items: center;
-}
-
 .news-block{
     display: grid;
     grid-template-columns: 1fr;
@@ -23,3 +16,39 @@
 .news-padding{
     padding: 1.2rem 0;
 }
+
+.fixed-image {
+    width: 100%;
+    height: 200px; /* 任意の高さ */
+    object-fit: cover;
+  }
+
+  @media screen and (min-width: 920px) { /*PCサイズ*/
+    .news{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(auto-fit, minmax(150px, 1fr));
+        place-items: center;
+        gap: 5px; 
+    }    
+
+    .card-fixed{
+        width: 100%;
+        height: 100%;
+    }    
+  }
+  @media screen and (max-width: 919px) { /*スマホ*/
+    .news{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: 1fr;
+        place-items: center;
+        gap: 5px; 
+    }    
+
+    .card-fixed{
+        width: 80%;
+        height: 100%;
+    }
+    
+  }

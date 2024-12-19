@@ -19,15 +19,15 @@ const DescArticleLists = newsEntries.sort((a, b) => Date.parse(b.data.pubDate.to
 <newsMainView>
 <div class ="news">
     {DescArticleLists.map((entry) => (
-        <Card>
+        <Card className="card-fixed">
             <a href={'/posts/'+entry.slug}>
               <CardHeader>
-                    <img src={entry.data?.image?.url || "/images/logo.svg"} alt={entry.data?.image?.alt || "株式会社デルク"}/>
+                    <img src={entry.data?.image?.url || "/images/logo.svg"} alt={entry.data?.image?.alt || "株式会社デルク"} class="fixed-image"/>
               </CardHeader>
               <CardContent>
                 <CardDescription>{entry.data.pubDate.toString()}</CardDescription>
                 <CardTitle>{entry.data.title}</CardTitle>
-                  {entry.body?.trim().replace(/\r?\n/g, '').slice(0, 60)}
+                  
               </CardContent>
             </a>
         </Card>
