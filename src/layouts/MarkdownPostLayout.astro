@@ -3,7 +3,7 @@ import Header from '../components/DelcHeader.astro'
 import Footer from '../components/DelcFooter.astro'
 import BrandingLogo from '@/components/BrandingLogo.astro'
 import '../styles/delcGlobal.css'
-import { ViewTransitions, slide } from 'astro:transitions'
+import { slide } from 'astro:transitions'
 
 const { pageTitle, tabTitle, pageTitleRuby, destinationURLs } = Astro.props
 
@@ -19,7 +19,6 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{tabTitle}</title>
-    <ViewTransitions />
   </head>
   <body class="font-body">
     <Header />

@@ -3,8 +3,6 @@ import { getCollection } from 'astro:content';
 import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro'; // レイアウトの正しいパスを指定
 
 import '@/styles/globals.css'
-import '@/styles/newsList.css'
-import '@/styles/baseTopPageTextBox.css'
 import '@/styles/news.css'
 
 export async function getStaticPaths() {
@@ -24,6 +22,7 @@ if (!post) {
   throw new Error(`Post with slug ${slug} not found`);
 }
 
+const { Content, headings } = await post.render();
 ---
 
 
@@ -50,7 +49,7 @@ destinationURLs={post.data.destinationURLs}
     )}
 
     <article>
-      <div class="news-padding">{post.body}</div>
+      <div class="news-padding"><Content /></div>
     </article>
     </div>
   </slot>
