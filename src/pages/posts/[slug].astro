@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro'; // レイアウトの正しいパスを指定
+import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
 
 import '@/styles/globals.css'
 import '@/styles/news.css'
@@ -22,7 +22,14 @@ if (!post) {
   throw new Error(`Post with slug ${slug} not found`);
 }
 
+const image = post.data.image ?? {
+  url: '/src/images/branding.svg',
+  alt: ''
+}
+
 const { Content, headings } = await post.render();
+
+const postURL = [{ url: 'posts/' +post.slug, ruby: post.data.title }]
 ---
 
 
@@ -30,7 +37,7 @@ const { Content, headings } = await post.render();
 pageTitle={post.data.title} 
 tabTitle={post.data.title}
 pageTitleRuby={post.data.pageTitleRuby}
-destinationURLs={post.data.destinationURLs}
+destinationURLs={postURL}
 >
     <Fragment slot="hero">
       <pre
@@ -44,9 +51,7 @@ destinationURLs={post.data.destinationURLs}
     <div class="news-title">{post.data.title}</div>
     <div class="news-padding">{new Date(post.data.pubDate).toLocaleDateString()}</div>
 
-    {post.data.image && (
-      <img src={post.data.image.url} alt={post.data.image.alt} />
-    )}
+    <img src={image.url} alt={image.alt} />
 
     <article>
       <div class="news-padding"><Content /></div>

@@ -13,8 +13,8 @@ const postsCollection = defineCollection({
       }).optional(),
       pageTitleRuby: z.string().optional(), // rubyフィールドを追加
       destinationURLs: z.array(z.object({  // breadcrumbフィールドを追加
-        ruby: z.string(),
         url: z.string(),
+        ruby: z.string(),
       })).optional(),
     }),
 });

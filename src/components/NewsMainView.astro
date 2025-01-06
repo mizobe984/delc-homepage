@@ -22,7 +22,7 @@ const DescArticleLists = newsEntries.sort((a, b) => Date.parse(b.data.pubDate.to
         <Card className="card-fixed">
             <a href={'/posts/'+entry.slug}>
               <CardHeader>
-                    <img src={entry.data?.image?.url || "/images/logo.svg"} alt={entry.data?.image?.alt || "株式会社デルク"} class="fixed-image"/>
+                    <img src={entry.data?.image?.url || "/src/images/branding.svg"} alt={entry.data?.image?.alt || "株式会社デルク"} class="fixed-image"/>
               </CardHeader>
               <CardContent>
                 <CardDescription>{entry.data.pubDate.toString()}</CardDescription>

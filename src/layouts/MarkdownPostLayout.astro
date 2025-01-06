@@ -10,6 +10,10 @@ const { pageTitle, tabTitle, pageTitleRuby, destinationURLs } = Astro.props
 import { Toaster } from '@/components/ui/toaster'
 
 import BreadCrumb from '@/components/BreadCrumb.astro'
+
+const NewsURL = [{ url: 'news', ruby: 'お知らせ' }]
+
+const merged = [...NewsURL, ...destinationURLs];
 ---
 
 <html lang="ja">
@@ -36,11 +40,11 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
         class="absolute z-40 bottom-0 ml-12 mb-12 max-md:ml-6 animate-fadeInUp"
       >
         {
-          destinationURLs && destinationURLs.length > 0 && (
+          merged && merged.length > 0 && (
             <div class="page-title-block">
               <div class="page-title-ruby">{pageTitleRuby}</div>
               <div class="page-title">{pageTitle}</div>
-              <BreadCrumb destinationURLs={destinationURLs} />
+              <BreadCrumb destinationURLs={merged} />
             </div>
           )
         }
