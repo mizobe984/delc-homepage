@@ -6,7 +6,7 @@ import { Mail } from "lucide-astro";
 
 export interface IconData {
   name: string;
-  icon: () => string;
+  icon: any;
 }
 
 export const IconData: IconData[] = [
