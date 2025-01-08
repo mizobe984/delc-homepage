@@ -9,7 +9,7 @@
   top: 2.2rem;
   /* 上下の固定位置を上から0pxにする */
   right: 1.5rem;
-  z-index: 9000;
+  z-index: 9001;
 
 }
 
@@ -37,7 +37,7 @@
   background-color: hsl(var(--secondary));
 }
 
-.nl-element {
+.link-format {
   display: flex;
   align-items: center;
   pointer-events: none;
@@ -72,10 +72,24 @@
 }
 
 @media screen and (min-width: 920px) { /*PCサイズ*/
-
   .nav-links {
     display: block;
-    /* 中の要素を横並びにする */
+    width: 100%;
+  }
+
+  .nav-branding{
+    display: none;
+  }
+
+  /*グリッド設定*/
+  .nav-links .nav-links-block {
+    z-index: 9001;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-rows: 45px auto;
+    place-items: center;
+
     width: 640px;
     height: 45px;
     /* 高さを45pxに指定 */
@@ -86,31 +100,20 @@
     /* padding分を含んで幅を100%にするため */
     position: fixed;
     /* ウィンドウを基準に画面に固定 */
-    top: 2rem;
+    top: 1rem;
     /* 上下の固定位置を上から0pxにする */
-
-    margin: 0 1.5rem 0 auto;
-
+    right: 1rem;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
-  }
 
-  /*グリッド設定*/
-  .nav-links .nav-links-block {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-template-rows: 45px auto;
-    place-items: center;
   }
 
   /*判定範囲*/
-  .nav-links .nav-links-block .link-block {
+  .nav-links .nav-links-block .detection-size {
     width: 100%;
     padding: 0.65rem 0;
-    text-decoration: none;
-    text-transform: uppercase;
   }
 
-  .nl-element {
+  .link-format {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -157,8 +160,6 @@
 
   .dli-chevron-down {
     background-color: #ffffff;
-    /* 背景色 */
-
   }
   
   .nav-links-block .relative{
@@ -187,7 +188,6 @@
 }
 
 .nav-links{
-  
   max-height: 0px;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
@@ -202,11 +202,9 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fit, minmax(auto, 1fr));
-  /*中央揃え*/
-  /*place-items: center;*/
 }
 
-.link-block {
+.detection-size {
   width: 100%;
 }
 
@@ -214,17 +212,13 @@
   display: contents;
 }
 
-.responsive-link {
-}
-
-.nl-element {
+.link-format {
   align-items: center;
-  padding: 1.5rem 0 1.5rem 30px;
+  padding: 1.5rem 0 1.5rem 25px;
 
 }
 
 .links-detail {
-  /*display: grid;*/
   display: none;
 
   grid-template-columns: 1fr;
@@ -233,9 +227,6 @@
 
 .border-top {
   border-top: 1px solid hsl(var(--border));
-}
-
-.nav-links a {
 }
 
   .nav-links .links-detail a{
@@ -248,18 +239,12 @@
   }
 
   .nav-links .relative a {
-    padding: 1.2rem 0 1.2rem 30px;
+    padding: 1.2rem 0 1.2rem 21px;
   }
 
   .menu-bottom-space{
     height: 40px;
   }  
-
-  .chevron-icon{
-    display: inline-block;
-    transition: transform 0.3s ease-in-out;
-    display: none;
-  }
 
   .open-links-detail{
     display: grid !important;

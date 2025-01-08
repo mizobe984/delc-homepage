@@ -25,11 +25,6 @@ const ResponsiveLink = ({ href, children }) => {
     <a
       href={isLinkEnabled ? href : undefined}
       className="responsive-link"
-      /*style={{
-        pointerEvents: isLinkEnabled ? 'auto' : 'none',
-        color: isLinkEnabled ? 'blue' : 'gray',
-        cursor: isLinkEnabled ? 'pointer' : 'not-allowed',
-      }}*/
       data-astro-reload
     >
       {children}

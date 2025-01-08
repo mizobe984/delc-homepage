@@ -14,8 +14,7 @@ import { cn } from '@/lib/utils'
 ---
 
 <div class="nav-links">
-  <div class="nav-links-block">
-    <div class="relative">
+  <div class="relative nav-branding">
       <a href="/" class="group w-30">
         <div class="branding-logo">
           <div
@@ -30,55 +29,57 @@ import { cn } from '@/lib/utils'
             class={cn(
               'cmp-logo',
               'bg-clr',
+              'translate-y-[1px]',
               'group-hover:-translate-y-[1px] transition-all',
             )}
           >
           </div>
         </div>
       </a>
-    </div>
+  </div>
 
+  <div class="nav-links-block">
     <div class="pulldown-menu">
       <ResponsiveLink href={"/company/"} client:load>
-        <div class="link-block border-top nl-element">
+        <div class="detection-size border-top link-format">
           <Building size={20} />会社情報
           <div class = "alignJustify-icon"><AlignJustify size={16} /></div>
           <div class = "x-icon"><X size={16} /></div>
         </div>
       </ResponsiveLink>
       <div class="links-detail">
-        <a href="/company/" class="link-block" data-astro-reload>会社情報</a>
-        <a href="/location/" class="link-block" data-astro-reload>所在地</a>
-        <a href="/history/" class="link-block" data-astro-reload>沿革</a>
+        <a href="/company/" class="detection-size" data-astro-reload>会社情報</a>
+        <a href="/location/" class="detection-size" data-astro-reload>所在地</a>
+        <a href="/history/" class="detection-size" data-astro-reload>沿革</a>
       </div>
     </div>
 
     <div class="pulldown-menu">
       <ResponsiveLink href={"/services/"} client:load>
-        <div class="link-block border-top nl-element">
+        <div class="detection-size border-top link-format">
           <Presentation size={20} />事業案内
           <div class = "alignJustify-icon"><AlignJustify size={16} /></div>
           <div class = "x-icon"><X size={16} /></div>
         </div>
       </ResponsiveLink>
       <div class="links-detail">
-        <a href="/services/#debug" class="link-block" data-astro-reload
+        <a href="/services/#debug" class="detection-size" data-astro-reload
           >デバッグ事業</a
         >
-        <a href="/services/#ses" class="link-block" data-astro-reload>SES事業</a
+        <a href="/services/#ses" class="detection-size" data-astro-reload>SES事業</a
         >
-        <a href="/services/#saas" class="link-block" data-astro-reload
+        <a href="/services/#saas" class="detection-size" data-astro-reload
           >SaaS事業</a
         >
       </div>
     </div>
 
-    <a href="/recruit/" class="link-block border-top"
-      ><div class="nl-element"><UserSearch size={20} />求人情報</div></a
+    <a href="/recruit/" class="detection-size border-top"
+      ><div class="link-format"><UserSearch size={20} />求人情報</div></a
     >
 
-    <a href="/contact/" class="link-block border-top"
-      ><div class="nl-element"><Mail size={20} />お問い合わせ</div></a
+    <a href="/contact/" class="detection-size border-top"
+      ><div class="link-format"><Mail size={20} />お問い合わせ</div></a
     >
 
     <div class="menu-bottom-space border-top"></div>
