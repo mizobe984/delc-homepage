@@ -1,6 +1,3 @@
-const main = document.querySelectorAll(".pulldown-menu");
-const item = Array.from(main);
-
 document.addEventListener('astro:page-load', () => {
   document.querySelector('.hamburger').addEventListener('click', () => {
     document.querySelector('.nav-links').classList.toggle('expanded');
@@ -9,6 +6,9 @@ document.addEventListener('astro:page-load', () => {
 
     /*SP処理*/
 document.addEventListener('astro:page-load', () => {
+  const main = document.querySelectorAll(".pulldown-menu");
+  const item = Array.from(main);
+
   item.forEach(function (element) {
 
     element.addEventListener("click", function() {
