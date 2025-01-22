@@ -228,10 +228,15 @@
 }
 
 .links-detail {
-  display: none;
+  display: grid;
 
   grid-template-columns: 1fr;
   grid-template-rows: repeat(auto-fit, minmax(50px, 1fr));
+
+  overflow: hidden;
+  height: 0;
+  opacity: 0;
+  transition: height 0.3s ease, opacity 0.3s ease;
 }
 
 .border-top {
@@ -256,7 +261,8 @@
   }  
 
   .open-links-detail{
-    display: grid !important;
+    height: 200px;
+    opacity: 1;
     }  
  
   .alignJustify-icon{

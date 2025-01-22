@@ -7,6 +7,7 @@ document.addEventListener('astro:page-load', () => {
   });
 });
 
+    /*SP処理*/
 document.addEventListener('astro:page-load', () => {
   item.forEach(function (element) {
 
@@ -22,7 +23,8 @@ document.addEventListener('astro:page-load', () => {
         }
       }
     }, false);
-
+    
+    /*PC処理*/
     element.addEventListener("mouseover", function() {
       const detail = element.querySelector(".links-detail");
       if (detail && window.innerWidth >= 920) {
