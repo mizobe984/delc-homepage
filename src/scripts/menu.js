@@ -25,19 +25,17 @@ document.addEventListener('astro:page-load', () => {
 
     element.addEventListener("mouseover", function() {
       const detail = element.querySelector(".links-detail");
-      if (detail) {
-        if (window.innerWidth >= 920) {
-          detail.classList.add("open");
-        }
+      if (detail && window.innerWidth >= 920) {
+        detail.classList.add("open");
+        detail.classList.add("active");
       }
     }, false);
     
     element.addEventListener("mouseout", function() {
       const detail = element.querySelector(".links-detail");
-      if (detail) {
-        if (window.innerWidth >= 920) {
-          detail.classList.remove("open");
-        }
+      if (detail && window.innerWidth >= 920) {
+        detail.classList.remove("open");
+        detail.classList.remove("active");
       }
     }, false);
 

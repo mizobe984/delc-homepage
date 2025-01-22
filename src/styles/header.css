@@ -132,17 +132,26 @@
   }  
 
   .links-detail {
-    display: none;
+    display: grid;
     grid-row: 2;
     grid-column: 1/5;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     grid-template-rows: auto;
-    width: 100.3%;
-    flex-flow: column;
+    width: 100%;
 
     background-color: hsl(0, 0%, 100%);
     border: 1px solid hsl(var(--border));
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
+
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition: height 0.3s ease, opacity 0.3s ease;
+  }
+
+  .links-detail.active {
+    height: 45px;
+    opacity: 1;
   }
 
   .hamburger {
