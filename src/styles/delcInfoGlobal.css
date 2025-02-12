@@ -36,8 +36,8 @@
   line-height: 3.5rem;
   border: 4px double hsl(var(--foreground));
   position: sticky;
+  padding: 1rem 0; /*サイドメニューの上下の余白*/
   top: 2.5rem;
-  padding: 0.5rem 2rem 12rem 1.5rem;
   margin: 4rem 2rem;
 
   .side-menu {
@@ -54,7 +54,7 @@
       width: 100%;
       font-size: 1.1rem;
       text-transform: uppercase;
-
+      padding: 0 0 0 1rem;
       &:hover,
       &:focus {
         background-color: hsl(var(--secondary));
@@ -110,6 +110,10 @@ table.no-hover-effect tr:hover {
     padding: 2.5rem;
   }
 
+  .side-menu-block {
+    padding-bottom: 12rem;
+  }
+
 }
 
 @media (max-width: 767px) {
@@ -128,7 +132,6 @@ table.no-hover-effect tr:hover {
 
   .side-menu-block {
     text-align: center;
-    padding-bottom: 4rem;
   }
 
 }
