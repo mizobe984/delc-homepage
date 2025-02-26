@@ -55,6 +55,7 @@
       font-size: 1.1rem;
       text-transform: uppercase;
       padding: 0 0 0 0;
+      transition: background-color 0.3s ease;
       &:hover,
       &:focus {
         background-color: hsl(var(--secondary));
@@ -111,7 +112,7 @@ table.no-hover-effect tr:hover {
   }
 
   .side-menu-block {
-    padding-bottom: 12rem;
+    
   }
 
   .side-menu-block .side-menu a{
