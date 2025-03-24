@@ -3,14 +3,16 @@ import Header from '../components/DelcHeader.astro'
 import Footer from '../components/DelcFooter.astro'
 import BrandingLogo from '@/components/BrandingLogo.astro'
 import '../styles/delcGlobal.css'
-import { ClientRouter , slide } from 'astro:transitions'
+import { ClientRouter, slide } from 'astro:transitions'
 
 const { pageTitle, tabTitle, pageTitleRuby, destinationURLs } = Astro.props
 
 import { Toaster } from '@/components/ui/toaster'
 
-import '@fontsource-variable/open-sans'
 import '@fontsource-variable/cabin'
+import '@fontsource/zen-kurenaido'
+import '@fontsource/m-plus-rounded-1c'
+
 import BreadCrumb from '@/components/BreadCrumb.astro'
 ---
 

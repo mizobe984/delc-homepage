@@ -3,70 +3,71 @@ import { Building } from 'lucide-astro'
 import { Presentation } from 'lucide-astro'
 import { UserSearch } from 'lucide-astro'
 import { Mail } from 'lucide-astro'
-import { ChevronDown } from 'lucide-astro'
 import { AlignJustify } from 'lucide-react'
 import { X } from 'lucide-react'
 
 import '../styles/header.css'
-import ResponsiveLink from '../components/ResponsiveLink.jsx';
+import ResponsiveLink from '../components/ResponsiveLink.jsx'
 
 import { cn } from '@/lib/utils'
 ---
 
 <div class="nav-links">
   <div class="relative nav-branding">
-      <a href="/" class="group w-30">
-        <div class="branding-logo">
-          <div
-            class={cn(
-              'cmp-branding',
-              'bg-clr',
-              'group-hover:opacity-55 transition-all',
-            )}
-          >
-          </div>
-          <div
-            class={cn(
-              'cmp-logo',
-              'bg-clr',
-              'translate-y-[1px]',
-              'group-hover:-translate-y-[1px] transition-all',
-            )}
-          >
-          </div>
+    <a href="/" class="group w-30">
+      <div class="branding-logo">
+        <div
+          class={cn(
+            'cmp-branding',
+            'bg-clr',
+            'group-hover:opacity-55 transition-all'
+          )}
+        >
         </div>
-      </a>
+        <div
+          class={cn(
+            'cmp-logo',
+            'bg-clr',
+            'translate-y-[1px]',
+            'group-hover:-translate-y-[1px] transition-all'
+          )}
+        >
+        </div>
+      </div>
+    </a>
   </div>
 
   <div class="nav-links-block">
     <div class="pulldown-menu">
-      <ResponsiveLink href={"/company/"} client:load>
+      <ResponsiveLink href={'/company/'} client:load>
         <div class="detection-size border-top link-format">
           <Building size={20} />会社情報
-          <div class = "alignJustify-icon"><AlignJustify size={16} /></div>
-          <div class = "x-icon"><X size={16} /></div>
+          <div class="alignJustify-icon"><AlignJustify size={16} /></div>
+          <div class="x-icon"><X size={16} /></div>
         </div>
       </ResponsiveLink>
       <div class="links-detail">
-        <a href="/company/" class="detection-size" data-astro-reload>会社情報</a>
+        <a href="/company/" class="detection-size" data-astro-reload>会社情報</a
+        >
         <a href="/location/" class="detection-size" data-astro-reload>所在地</a>
         <a href="/history/" class="detection-size" data-astro-reload>沿革</a>
       </div>
     </div>
 
     <div class="pulldown-menu">
-      <ResponsiveLink href={"/services/"} client:load>
+      <ResponsiveLink href={'/services/'} client:load>
         <div class="detection-size border-top link-format">
           <Presentation size={20} />事業案内
-          <div class = "alignJustify-icon"><AlignJustify size={16} /></div>
-          <div class = "x-icon"><X size={16} /></div>
+          <div class="alignJustify-icon"><AlignJustify size={16} /></div>
+          <div class="x-icon"><X size={16} /></div>
         </div>
       </ResponsiveLink>
       <div class="links-detail">
         <a href="/services/#debug" class="detection-size" data-astro-reload
           >デバッグ事業</a
         >
-        <a href="/services/#ses" class="detection-size" data-astro-reload>SES事業</a
+        <a href="/services/#ses" class="detection-size" data-astro-reload
+          >SES事業</a
         >
         <a href="/services/#saas" class="detection-size" data-astro-reload
           >SaaS事業</a
