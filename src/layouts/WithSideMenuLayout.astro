@@ -3,12 +3,7 @@ import BaseLayout from './BaseLayout.astro'
 import SideMenu from '../components/SideMenu.astro'
 import '../styles/delcInfoGlobal.css'
 
-const {
-  menus,
-  menuShow: show,
-  mainBlockSize,
-  anchor,
-} = Astro.props
+const { menus, menuShow: show, mainBlockSize, anchor } = Astro.props
 ---
 
 <BaseLayout {...Astro.props}>
@@ -23,7 +18,3 @@ const {
     </div>
   </div>
 </BaseLayout>
-
-<script>
-  import '../scripts/menu.js'
-</script>

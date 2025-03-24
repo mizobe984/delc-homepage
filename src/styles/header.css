@@ -93,7 +93,7 @@
     height: 45px;
     /* 高さを45pxに指定 */
     background-color: hsl(var(--background));
-    opacity: 85%;
+    opacity: 92%;
     /* 背景色 */
     box-sizing: border-box;
     /* padding分を含んで幅を100%にするため */
