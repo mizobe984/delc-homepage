@@ -12,13 +12,7 @@ const destinationURLs = [{ url: 'news', ruby: 'お知らせ' }]
 ---
 
 <BaseLayout {pageTitle} {tabTitle} {pageTitleRuby} {destinationURLs}>
-  <Fragment slot="hero">
-    <pre
-      class="font-bold text-xl max-md:text-lg leading-8 tracking-wider whitespace-pre-line ml-6">
-    </pre>
-  </Fragment>
-
   <div class="bg-secondary expand -mb-32 pt-8 pb-32 pl-8">
-    <NewsMainView/>
+    <NewsMainView />
   </div>
 </BaseLayout>

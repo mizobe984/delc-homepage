@@ -2,13 +2,14 @@
 import BaseLayout from './BaseLayout.astro'
 import '../styles/delcGlobal.css'
 import '../styles/delcInfoGlobal.css'
-const { destinationURLs } = Astro.props
+// const { destinationURLs } = Astro.props
 
 const NewsURL = [{ url: 'news', ruby: 'お知らせ' }]
 
-const merged = [...NewsURL, ...destinationURLs]
+// const merged = [...NewsURL]
+// const merged = [...NewsURL, ...destinationURLs]
 ---
 
-<BaseLayout {...Astro.props} destinationURLs={merged}>
+<BaseLayout {...Astro.props} destinationURLs={NewsURL}>
   <slot />
 </BaseLayout>

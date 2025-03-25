@@ -1,62 +1,57 @@
 ---
-import { getCollection } from 'astro:content';
-import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro';
+import { getCollection } from 'astro:content'
+import MarkdownPostLayout from '../../layouts/MarkdownPostLayout.astro'
 
 import '@/styles/globals.css'
 import '@/styles/news.css'
 import '@/styles/baseTopPageTextBox.css'
 
 export async function getStaticPaths() {
-  const posts = await getCollection('posts');
+  const posts = await getCollection('posts')
   return posts.map((post) => ({
     params: { slug: post.slug },
-  }));
+  }))
 }
 
-const {frontmatter} = Astro.props;
+const { frontmatter } = Astro.props
 
-const { slug } = Astro.params;
-const posts = await getCollection('posts');
-const post = posts.find((p) => p.slug === slug);
+const { slug } = Astro.params
+const posts = await getCollection('posts')
+const post = posts.find((p) => p.slug === slug)
 
 if (!post) {
-  throw new Error(`Post with slug ${slug} not found`);
+  throw new Error(`Post with slug ${slug} not found`)
 }
 
 const image = post.data.image ?? {
   url: '/src/images/branding.svg',
-  alt: ''
+  alt: '',
 }
 
-const { Content, headings } = await post.render();
+const { Content, headings } = await post.render()
 
-const postURL = [{ url: 'posts/' +post.slug, ruby: post.data.title }]
+const postURL = [{ url: 'posts/' + post.slug, ruby: post.data.title }]
 ---
 
-
-<MarkdownPostLayout 
-pageTitle={post.data.title} 
-tabTitle={post.data.title}
-pageTitleRuby={post.data.pageTitleRuby}
-destinationURLs={postURL}
+<MarkdownPostLayout
+  pageTitle={post.data.title}
+  tabTitle={post.data.title}
+  pageTitleRuby={post.data.pageTitleRuby}
+  destinationURLs={postURL}
 >
-    <Fragment slot="hero">
-      <pre
-        class="font-bold text-xl max-md:text-lg leading-8 tracking-wider whitespace-pre-line ml-6">
-      </pre>
-    </Fragment>
-
   <!-- コンテンツ部分はスロットに渡す -->
   <slot>
     <div class="bg-secondary expand -mb-32 pt-8 pb-32 pl-8">
-    <div class="news-title">{post.data.title}</div>
-    <div class="news-padding">{new Date(post.data.pubDate).toLocaleDateString()}</div>
+      <!-- <div class="news-title">{post.data.title}</div> -->
+      <!-- <img src={image.url} alt={image.alt} /> -->
 
-    <img src={image.url} alt={image.alt} />
+      <article>
+        <div class="news-padding"><Content /></div>
+      </article>
 
-    <article>
-      <div class="news-padding"><Content /></div>
-    </article>
+      <div class="news-padding font-pre text-lg italic">
+        {new Date(post.data.pubDate).toLocaleDateString('ja-JP')}
+      </div>
     </div>
   </slot>
 </MarkdownPostLayout>

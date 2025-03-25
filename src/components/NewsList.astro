@@ -7,21 +7,23 @@ const newsEntries = await getCollection('posts')
 const DescArticleLists = newsEntries.sort(
   (a, b) =>
     Date.parse(b.data.pubDate.toDateString()) -
-    Date.parse(a.data.pubDate.toDateString())
+    Date.parse(a.data.pubDate.toDateString()),
 )
 
 const displayedArticles = DescArticleLists.slice(0, 3)
 ---
 
 <newsList>
-  <div class="newslist">
+  <div class="newslist space-y-2">
     {
       displayedArticles.map((entry) => (
-        <div class="news-block">
-          <a href={'/posts/' + entry.slug}>
-            <p>{new Date(entry.data.pubDate).toLocaleDateString('ja-JP')}</p>
-            <div class="news-title">{entry.data.title}</div>
-          </a>
+        <div class="pl-1 py-2 border-b ml-3 mr-10 pr-10">
+          <div class="news-block">
+            <a href={'/posts/' + entry.slug}>
+              <p>{new Date(entry.data.pubDate).toLocaleDateString('ja-JP')}</p>
+              <div class="news-title">{entry.data.title}</div>
+            </a>
+          </div>
         </div>
       ))
     }

@@ -7,7 +7,16 @@
 
 .news-block {
     padding: 10px 1.4rem;
-    border-bottom: 1px solid #acacac;
+    /* border-bottom: 1px solid hsl(var(--border)); */
+    border-radius: .5rem;
+
+    &:hover,
+    &:focus {
+        background-color: hsl(var(--popover));
+        color: hsl(var(--popover-foreground));
+        opacity: 0.8;
+        transition: all;
+    }
 }
 
 .news .header {

@@ -1,42 +1,41 @@
-
 .side-menu-block {
-    line-height: 3.5rem;
-    border: 4px double hsl(var(--foreground));
-    position: sticky;
-    padding: 1rem 0; /*サイドメニューの上下の余白*/
-    top: 2.5rem;
-    margin: 4rem 2rem;
-  
-    .side-menu {
-      display: flex;
-      flex-direction: column;
-  
-      p1 {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-      }
-  
-      a {
-        width: 100%;
-        font-size: 1.1rem;
-        padding: 0 0 0 0;
-        transition: background-color 0.3s ease;
-        &:hover,
-        &:focus {
-          background-color: hsl(var(--secondary));
-          color: hsl(var(--secondary-foreground));
-        }
+  line-height: 3.5rem;
+  border: 4px double hsl(var(--foreground));
+  position: sticky;
+  padding: 1rem 0;
+  /*サイドメニューの上下の余白*/
+  top: 2.5rem;
+  margin: 4rem 2rem;
+
+  .side-menu {
+    display: flex;
+    flex-direction: column;
+
+    p1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    a {
+      width: 100%;
+      font-size: 1.1rem;
+      padding: 0 0 0 0;
+      transition: background-color 0.3s ease;
+
+      &:hover,
+      &:focus {
+        background-color: hsl(var(--popover));
+        color: hsl(var(--popover-foreground));
       }
     }
   }
+}
 
 @media (min-width: 768px) {
-  .side-menu-block {
-    
-  }
+  .side-menu-block {}
 
-  .side-menu-block .side-menu a{
+  .side-menu-block .side-menu a {
     padding-left: 1rem;
   }
 }
@@ -44,5 +43,5 @@
 @media (max-width: 767px) {
   .side-menu-block {
     text-align: center;
-  }    
+  }
 }

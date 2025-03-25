@@ -1,5 +1,5 @@
 ---
-import '../styles/news.css';
+import '../styles/news.css'
 import {
   Card,
   CardContent,
@@ -7,30 +7,41 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from '@/components/ui/card'
 
-import {getCollection} from 'astro:content';
-const newsEntries = await getCollection('posts');
+import { getCollection } from 'astro:content'
+const newsEntries = await getCollection('posts')
 
 //並び替え
-const DescArticleLists = newsEntries.sort((a, b) => Date.parse(b.data.pubDate.toDateString()) - Date.parse(a.data.pubDate.toDateString()));
+const DescArticleLists = newsEntries.sort(
+  (a, b) =>
+    Date.parse(b.data.pubDate.toDateString()) -
+    Date.parse(a.data.pubDate.toDateString()),
+)
 ---
 
 <newsMainView>
-<div class ="news">
-    {DescArticleLists.map((entry) => (
-        <Card className="card-fixed">
-            <a href={'/posts/'+entry.slug}>
-              <CardHeader>
-                    <img src={entry.data?.image?.url || "/src/images/branding.svg"} alt={entry.data?.image?.alt || "株式会社デルク"} class="fixed-image"/>
-              </CardHeader>
-              <CardContent>
-                <CardDescription>{entry.data.pubDate.toString()}</CardDescription>
-                <CardTitle>{entry.data.title}</CardTitle>
-                  
-              </CardContent>
-            </a>
+  <div class="news">
+    {
+      DescArticleLists.map((entry) => (
+        <Card className="card-fixed border-0 shadow-lg">
+          <a href={'/posts/' + entry.slug}>
+            <CardHeader>
+              <img
+                src={entry.data?.image?.url || '/src/images/branding.svg'}
+                alt={entry.data?.image?.alt || '株式会社デルク'}
+                class="fixed-image"
+              />
+            </CardHeader>
+            <CardContent className="space-y-1">
+              <CardTitle>{entry.data.title}</CardTitle>
+              <CardDescription>
+                {new Date(entry.data.pubDate).toLocaleDateString('ja-JP')}
+              </CardDescription>
+            </CardContent>
+          </a>
         </Card>
-    ))}
-</div>
+      ))
+    }
+  </div>
 </newsMainView>
