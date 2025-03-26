@@ -3,6 +3,11 @@ import IconButton from './IconButton.astro'
 import '../styles/header.css'
 ---
 
-<div class="hamburger">
-  <IconButton iconName="AlignJustify" size="medium" />
+<div class="hamburger relative">
+  <div class="alignJustify-icon">
+    <IconButton iconName="AlignJustify" />
+  </div>
+  <div class="x-icon">
+    <IconButton iconName="X" />
+  </div>
 </div>
