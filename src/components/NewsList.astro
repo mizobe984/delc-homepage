@@ -17,16 +17,14 @@ const displayedArticles = DescArticleLists.slice(0, 3)
   <div class="newslist space-y-2">
     {
       displayedArticles.map((entry) => (
-        <div class="pl-1 py-2 border-b ml-3 mr-10 pr-10">
-          <a href={'/posts/' + entry.slug}>
-            <div class="news-block group">
-              <p>{new Date(entry.data.pubDate).toLocaleDateString('ja-JP')}</p>
-              <div class="news-title group-hover:underline transition-all">
-                {entry.data.title}
-              </div>
-            </div>
-          </a>
+        // <div class="border-b">
+        <div class="news-block group border-b border-primary/50">
+          <p>{new Date(entry.data.pubDate).toLocaleDateString('ja-JP')}</p>
+          <div class="news-title group-hover:underline transition-all">
+            <a href={'/posts/' + entry.slug}>{entry.data.title}</a>
+          </div>
         </div>
+        // </div>
       ))
     }
   </div>

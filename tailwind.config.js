@@ -78,8 +78,8 @@ module.exports = {
         fadeInUp: 'fadeInUp 1s ease-out',
       },
       fontFamily: {
-        body: ["Cabin Variable", "M PLUS Rounded 1c", "sans-serif"],
-        pre: ["Zen Kurenaido", "sans-serif"],
+        body: ["Cabin Variable", "Open Sans Variable", "sans-serif"],
+        pre: ["Open Sans Variable", "sans-serif"],
       },
     },
   },

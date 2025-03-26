@@ -12,8 +12,20 @@
     font-weight: bold;
 }
 
-.news-padding {
-    padding: 1.2rem 0;
+.news-padding a{
+    /* padding: 1.2rem 0; */
+    /* color: rebeccapurple; */
+    border-bottom: 1px solid hsl(var(--primary));
+}
+
+.news-padding table {
+    width: 80%;
+    border-collapse: collapse;
+}
+
+.news-padding td, .news-padding th {
+    border: 1px solid hsl(var(--primary));
+    padding: .5rem;
 }
 
 .fixed-image {

@@ -101,7 +101,7 @@
     /* padding分を含んで幅を100%にするため */
     position: fixed;
     /* ウィンドウを基準に画面に固定 */
-    top: 2.5rem;
+    top: 2rem;
     /* 上下の固定位置を上から0pxにする */
     right: 1rem;
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
@@ -141,13 +141,13 @@
     width: 100%;
 
     background-color: hsl(0, 0%, 100%);
-    border: 1px solid hsl(var(--border));
+    /* border: 1px solid hsl(var(--border)); */
     box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 
     overflow: hidden;
     height: 0;
     opacity: 0;
-    transition: height 0.3s ease, opacity 0.3s ease;
+    transition: height 0.3s ease, opacity 0.3s ease background-color 0.3s ease;
   }
 
   .links-detail.active {
