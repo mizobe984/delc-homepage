@@ -96,7 +96,7 @@
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: right;
-    background-color: hsl(var(--secondary));
+    /* background-color: hsl(var(--secondary)); */
 }
 
 .logo-image {

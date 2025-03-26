@@ -9,14 +9,6 @@
     padding: 10px 1.4rem;
     /* border-bottom: 1px solid hsl(var(--border)); */
     border-radius: .5rem;
-
-    &:hover,
-    &:focus {
-        background-color: hsl(var(--popover));
-        color: hsl(var(--popover-foreground));
-        opacity: 0.8;
-        transition: all;
-    }
 }
 
 .news .header {
@@ -63,6 +55,5 @@
 
 .news .news-title {
     font-size: 17px;
-    /* font-weight: bold; */
     padding: 0.1em 0;
 }
