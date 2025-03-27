@@ -32,7 +32,7 @@ const tabTitle = 'DELC(株式会社デルク)'
   <div class="news expand">
     <div class="header">
       <div class="title-jp">お知らせ</div>
-      <div class="title">NEWS</div>
+      <div class="title text-shadow">NEWS</div>
       <div class="more">
         <a href="/news"><Button variant="default">VIEW MORE</Button></a>
       </div>
@@ -46,7 +46,7 @@ const tabTitle = 'DELC(株式会社デルク)'
     <div class="rounded-xl flex space-x-4 animate-fadeInUp h-96 px-6">
       <div class="absolute element-padding z-10">
         <p class="header">会社情報</p>
-        <p class="header-ruby">COMPANY</p>
+        <p class="header-ruby text-shadow">COMPANY</p>
         <pre
           class="font-pre text-lg max-md:text-lg info whitespace-pre-line tracking-wider ml-6">
             私たちは、デジタル技術の進化を支えることで利便性と快適さを向上させ、社会全体の発展に貢献することを目指します。
@@ -58,14 +58,17 @@ const tabTitle = 'DELC(株式会社デルク)'
           <a href="/company"><Button variant="outline">VIEW MORE</Button></a>
         </div>
       </div>
-      <div class="logo-image bg-foreground"></div>
+      <div
+        class="logo-image bg-gradient-to-b from-accent-foreground/90 via-accent-foreground to-accent-foreground"
+      >
+      </div>
     </div>
   </div>
 
   <div class="businessContents h-[32rem]">
     <div class="element-padding">
       <p class="header">事業案内</p>
-      <p class="header-ruby">SERVICES</p>
+      <p class="header-ruby text-shadow">SERVICES</p>
     </div>
     <ServiceCards />
   </div>
@@ -76,7 +79,7 @@ const tabTitle = 'DELC(株式会社デルク)'
     <div class="rounded-xl flex items-start space-x-4 animate-fadeInUp ml-5">
       <div class="absolute element-padding">
         <p class="header">求人情報</p>
-        <p class="header-ruby">RECRUIT</p>
+        <p class="header-ruby text-shadow">RECRUIT</p>
       </div>
       <div class="view-button mt-32 z-50">
         <a href="https://herp.careers/v1/delc"><Button>VIEW MORE</Button></a>
@@ -92,7 +95,7 @@ const tabTitle = 'DELC(株式会社デルク)'
     <div class="rounded-xl flex items-center space-x-4 animate-fadeInUp">
       <div class="element-padding">
         <p class="header">お問い合わせ</p>
-        <p class="header-ruby">CONTACT</p>
+        <p class="header-ruby text-shadow">CONTACT</p>
 
         <div class="view-button ml-4 mt-8">
           <a href="/contact"><Button variant="outline">CLICK HERE</Button></a>
