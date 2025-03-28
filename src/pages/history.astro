@@ -38,14 +38,24 @@ const params: SideMenuParams = {
 
 const table = [
   {
+    year: '2025年',
+    month: '4月',
+    description: 'SES事業開始',
+  },
+  {
     year: '2018年',
     month: '8月',
-    description: '東京都豊島区南池袋に移転',
+    description: '事務所を東京都豊島区南池袋に移転',
   },
   {
     year: '2015年',
     month: '2月',
-    description: '東京都豊島区東池袋に移転',
+    description: '事務所を東京都豊島区東池袋に移転',
+  },
+  {
+    year: '2014年',
+    month: '4月',
+    description: 'デバッグサービス事業開始',
   },
   {
     year: '2014年',
@@ -61,8 +71,10 @@ const table = [
       {
         table.map(({ year, month, description }) => (
           <TableRow disableHover>
-            <TableCell>{year}</TableCell>
-            <TableCell>{month}</TableCell>
+            <TableCell className="max-w-12">{year}</TableCell>
+            <TableCell className="w-24">
+              <p class="text-center bg-accent">{month}</p>
+            </TableCell>
             <TableCell>{description}</TableCell>
           </TableRow>
         ))
