@@ -45,22 +45,29 @@ const hide = 1
   anchor={false}
   destinationURLs={destinationURLs}
 >
-  <div class="main-title-block">
-    <div class="main-jp-title">{companyInformation}</div>
-    <div class="main-title">{information}</div>
-  </div>
+  <div class="space-y-8 mt-12 pl-3 pb-32">
+    <h1
+      class="-ml-3 italic bg-gradient-to-r from-primary to-secondary text-3xl text-shadow font-extrabold text-primary-foreground p-4"
+    >
+      一緒に働きましょう！
+    </h1>
 
-  <Table>
-    <TableBody>
-      <TableRow disableHover>
-        <TableCell>
-          <a href="https://herp.careers/v1/delc" class="button"
-            ><div class="text-magin">Click here</div><div class="ext-img">
-              <ExternalLink />
-            </div></a
-          >
-        </TableCell>
-      </TableRow>
-    </TableBody>
-  </Table>
+    <p class="flex">
+      <a
+        href="https://herp.careers/v1/delc"
+        class="hover:underline"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        求職一覧へ
+      </a>
+      <ExternalLink />
+    </p>
+    <p class="flex text-muted-foreground">
+      エンジニア登録フォーム
+      <ExternalLink />
+
+      ※近日公開
+    </p>
+  </div>
 </BaseLayout>

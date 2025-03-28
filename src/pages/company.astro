@@ -83,9 +83,9 @@ SaaS事業`,
   },
 ]
 
-const maxMdStyle = ['inline-block', 'float-left', 'w-full'].map(
-  (c) => `max-md:${c}`,
-)
+// const maxMdStyle = [
+//   '',
+// ].map((c) => `max-md:${c}`)
 ---
 
 <WithSideMenuLayout {...params}>
@@ -95,12 +95,10 @@ const maxMdStyle = ['inline-block', 'float-left', 'w-full'].map(
       {
         companyTable.map((item) => (
           <TableRow disableHover>
-            <TableCell
-              className={cn('font-semibold', 'text-xs', ...maxMdStyle)}
-            >
+            <TableCell className="font-semibold text-xs max-md:inline-block max-md:float-left max-md:w-full">
               {item.title}
             </TableCell>
-            <TableCell className={cn('max-md:-mt-7', ...maxMdStyle)}>
+            <TableCell className="max-md:-mt-7 max-md:inline-block max-md:float-left max-md:w-full">
               {item.url ? (
                 <a
                   href={item.url}

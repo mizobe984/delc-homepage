@@ -4,21 +4,31 @@
 
 /* ナビゲーションのスタイル */
 .hamburger {
-  position: fixed;
-  /* ウィンドウを基準に画面に固定 */
+  /* position: fixed;
   top: 2.2rem;
-  /* 上下の固定位置を上から0pxにする */
   right: 1.5rem;
-  z-index: 9002;
+  z-index: 9002; */
 
   .alignJustify-icon {
+    position: fixed;
     display: flex;
     padding: 0 0 0.1rem 0.2rem;
+    /* ウィンドウを基準に画面に固定 */
+    top: 2.2rem;
+    /* 上下の固定位置を上から0pxにする */
+    right: 1.5rem;
+    z-index: 9002;
   }
 
   .x-icon {
+    position: fixed;
     display: none;
     padding: 0 0 0.1rem 0.2rem;
+    /* ウィンドウを基準に画面に固定 */
+    top: 2.2rem;
+    /* 上下の固定位置を上から0pxにする */
+    right: 1.5rem;
+    z-index: 9002;
   }
 
   .open-icon {
