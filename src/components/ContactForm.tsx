@@ -9,7 +9,7 @@
  *
  * このファイルは、以下のライブラリを使用します。
  * - @emailjs/browser <- EmailJSを使用してメール送信 別途アカウント登録が必要(月200件まで無料)
- *                      https://dashboard.emailjs.com/admin
+ *                      https://dashboard.emailjs.com/admin  gmail登録が楽なのでam93090@gmail.comで登録 passはいつものやつ
  *                      登録情報は.envファイルに記載してください
  *                      https://docs.astro.build/ja/guides/environment-variables/
  *                      静的サイトでビルドする場合は、API_ROUTEにfetchしてサーバー側でメール送信できないため、EmailJSを使用しています。

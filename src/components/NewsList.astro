@@ -7,7 +7,7 @@ const newsEntries = await getCollection('posts')
 const DescArticleLists = newsEntries.sort(
   (a, b) =>
     Date.parse(b.data.pubDate.toDateString()) -
-    Date.parse(a.data.pubDate.toDateString())
+    Date.parse(a.data.pubDate.toDateString()),
 )
 
 const displayedArticles = DescArticleLists.slice(0, 3)
@@ -18,7 +18,7 @@ const displayedArticles = DescArticleLists.slice(0, 3)
     {
       displayedArticles.map((entry) => (
         // <div class="border-b">
-        <div class="news-block group border-b border-primary/50">
+        <div class="news-block group border-b border-foreground/30">
           <p>{new Date(entry.data.pubDate).toLocaleDateString('ja-JP')}</p>
           <div class="news-title group-hover:underline transition-all">
             <a href={'/posts/' + entry.slug}>{entry.data.title}</a>

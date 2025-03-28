@@ -12,7 +12,7 @@
     font-weight: bold;
 }
 
-.news-padding a{
+.news-padding a {
     /* padding: 1.2rem 0; */
     /* color: rebeccapurple; */
     border-bottom: 1px solid hsl(var(--primary));
@@ -23,7 +23,8 @@
     border-collapse: collapse;
 }
 
-.news-padding td, .news-padding th {
+.news-padding td,
+.news-padding th {
     border: 1px solid hsl(var(--primary));
     padding: .5rem;
 }

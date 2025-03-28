@@ -7,7 +7,7 @@ const ResponsiveLink = ({ href, children }) => {
     const updateLinkState = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth < 920) {
-        setIsLinkEnabled(false);
+        setIsLinkEnabled(true);
       } else {
         setIsLinkEnabled(true);
       }
