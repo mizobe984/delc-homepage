@@ -33,24 +33,31 @@ const parameterTable: ParameterTable[] = [
     url: 'services/#saas',
   },
 ]
+
+const ts = [
+  'flex',
+  'justify-between', // CardTitle の -mr-28 と組み合わせると、一応見出しが1行で収まった
+  'md:w-[28rem]',
+  'pt-5',
+  'mt-3',
+  'rounded-none',
+  'rounded-e-full',
+  'shadow-xl',
+  'border-none',
+]
 ---
 
 <div class="ml-3 mt-5">
   {
     parameterTable.map((data, index) => {
-      const mlIndent = cn(index === 0 ? '' : index === 1 ? 'ml-8' : 'ml-16')
+      const mlIndent = cn(
+        index === 0 ? '' : index === 1 ? 'md:ml-8' : 'md:ml-16',
+      )
       return (
-        <Card
-          className={cn(
-            'flex justify-between',
-            'w-[28rem] pt-5 mt-3 max-w-[80%]',
-            mlIndent,
-            'rounded-none rounded-e-full shadow-xl border-none',
-          )}
-        >
+        <Card className={cn(...ts, mlIndent)}>
           <div>
             <CardContent>
-              <CardTitle className="text-lg font-normal">
+              <CardTitle className="text-lg font-normal -mr-28">
                 {data.title}
               </CardTitle>
               <CardDescription>{data.description}</CardDescription>
