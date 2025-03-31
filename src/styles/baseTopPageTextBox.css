@@ -90,7 +90,7 @@
     /* height: 100%; */
     /* width: 100%; */
     /* position: absolute; */
-    mask-image: url(../images/branding.svg);
+    mask-image: url(/images/branding.svg);
     /* position: absolute;
     top: 16%; */
     mask-size: contain;
@@ -109,7 +109,7 @@
     width: 170%;
     top: 16%;
 
-    mask-image: url(../images/branding.svg);
+    mask-image: url(/images/branding.svg);
     mask-size: contain;
     mask-repeat: no-repeat;
     mask-position: right;
