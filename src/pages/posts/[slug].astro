@@ -30,15 +30,24 @@ const props = {
 ---
 
 <BaseLayout {...props}>
-  <div class="news-padding space-y-8 pb-32 px-8 max-w-[42rem] leading-7">
-    <div class="mt-12 pb-8">
-      <div class="font-pre">
-        {new Date(post.data.pubDate).toLocaleDateString('ja-JP')}
+  <div class="md:flex py-12">
+    <div class="news-padding space-y-8 px-8 leading-7 mx-auto">
+      <div class="pb-8">
+        <div class="font-pre">
+          {new Date(post.data.pubDate).toLocaleDateString('ja-JP')}
+        </div>
+        <div class="text-2xl font-bold">
+          {post.data.title}
+        </div>
       </div>
-      <div class="text-2xl font-bold">
-        {post.data.title}
-      </div>
+      <Content />
     </div>
-    <Content />
+    <div class="mx-auto px-8 mt-12">
+      <img
+        src={post.data?.image?.url || '/src/images/branding.svg'}
+        alt={post.data?.image?.alt || '株式会社デルク'}
+        class="max-h-[24rem] w-full object-contain"
+      />
+    </div>
   </div>
 </BaseLayout>
