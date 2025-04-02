@@ -1,3 +1,13 @@
+# 🤩更新方法の備忘録
+- FTPクライアントで接続
+   - Cyberduck使った
+   - 接続の仕方は、先にStarServerのサーバー管理ツールとかヘルプとかで情報を取得する
+   - 新規接続 > ftpアカウント名(デフォルトのものがある)+pass > SSL切替
+   - 繋がったら、エクスプローラ的な操作感でファイルを更新できます
+
+# 🤔求人作成ページのリンク
+[HERP Hire](https://delc.v1.herp.cloud/ats/p/candidacies)
+
 # Astro Starter Kit: Minimal
 
 ```sh
