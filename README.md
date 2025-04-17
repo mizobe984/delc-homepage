@@ -8,6 +8,9 @@
 # 🤔求人作成ページのリンク
 [HERP Hire](https://delc.v1.herp.cloud/ats/p/candidacies)
 
+# 🤔問い合わせページのリンク
+[EmailJS](https://dashboard.emailjs.com/admin)
+
 # Astro Starter Kit: Minimal
 
 ```sh
