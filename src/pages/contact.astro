@@ -5,11 +5,12 @@ import '@/styles/contact.css'
 
 import BaseLayout from '../layouts/BaseLayout.astro'
 import { ContactForm } from '@/components/ContactForm'
+import { breadcrumbs } from '@/lib/navigation'
 
 const pageTitle = 'CONTACT'
 const pageTitleRuby = 'お問い合わせ'
 const tabTitle = 'お問い合わせ'
-const destinationURLs = [{ url: 'contact', ruby: 'お問い合わせ' }]
+const destinationURLs = breadcrumbs.contact
 ---
 
 <BaseLayout {pageTitle} {pageTitleRuby} {tabTitle} {destinationURLs}>

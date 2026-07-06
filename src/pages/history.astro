@@ -7,6 +7,7 @@ import WithSideMenuLayout from '../layouts/WithSideMenuLayout.astro'
 
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
 import type { SideMenuParams } from '@/lib/types'
+import { companyMenus, breadcrumbs } from '@/lib/navigation'
 
 const params: SideMenuParams = {
   companyName: 'DELC',
@@ -14,18 +15,11 @@ const params: SideMenuParams = {
   pageTitleRuby: '沿革',
   tabTitle: '会社情報',
   menuTitle: 'COMPANY',
-  menus: [
-    { url: 'company', text: '会社概要' },
-    { url: 'location', text: '所在地' },
-    { url: 'history', text: '沿革' },
-  ],
+  menus: companyMenus,
   menuShow: 2,
   mainBlockSize: 2,
   anchor: false,
-  destinationURLs: [
-    { url: 'company', ruby: '会社情報' },
-    { url: 'history', ruby: '沿革' },
-  ],
+  destinationURLs: breadcrumbs.history,
 }
 
 const table = [

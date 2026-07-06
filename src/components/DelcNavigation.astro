@@ -7,6 +7,7 @@ import { Mail } from 'lucide-astro'
 import '../styles/header.css'
 
 import { cn } from '@/lib/utils'
+import { companyMenus, serviceLinks } from '@/lib/navigation'
 ---
 
 <div class="nav-links">
@@ -35,9 +36,13 @@ import { cn } from '@/lib/utils'
         </div>
       </a>
       <div class="links-detail">
-        <a href="/company/" class="detection-size" data-astro-reload>概要</a>
-        <a href="/location/" class="detection-size" data-astro-reload>所在地</a>
-        <a href="/history/" class="detection-size" data-astro-reload>沿革</a>
+        {
+          companyMenus.map((menu) => (
+            <a href={`/${menu.url}/`} class="detection-size" data-astro-reload>
+              {menu.text}
+            </a>
+          ))
+        }
       </div>
     </div>
 
@@ -48,12 +53,13 @@ import { cn } from '@/lib/utils'
         </div>
       </a>
       <div class="links-detail">
-        <a href="/services/#debug" class="detection-size" data-astro-reload
-          >デバッグサービス事業</a
-        >
-        <a href="/services/#ses" class="detection-size" data-astro-reload
-          >SES事業</a
-        >
+        {
+          serviceLinks.map((service) => (
+            <a href={service.url} class="detection-size" data-astro-reload>
+              {service.title}
+            </a>
+          ))
+        }
       </div>
     </div>
 

@@ -8,25 +8,7 @@ import {
   CardDescription,
   CardFooter,
 } from './ui/card'
-
-type ParameterTable = {
-  title: string
-  description: string
-  url: string
-}
-
-const parameterTable: ParameterTable[] = [
-  {
-    title: 'デバッグサービス事業',
-    description: 'Testify Solutions',
-    url: 'services/#debug',
-  },
-  {
-    title: 'SES事業',
-    description: 'TechTalent Hub',
-    url: 'services/#ses',
-  },
-]
+import { serviceLinks } from '@/lib/navigation'
 
 const ts = [
   'flex',
@@ -43,7 +25,7 @@ const ts = [
 
 <div class="ml-3 mt-5">
   {
-    parameterTable.map((data, index) => {
+    serviceLinks.map((data, index) => {
       const mlIndent = cn(
         index === 0 ? '' : index === 1 ? 'md:ml-8' : 'md:ml-16',
       )

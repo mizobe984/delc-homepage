@@ -10,20 +10,19 @@ import localSesImage from '/public/images/ses.jpg'
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
 
 import type { SideMenuParams } from '@/lib/types'
+import { serviceMenus, breadcrumbs } from '@/lib/navigation'
+
 const params: SideMenuParams = {
   companyName: 'DELC',
   pageTitle: 'SERVICES',
   pageTitleRuby: '事業案内',
   tabTitle: '事業案内',
   menuTitle: 'SERVICES',
-  menus: [
-    { url: 'debug', text: 'デバッグ事業' },
-    { url: 'ses', text: 'SES事業' },
-  ],
+  menus: serviceMenus,
   menuShow: 2,
   mainBlockSize: 2,
   anchor: true,
-  destinationURLs: [{ url: 'services', ruby: 'サービス' }],
+  destinationURLs: breadcrumbs.services,
 }
 ---
 

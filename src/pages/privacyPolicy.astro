@@ -7,12 +7,13 @@ import '@/styles/privacyPolicy.css'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
+import { breadcrumbs } from '@/lib/navigation'
 
 const pageTitle = 'PRIVACY POLICY'
 const pageTitleRuby = 'プライバシーポリシー'
 const tabTitle = 'プライバシーポリシー'
 
-const destinationURLs = [{ url: 'privacyPolicy', ruby: 'プライバシーポリシー' }]
+const destinationURLs = breadcrumbs.privacyPolicy
 ---
 
 <BaseLayout

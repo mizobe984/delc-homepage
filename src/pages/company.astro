@@ -15,6 +15,7 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import type { SideMenuParams } from '@/lib/types'
+import { companyMenus, breadcrumbs } from '@/lib/navigation'
 
 const params: SideMenuParams = {
   companyName: 'DELC',
@@ -22,18 +23,11 @@ const params: SideMenuParams = {
   pageTitleRuby: '会社概要',
   tabTitle: '会社情報',
   menuTitle: 'COMPANY',
-  menus: [
-    { url: 'company', text: '会社概要' },
-    { url: 'location', text: '所在地' },
-    { url: 'history', text: '沿革' },
-  ],
+  menus: companyMenus,
   menuShow: 2,
   mainBlockSize: 2,
   anchor: false,
-  destinationURLs: [
-    { url: 'company', ruby: '会社情報' },
-    { url: 'company', ruby: '会社概要' },
-  ],
+  destinationURLs: breadcrumbs.company,
 }
 
 const companyTable = [

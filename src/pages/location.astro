@@ -6,24 +6,19 @@ import '@/styles/location.css'
 import WithSideMenuLayout from '../layouts/WithSideMenuLayout.astro'
 
 import type { SideMenuParams } from '@/lib/types'
+import { companyMenus, breadcrumbs } from '@/lib/navigation'
+
 const params: SideMenuParams = {
   companyName: 'DELC',
   pageTitle: 'LOCATION',
   pageTitleRuby: '所在地',
   tabTitle: '会社情報',
   menuTitle: 'COMPANY',
-  menus: [
-    { url: 'company', text: '会社概要' },
-    { url: 'location', text: '所在地' },
-    { url: 'history', text: '沿革' },
-  ],
+  menus: companyMenus,
   menuShow: 2,
   mainBlockSize: 2,
   anchor: false,
-  destinationURLs: [
-    { url: 'company', ruby: '会社情報' },
-    { url: 'location', ruby: '所在地' },
-  ],
+  destinationURLs: breadcrumbs.location,
 }
 ---
 
