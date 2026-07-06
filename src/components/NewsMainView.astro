@@ -8,15 +8,9 @@ import {
   CardTitle,
 } from '@/components/ui/card'
 
-import { getCollection } from 'astro:content'
-const newsEntries = await getCollection('posts')
+import { getSortedPosts } from '@/lib/posts'
 
-//並び替え
-const DescArticleLists = newsEntries.sort(
-  (a, b) =>
-    Date.parse(b.data.pubDate.toDateString()) -
-    Date.parse(a.data.pubDate.toDateString()),
-)
+const DescArticleLists = await getSortedPosts()
 ---
 
 <newsMainView>
@@ -35,7 +29,7 @@ const DescArticleLists = newsEntries.sort(
             <CardContent className="space-y-1">
               <CardTitle>{entry.data.title}</CardTitle>
               <CardDescription>
-                {new Date(entry.data.pubDate).toLocaleDateString('ja-JP')}
+                {entry.data.pubDate.toLocaleDateString('ja-JP')}
               </CardDescription>
             </CardContent>
           </a>
