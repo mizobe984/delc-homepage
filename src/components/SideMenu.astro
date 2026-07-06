@@ -12,7 +12,7 @@ const { menus, showMenu, anchor } = Astro.props as {
 const prefix = anchor ? '#' : '/'
 ---
 
-<sideMenu>
+<nav>
   {
     showMenu && menus && menus.length > 0 && (
       <div class="side-menu-block">
@@ -24,4 +24,4 @@ const prefix = anchor ? '#' : '/'
       </div>
     )
   }
-</sideMenu>
+</nav>

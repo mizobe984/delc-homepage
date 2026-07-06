@@ -13,28 +13,26 @@ import { getSortedPosts } from '@/lib/posts'
 const DescArticleLists = await getSortedPosts()
 ---
 
-<newsMainView>
-  <div class="news">
-    {
-      DescArticleLists.map((entry) => (
-        <Card className="card-fixed border-0 shadow-lg">
-          <a href={'/posts/' + entry.slug}>
-            <CardHeader>
-              <img
-                src={entry.data?.image?.url || '/images/branding.svg'}
-                alt={entry.data?.image?.alt || '株式会社デルク'}
-                class="fixed-image"
-              />
-            </CardHeader>
-            <CardContent className="space-y-1">
-              <CardTitle>{entry.data.title}</CardTitle>
-              <CardDescription>
-                {entry.data.pubDate.toLocaleDateString('ja-JP')}
-              </CardDescription>
-            </CardContent>
-          </a>
-        </Card>
-      ))
-    }
-  </div>
-</newsMainView>
+<div class="news">
+  {
+    DescArticleLists.map((entry) => (
+      <Card className="card-fixed border-0 shadow-lg">
+        <a href={'/posts/' + entry.slug}>
+          <CardHeader>
+            <img
+              src={entry.data?.image?.url || '/images/branding.svg'}
+              alt={entry.data?.image?.alt || '株式会社デルク'}
+              class="fixed-image"
+            />
+          </CardHeader>
+          <CardContent className="space-y-1">
+            <CardTitle>{entry.data.title}</CardTitle>
+            <CardDescription>
+              {entry.data.pubDate.toLocaleDateString('ja-JP')}
+            </CardDescription>
+          </CardContent>
+        </a>
+      </Card>
+    ))
+  }
+</div>
