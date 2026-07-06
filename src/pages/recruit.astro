@@ -1,7 +1,5 @@
 ---
-import { ExternalLink, Loader2 } from 'lucide-react'
-import Button from '@/components/Button.astro'
-import { WifiOff } from 'lucide-astro'
+import { ExternalLink } from 'lucide-react'
 
 import '@/styles/globals.css'
 import '@/styles/baseTopPageTextBox.css'
@@ -9,23 +7,10 @@ import '@/styles/recruit.css'
 
 import BaseLayout from '../layouts/WithSideMenuLayout.astro'
 
-import {
-  Table,
-  TableBody,
-  TableCaption,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table'
-
 const companyName = 'DELC'
 const pageTitle = 'RECRUIT'
 const pageTitleRuby = '求人情報'
 const tabTitle = '求人情報'
-
-const companyInformation = '求人情報'
-const information = 'RECRUIT'
 
 const destinationURLs = [{ url: 'recruit', ruby: '求人情報' }]
 

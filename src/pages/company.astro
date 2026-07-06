@@ -10,14 +10,11 @@ import WithSideMenuLayout from '../layouts/WithSideMenuLayout.astro'
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
-  TableHeader,
   TableRow,
 } from '@/components/ui/table'
 import type { SideMenuParams } from '@/lib/types'
-import { cn } from '@/lib/utils'
 
 const params: SideMenuParams = {
   companyName: 'DELC',
@@ -81,10 +78,6 @@ SES事業`,
     url: 'https://www.invoice-kohyo.nta.go.jp/regno-search/detail?selRegNo=7013301035178',
   },
 ]
-
-// const maxMdStyle = [
-//   '',
-// ].map((c) => `max-md:${c}`)
 ---
 
 <WithSideMenuLayout {...params}>
