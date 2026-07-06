@@ -7,8 +7,6 @@ import WithSideMenuLayout from '@/layouts/WithSideMenuLayout.astro'
 import localDebugImage from '/public/images/debug.jpg'
 import localSesImage from '/public/images/ses.jpg'
 
-import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
-
 import type { SideMenuParams } from '@/lib/types'
 import { serviceMenus, breadcrumbs } from '@/lib/navigation'
 
@@ -27,72 +25,66 @@ const params: SideMenuParams = {
 ---
 
 <WithSideMenuLayout {...params}>
-  <Table>
-    <TableBody>
-      <TableRow disableHover>
-        <TableCell className="items-center">
-          <div class="pp-category">
-            <h1 id="debug">デバッグサービス事業</h1>
+  <div class="large-text p-5">
+    <section class="pp-category">
+      <h1 id="debug">デバッグサービス事業</h1>
 
-            <img src={localDebugImage.src} />
+      <img src={localDebugImage.src} />
 
-            <h2>サービス概要</h2>
-            <p>
-              お客様のゲームやソフトウェアに対し、ユーザー目線でのデバッグや改善提案および、タイムリーなコミュニケーションを重視して検証を行います。
-              豊富な実績から導出されたソリューションを用いて早期の不具合発見、再発防止を目指しお客様のサービス品質向上を実現いたします。
-            </p>
-            <h2>実績紹介</h2>
-            <h3>1. ガイドラインチェックサービス</h3>
-            <p>
-              PC/iOS/android対応アプリ
-              プラットフォーマーにおける各種ガイドライン審査を主に行っております。
-            </p>
-            <h3>2. ソーシャルネイティブアプリのイニシャルデバッグ</h3>
-            <p>
-              iOS/android対応RPG
-              正常動作確認、データ検証、表示検証、イレギュラーチェックなどリリース前における総合デバッグを行っております。
-            </p>
-            <h3>3. WEBアプリの単体・結合テスト</h3>
-            <p>
-              リリース直前のサービスに対するテストケースの作成及び単体テスト、結合テストを主に行っております。
-            </p>
-            <h3>4. ソーシャルネイティブアプリの運営デバッグ</h3>
-            <p>
-              iOS/android対応IPタイトル
-              定期的にリリースされる追加施策の正常動作確認やキャラチェック、シナリオチェックなど、リリース後の総合デバッグを行っております。
-            </p>
+      <h2>サービス概要</h2>
+      <p>
+        お客様のゲームやソフトウェアに対し、ユーザー目線でのデバッグや改善提案および、タイムリーなコミュニケーションを重視して検証を行います。
+        豊富な実績から導出されたソリューションを用いて早期の不具合発見、再発防止を目指しお客様のサービス品質向上を実現いたします。
+      </p>
+      <h2>実績紹介</h2>
+      <h3>1. ガイドラインチェックサービス</h3>
+      <p>
+        PC/iOS/android対応アプリ
+        プラットフォーマーにおける各種ガイドライン審査を主に行っております。
+      </p>
+      <h3>2. ソーシャルネイティブアプリのイニシャルデバッグ</h3>
+      <p>
+        iOS/android対応RPG
+        正常動作確認、データ検証、表示検証、イレギュラーチェックなどリリース前における総合デバッグを行っております。
+      </p>
+      <h3>3. WEBアプリの単体・結合テスト</h3>
+      <p>
+        リリース直前のサービスに対するテストケースの作成及び単体テスト、結合テストを主に行っております。
+      </p>
+      <h3>4. ソーシャルネイティブアプリの運営デバッグ</h3>
+      <p>
+        iOS/android対応IPタイトル
+        定期的にリリースされる追加施策の正常動作確認やキャラチェック、シナリオチェックなど、リリース後の総合デバッグを行っております。
+      </p>
 
-            <h2>対応環境</h2>
-            <ul>
-              <li>android</li>
-              <li>Steam PC</li>
-              <li>SONY PS4/PS5</li>
-              <li>Nintendo Switch</li>
-            </ul>
-          </div>
+      <h2>対応環境</h2>
+      <ul>
+        <li>android</li>
+        <li>Steam PC</li>
+        <li>SONY PS4/PS5</li>
+        <li>Nintendo Switch</li>
+      </ul>
+    </section>
 
-          <div class="pp-category">
-            <h1 id="ses">SES事業</h1>
-            <img src={localSesImage.src} />
+    <section class="pp-category">
+      <h1 id="ses">SES事業</h1>
+      <img src={localSesImage.src} />
 
-            <h2>サービス概要</h2>
-            <p>
-              フリーランスのエンジニアと企業をマッチングさせ、個人の働き方やプロジェクトのニーズに合わせた最適なマッチングを行います。
-              QAやRPAなど特定の領域に強い、ハイスキルかつ豊富なプロフェッショナル人材プールにより、迅速なマッチングと課題解決を支援します。
-            </p>
-            <h2>実績紹介</h2>
-            <h3>1. ソーシャルネイティブアプリのプロジェクト</h3>
-            <p>
-              PC/iOS/android対応アプリ
-              QA領域のPMOとして、テスト管理、テスト計画管理、エンジニアチームとの連携やフロー改善業務などを主に行っております。
-            </p>
-            <h3>2. VRアプリのプロジェクト</h3>
-            <p>
-              QAエンジニアとして、仕様の把握、テスト設計と実施、エンジニアチームへのバグレポート提出と改修依頼を行っております。
-            </p>
-          </div>
-        </TableCell>
-      </TableRow>
-    </TableBody>
-  </Table>
+      <h2>サービス概要</h2>
+      <p>
+        フリーランスのエンジニアと企業をマッチングさせ、個人の働き方やプロジェクトのニーズに合わせた最適なマッチングを行います。
+        QAやRPAなど特定の領域に強い、ハイスキルかつ豊富なプロフェッショナル人材プールにより、迅速なマッチングと課題解決を支援します。
+      </p>
+      <h2>実績紹介</h2>
+      <h3>1. ソーシャルネイティブアプリのプロジェクト</h3>
+      <p>
+        PC/iOS/android対応アプリ
+        QA領域のPMOとして、テスト管理、テスト計画管理、エンジニアチームとの連携やフロー改善業務などを主に行っております。
+      </p>
+      <h3>2. VRアプリのプロジェクト</h3>
+      <p>
+        QAエンジニアとして、仕様の把握、テスト設計と実施、エンジニアチームへのバグレポート提出と改修依頼を行っております。
+      </p>
+    </section>
+  </div>
 </WithSideMenuLayout>

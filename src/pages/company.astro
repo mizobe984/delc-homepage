@@ -7,13 +7,6 @@ import '@/styles/delcInfoGlobal.css'
 
 import WithSideMenuLayout from '../layouts/WithSideMenuLayout.astro'
 
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow,
-} from '@/components/ui/table'
 import type { SideMenuParams } from '@/lib/types'
 import { companyMenus, breadcrumbs } from '@/lib/navigation'
 
@@ -75,16 +68,22 @@ SES事業`,
 ---
 
 <WithSideMenuLayout {...params}>
-  <Table className="mt-6">
-    <TableHead className="hidden" />
-    <TableBody>
-      {
-        companyTable.map((item) => (
-          <TableRow disableHover>
-            <TableCell className="font-semibold text-xs max-md:inline-block max-md:float-left max-md:w-full">
+  <dl class="mt-6 grid grid-cols-[auto_1fr] text-sm max-md:grid-cols-1">
+    {
+      companyTable.map((item, index) => {
+        const border = index === companyTable.length - 1 ? '' : 'border-b'
+        return (
+          <Fragment>
+            <dt
+              class:list={[
+                'flex items-center p-5 text-xs font-semibold',
+                border,
+                'max-md:border-0 max-md:pb-0',
+              ]}
+            >
               {item.title}
-            </TableCell>
-            <TableCell className="max-md:-mt-7 max-md:inline-block max-md:float-left max-md:w-full">
+            </dt>
+            <dd class:list={['large-text p-5 max-md:pt-2', border]}>
               {item.url ? (
                 <a
                   href={item.url}
@@ -98,10 +97,10 @@ SES事業`,
               ) : (
                 <pre class="font-body">{item.content}</pre>
               )}
-            </TableCell>
-          </TableRow>
-        ))
-      }
-    </TableBody>
-  </Table>
+            </dd>
+          </Fragment>
+        )
+      })
+    }
+  </dl>
 </WithSideMenuLayout>
