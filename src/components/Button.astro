@@ -1,20 +1,33 @@
 ---
-import { Button as BaseButton } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { ChevronRight } from 'lucide-astro'
-const { variant, className } = Astro.props
+
+/**
+ * シェブロン付きボタン。href を渡すと <a>、渡さなければ <button> として
+ * 1要素でレンダリングする(a/button のネストを作らないため)。
+ */
+const { variant, className, href } = Astro.props
+
+const classes = cn(
+  buttonVariants({ variant }),
+  className,
+  'group relative flex px-8',
+)
+
+const Tag = href ? 'a' : 'button'
 ---
 
-<BaseButton {variant} className={cn(className, 'group relative flex px-8')}>
+<Tag href={href} class={classes}>
   <div class="-ml-4">
     <slot />
   </div>
   <ChevronRight
     size={20}
-    className="absolute right-[10px] transition-all group-hover:translate-x-[6px]"
+    class="absolute right-[10px] transition-all group-hover:translate-x-[6px]"
   />
   <ChevronRight
     size={20}
-    className="absolute right-[4px] transition-all group-hover:-translate-x-[6px]"
+    class="absolute right-[4px] transition-all group-hover:-translate-x-[6px]"
   />
-</BaseButton>
+</Tag>
