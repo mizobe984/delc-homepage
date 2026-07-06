@@ -104,8 +104,18 @@ export function ContactForm() {
       PUBLIC_EMAILJS_TEMPLATE_ID: templateId,
     } = import.meta.env
 
-    if (userId && serviceId && templateId) {
-      setDisabled(true)
+    if (!userId || !serviceId || !templateId) {
+      toast({
+        title: 'エラー',
+        description:
+          '申し訳ございません。しばらく経ってから再度お問い合わせください',
+        variant: 'destructive',
+      })
+      return
+    }
+
+    setDisabled(true)
+    try {
       init(userId)
       await send(serviceId, templateId, formData)
       toast({
@@ -114,15 +124,16 @@ export function ContactForm() {
           'お問い合わせありがとうございました。 内容を確認後、ご返信致しますので今しばらくお待ちください。',
       })
       form.reset()
-    } else {
+    } catch {
       toast({
-        title: 'エラー',
+        title: '送信エラー',
         description:
-          '申し訳ございません。しばらく経ってから再度お問い合わせください',
+          '申し訳ございません。メールの送信に失敗しました。しばらく経ってから再度お試しください。',
         variant: 'destructive',
       })
+    } finally {
+      setDisabled(false)
     }
-    setDisabled(false)
   }
 
   const mandatoryStyle = 'after:content-["*"] after:text-destructive'
