@@ -22,7 +22,7 @@ const tabTitle = 'DELC(株式会社デルク)'
 <BaseLayout pageTitle={pageTitle} tabTitle={tabTitle}>
   <Fragment slot="hero">
     <pre
-      class="font-pre text-xl max-md:text-lg leading-8 tracking-wider whitespace-pre-line ml-6">
+      class="ml-6 whitespace-pre-line font-pre text-xl leading-8 tracking-wider max-md:text-lg">
       先進的な品質保証と
       エンジニアリングサポートを通じて
       デジタル世界をより良くする
@@ -35,26 +35,26 @@ const tabTitle = 'DELC(株式会社デルク)'
       <div class="title text-shadow">NEWS</div>
     </div>
     <NewsList />
-    <div class="mt-12 ml-6">
+    <div class="ml-6 mt-12">
       <a href="/news"><Button variant="default">VIEW MORE</Button></a>
     </div>
   </div>
 
   <div
-    class="relative businessContents overflow-clip bg-primary text-primary-foreground expand"
+    class="businessContents expand relative overflow-clip bg-primary text-primary-foreground"
   >
-    <div class="rounded-xl flex space-x-4 animate-fadeInUp h-96 px-6">
-      <div class="absolute element-padding z-10">
+    <div class="flex h-96 animate-fadeInUp space-x-4 rounded-xl px-6">
+      <div class="element-padding absolute z-10">
         <p class="header">会社情報</p>
         <p class="header-ruby text-shadow">COMPANY</p>
         <pre
-          class="font-pre info whitespace-pre-line tracking-wider ml-6">
+          class="info ml-6 whitespace-pre-line font-pre tracking-wider">
             私たちは、デジタル技術の進化を支えることで利便性と快適さを向上させ、社会全体の発展に貢献することを目指します。
 
             そのために、卓越した検証サービスやエンジニアリングサポートを提供すると同時に、技術的な課題解決・品質改善に継続的に取り組み、人々の生活を豊かにすべく活動を行います。
           </pre>
 
-        <div class="view-button mt-12 text-primary ml-6">
+        <div class="view-button ml-6 mt-12 text-primary">
           <a href="/company"><Button variant="outline">VIEW MORE</Button></a>
         </div>
       </div>
@@ -74,14 +74,14 @@ const tabTitle = 'DELC(株式会社デルク)'
   </div>
 
   <div
-    class="relative businessContents h-[32rem] overflow-clip bg-secondary expand"
+    class="businessContents expand relative h-[32rem] overflow-clip bg-secondary"
   >
-    <div class="rounded-xl flex items-start space-x-4 animate-fadeInUp ml-5">
-      <div class="absolute element-padding">
+    <div class="ml-5 flex animate-fadeInUp items-start space-x-4 rounded-xl">
+      <div class="element-padding absolute">
         <p class="header">求人情報</p>
         <p class="header-ruby text-shadow">RECRUIT</p>
       </div>
-      <div class="view-button mt-32 z-50">
+      <div class="view-button z-50 mt-32">
         <a href="https://herp.careers/v1/delc"><Button>VIEW MORE</Button></a>
       </div>
       <div
@@ -91,8 +91,8 @@ const tabTitle = 'DELC(株式会社デルク)'
     </div>
   </div>
 
-  <div class="businessContents h-[32rem] flex items-start justify-between">
-    <div class="rounded-xl flex items-center space-x-4 animate-fadeInUp">
+  <div class="businessContents flex h-[32rem] items-start justify-between">
+    <div class="flex animate-fadeInUp items-center space-x-4 rounded-xl">
       <div class="element-padding">
         <p class="header">お問い合わせ</p>
         <p class="header-ruby text-shadow">CONTACT</p>
@@ -103,7 +103,7 @@ const tabTitle = 'DELC(株式会社デルク)'
       </div>
     </div>
     <div
-      class="ml-4 mt-6 shadow-md w-11/12 max-w-[40rem] h-full bg-[url('/images/contact.jpg')] bg-left bg-cover bg-no-repeat rounded-3xl"
+      class="ml-4 mt-6 h-full w-11/12 max-w-[40rem] rounded-3xl bg-[url('/images/contact.jpg')] bg-cover bg-left bg-no-repeat shadow-md"
     >
     </div>
   </div>

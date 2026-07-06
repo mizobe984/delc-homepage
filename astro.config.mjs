@@ -1,14 +1,15 @@
-import { defineConfig } from 'astro/config';
-import react from "@astrojs/react";
+import { defineConfig } from 'astro/config'
+import react from '@astrojs/react'
 
-import tailwind from "@astrojs/tailwind";
+import tailwind from '@astrojs/tailwind'
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astrotestwabpage.netlify.app",
+  site: 'https://astrotestwabpage.netlify.app',
   integrations: [
     react(),
     tailwind({
-      applyBaseStyles: false
-    })]
-});
+      applyBaseStyles: false,
+    }),
+  ],
+})

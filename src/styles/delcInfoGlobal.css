@@ -37,7 +37,6 @@
   margin: 2rem 0;
   flex-direction: column;
   align-items: flex-start;
-
 }
 
 .main-title {
@@ -65,7 +64,6 @@ table.no-hover-effect tr:hover {
 }
 
 @media (min-width: 768px) {
-
   /*PC*/
   .overall-style {
     grid-template-columns: 17rem 1fr;
@@ -77,11 +75,9 @@ table.no-hover-effect tr:hover {
     grid-column: var(--dynamic-grid-column);
     padding: 2.5rem;
   }
-
 }
 
 @media (max-width: 767px) {
-
   /*スマホ*/
   .overall-style {
     grid-template-columns: 1fr;

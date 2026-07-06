@@ -21,7 +21,7 @@
  * - @components/ui/textarea <- shadcn-uiで生成
  * - @components/ui/use-toast <- shadcn-uiで生成 Toast通知 別途Toasterをレイアウトに組み込む
  * - @components/ui/button <- shadcn-uiで生成　onClickイベントを使用(onSubmit) Enterキーで送信できないようにするため
- * 
+ *
  */
 'use client'
 
@@ -98,7 +98,6 @@ export function ContactForm() {
   const [isDisabled, setDisabled] = useState(false)
 
   async function onSubmit(formData: FormData) {
-
     const {
       PUBLIC_EMAILJS_USER_ID: userId,
       PUBLIC_EMAILJS_SERVICE_ID: serviceId,
@@ -131,99 +130,136 @@ export function ContactForm() {
 
   return (
     <Form {...form}>
-      <form className="space-y-6 mt-16 mb-32 w-5/6 ml-8 max-w-[32rem]">
-
-        <FormField disabled={isDisabled} control={form.control} name="company" render={({ field }) => (
-          <FormItem>
-            <FormLabel>
-              <div className={mandatoryStyle}>会社名</div>
-            </FormLabel>
-            <FormControl>
-              <Input {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+      <form className="mb-32 ml-8 mt-16 w-5/6 max-w-[32rem] space-y-6">
+        <FormField
+          disabled={isDisabled}
+          control={form.control}
+          name="company"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <div className={mandatoryStyle}>会社名</div>
+              </FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <div className="flex gap-3">
-          <FormField disabled={isDisabled} control={form.control} name="lastname" render={({ field }) => (
-            <FormItem className='w-1/2'>
-              <FormLabel>
-                <div className={mandatoryStyle}>姓</div>
-              </FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
-          <FormField disabled={isDisabled} control={form.control} name="firstname" render={({ field }) => (
-            <FormItem className='w-1/2'>
-              <FormLabel>
-                <div className={mandatoryStyle}>名</div>
-              </FormLabel>
-              <FormControl>
-                <Input {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )} />
+          <FormField
+            disabled={isDisabled}
+            control={form.control}
+            name="lastname"
+            render={({ field }) => (
+              <FormItem className="w-1/2">
+                <FormLabel>
+                  <div className={mandatoryStyle}>姓</div>
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            disabled={isDisabled}
+            control={form.control}
+            name="firstname"
+            render={({ field }) => (
+              <FormItem className="w-1/2">
+                <FormLabel>
+                  <div className={mandatoryStyle}>名</div>
+                </FormLabel>
+                <FormControl>
+                  <Input {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
         </div>
 
-        <FormField disabled={isDisabled} control={form.control} name="email" render={({ field }) => (
-          <FormItem>
-            <FormLabel>
-              <div className={mandatoryStyle}>Eメール</div>
-            </FormLabel>
-            <FormControl>
-              <Input {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+        <FormField
+          disabled={isDisabled}
+          control={form.control}
+          name="email"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <div className={mandatoryStyle}>Eメール</div>
+              </FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-        <FormField disabled={isDisabled} control={form.control} name="phone" render={({ field }) => (
-          <FormItem>
-            <FormLabel>
-              <div className={mandatoryStyle}>電話番号</div>
-            </FormLabel>
-            <FormControl>
-              <Input {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+        <FormField
+          disabled={isDisabled}
+          control={form.control}
+          name="phone"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <div className={mandatoryStyle}>電話番号</div>
+              </FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-        <FormField disabled={isDisabled} control={form.control} name="url" render={({ field }) => (
-          <FormItem>
-            <FormLabel>
-              <div>ウェブサイトURL</div>
-            </FormLabel>
-            <FormControl>
-              <Input {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+        <FormField
+          disabled={isDisabled}
+          control={form.control}
+          name="url"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <div>ウェブサイトURL</div>
+              </FormLabel>
+              <FormControl>
+                <Input {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-        <FormField disabled={isDisabled} control={form.control} name="message" render={({ field }) => (
-          <FormItem>
-            <FormLabel>
-              <div className={mandatoryStyle}>お問い合わせ内容</div>
-            </FormLabel>
-            <FormControl>
-              <Textarea {...field} />
-            </FormControl>
-            <FormMessage />
-          </FormItem>
-        )} />
+        <FormField
+          disabled={isDisabled}
+          control={form.control}
+          name="message"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>
+                <div className={mandatoryStyle}>お問い合わせ内容</div>
+              </FormLabel>
+              <FormControl>
+                <Textarea {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <div className="pt-8">
-          <Button type="button" onClick={form.handleSubmit(onSubmit)} disabled={isDisabled}>
+          <Button
+            type="button"
+            onClick={form.handleSubmit(onSubmit)}
+            disabled={isDisabled}
+          >
             送信 send
           </Button>
         </div>
-
       </form>
     </Form>
   )

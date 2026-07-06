@@ -5,16 +5,16 @@ import { ChevronRight } from 'lucide-astro'
 const { variant, className } = Astro.props
 ---
 
-<BaseButton {variant} className={cn(className, 'flex group relative px-8')}>
+<BaseButton {variant} className={cn(className, 'group relative flex px-8')}>
   <div class="-ml-4">
     <slot />
   </div>
   <ChevronRight
     size={20}
-    className="absolute group-hover:translate-x-[6px] transition-all right-[10px]"
+    className="absolute right-[10px] transition-all group-hover:translate-x-[6px]"
   />
   <ChevronRight
     size={20}
-    className="absolute group-hover:-translate-x-[6px] transition-all right-[4px]"
+    className="absolute right-[4px] transition-all group-hover:-translate-x-[6px]"
   />
 </BaseButton>

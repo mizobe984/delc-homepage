@@ -30,8 +30,8 @@ const props = {
 ---
 
 <BaseLayout {...props}>
-  <div class="md:flex py-12">
-    <div class="news-padding space-y-8 px-8 leading-7 mx-auto">
+  <div class="py-12 md:flex">
+    <div class="news-padding mx-auto space-y-8 px-8 leading-7">
       <div class="pb-8">
         <div class="font-pre">
           {new Date(post.data.pubDate).toLocaleDateString('ja-JP')}
@@ -42,7 +42,7 @@ const props = {
       </div>
       <Content />
     </div>
-    <div class="mx-auto px-8 mt-12">
+    <div class="mx-auto mt-12 px-8">
       <img
         src={post.data?.image?.url || '/images/branding.svg'}
         alt={post.data?.image?.alt || '株式会社デルク'}

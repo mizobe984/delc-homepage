@@ -20,7 +20,7 @@ const displayedArticles = DescArticleLists.slice(0, 3)
         // <div class="border-b">
         <div class="news-block group border-b border-foreground/30">
           <p>{new Date(entry.data.pubDate).toLocaleDateString('ja-JP')}</p>
-          <div class="news-title group-hover:underline transition-all">
+          <div class="news-title transition-all group-hover:underline">
             <a href={'/posts/' + entry.slug}>{entry.data.title}</a>
           </div>
         </div>

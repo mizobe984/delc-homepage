@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 
 const ResponsiveLink = ({ href, children }) => {
-  const [isLinkEnabled, setIsLinkEnabled] = useState(true);
+  const [isLinkEnabled, setIsLinkEnabled] = useState(true)
 
   useEffect(() => {
     const updateLinkState = () => {
-      const screenWidth = window.innerWidth;
+      const screenWidth = window.innerWidth
       if (screenWidth < 920) {
-        setIsLinkEnabled(true);
+        setIsLinkEnabled(true)
       } else {
-        setIsLinkEnabled(true);
+        setIsLinkEnabled(true)
       }
-    };
+    }
 
-    updateLinkState();
-    window.addEventListener('resize', updateLinkState);
+    updateLinkState()
+    window.addEventListener('resize', updateLinkState)
 
     return () => {
-      window.removeEventListener('resize', updateLinkState);
-    };
-  }, []);
+      window.removeEventListener('resize', updateLinkState)
+    }
+  }, [])
 
   return (
     <a
@@ -29,7 +29,7 @@ const ResponsiveLink = ({ href, children }) => {
     >
       {children}
     </a>
-  );
-};
+  )
+}
 
-export default ResponsiveLink;
+export default ResponsiveLink

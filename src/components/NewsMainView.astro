@@ -16,7 +16,7 @@ const newsEntries = await getCollection('posts')
 const DescArticleLists = newsEntries.sort(
   (a, b) =>
     Date.parse(b.data.pubDate.toDateString()) -
-    Date.parse(a.data.pubDate.toDateString())
+    Date.parse(a.data.pubDate.toDateString()),
 )
 ---
 
