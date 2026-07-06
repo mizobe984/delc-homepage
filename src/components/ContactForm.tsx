@@ -118,8 +118,7 @@ export function ContactForm() {
       toast({
         title: 'エラー',
         description:
-          // '申し訳ございません。しばらく経ってから再度お問い合わせください',
-          `${userId} ${serviceId} ${templateId}`,
+          '申し訳ございません。しばらく経ってから再度お問い合わせください',
         variant: 'destructive',
       })
     }
