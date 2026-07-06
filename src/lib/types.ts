@@ -5,7 +5,7 @@ export type SideMenuParams = {
   tabTitle: string
   menuTitle: string
   menus: { url: string; text: string }[]
-  menuShow: number
+  showMenu: boolean
   mainBlockSize: number
   anchor: boolean
   destinationURLs: { url: string; ruby: string }[]

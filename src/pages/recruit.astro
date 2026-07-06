@@ -14,10 +14,6 @@ const pageTitleRuby = '求人情報'
 const tabTitle = '求人情報'
 
 const destinationURLs = breadcrumbs.recruit
-
-const menus = [{ url: 'recruit', text: '求人情報' }]
-
-const hide = 1
 ---
 
 <BaseLayout
@@ -25,8 +21,7 @@ const hide = 1
   pageTitle={pageTitle}
   pageTitleRuby={pageTitleRuby}
   tabTitle={tabTitle}
-  menus={menus}
-  menuShow={hide}
+  showMenu={false}
   mainBlockSize={'1/3'}
   anchor={false}
   destinationURLs={destinationURLs}

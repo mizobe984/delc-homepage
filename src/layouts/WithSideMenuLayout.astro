@@ -3,13 +3,13 @@ import BaseLayout from './BaseLayout.astro'
 import SideMenu from '../components/SideMenu.astro'
 import '../styles/delcInfoGlobal.css'
 
-const { menus, menuShow: show, mainBlockSize, anchor } = Astro.props
+const { menus, showMenu, mainBlockSize, anchor } = Astro.props
 ---
 
 <BaseLayout {...Astro.props}>
   <!--サイドメニュー-->
   <div class="overall-style">
-    <SideMenu {menus} {show} {anchor} />
+    <SideMenu {menus} {showMenu} {anchor} />
     <div
       class="main-block md:min-h-[58rem]"
       style={`--dynamic-grid-column: ${mainBlockSize};`}
