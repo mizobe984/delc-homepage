@@ -77,9 +77,27 @@ module.exports = {
         'accordion-up': 'accordion-up 0.2s ease-out',
         fadeInUp: 'fadeInUp 1s ease-out',
       },
+      // フォントスタック: 欧文は Cabin / Open Sans、和文は Noto Sans JP にフォールバック
       fontFamily: {
-        body: ['Cabin Variable', 'Open Sans Variable', 'sans-serif'],
-        pre: ['Open Sans Variable', 'sans-serif'],
+        sans: ['Open Sans Variable', 'Noto Sans JP Variable', 'sans-serif'],
+        body: ['Cabin Variable', 'Noto Sans JP Variable', 'sans-serif'],
+        heading: ['Cabin Variable', 'Noto Sans JP Variable', 'sans-serif'],
+        pre: ['Open Sans Variable', 'Noto Sans JP Variable', 'sans-serif'],
+      },
+      // タイポグラフィスケール: 見出し h1〜h3 / 本文 / キャプション
+      // 和文の可読性のため本文系は line-height を広めに取る
+      fontSize: {
+        'heading-1': [
+          '2.25rem',
+          { lineHeight: '1.3', fontWeight: '700', letterSpacing: '0.02em' },
+        ],
+        'heading-2': [
+          '1.5rem',
+          { lineHeight: '1.4', fontWeight: '700', letterSpacing: '0.02em' },
+        ],
+        'heading-3': ['1.25rem', { lineHeight: '1.5', fontWeight: '600' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.9' }],
+        caption: ['0.875rem', { lineHeight: '1.6' }],
       },
     },
   },

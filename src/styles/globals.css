@@ -3,34 +3,42 @@
 @tailwind utilities;
 
 @layer base {
+  /*
+   * デザイントークン(カラー)
+   * ブランドカラーはネイビー(hue 210)。全トークンを hue 210 系に統一する。
+   * 詳細は docs/design-tokens.md を参照。
+   */
   :root {
-    --background: 220 100% 99.5%;
-    --foreground: 0 0% 20%;
+    --background: 210 40% 99%;
+    --foreground: 210 15% 20%;
 
-    --card: 160 100% 99.5%;
-    --card-foreground: 160 84% 10%;
+    --card: 210 40% 99%;
+    --card-foreground: 210 15% 20%;
 
-    --popover: 220 10% 93%;
-    --popover-foreground: 160 84% 10%;
+    --popover: 210 20% 96%;
+    --popover-foreground: 210 15% 20%;
 
+    /* primary: ブランドネイビー */
     --primary: 210 42% 25%;
-    --primary-foreground: 160 100% 99.5%;
+    --primary-foreground: 210 40% 99%;
 
+    /* secondary: 淡いブルーグレー(ヒーロー背景など面で使う) */
     --secondary: 210 42% 92%;
-    --secondary-foreground: 160 22% 22%;
+    --secondary-foreground: 210 42% 22%;
 
-    --muted: 160 60% 96.1%;
-    --muted-foreground: 0 0% 50%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 8% 45%;
 
-    --accent: 160 10% 93%;
-    --accent-foreground: 210 42% 28%;
+    /* accent: ホバー背景などの控えめな強調 */
+    --accent: 210 30% 92%;
+    --accent-foreground: 210 42% 25%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 160 22% 22%;
-    --input: 214.3 31.8% 94%;
-    --ring: 195 84% 10%;
+    --border: 210 22% 25%;
+    --input: 210 32% 94%;
+    --ring: 210 42% 25%;
 
     --radius: 0.5rem;
   }
