@@ -1,5 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  // ダークモードは非対応(issue #20)。'class' のままにしておくことで、
+  // dark: バリアントが OS 設定(prefers-color-scheme)で誤発動しない
   darkMode: ['class'],
   content: [
     './pages/**/*.{ts,tsx}',
