@@ -145,10 +145,17 @@
 
   /* ヒーロー領域が高くなった分、背景の透かしロゴをやや大きく見せる
      (大きすぎると右側が見切れるため 113% に抑える)。
-     スマホはロゴ幅がビューポート基準(113%)なので、フェードの幅も
-     同じ 113% にしてロゴとの相対位置を保つ */
+     スマホは left-1/4 のため、ロゴの左端は「要素の左端」で切り取られて見える。
+     そこでフェードもデスクトップの「ロゴ右端基準」ではなく、可視の左端
+     (=要素の左端)基準にして、切れ目を背景へ溶け込ませる */
   .hero-logo-image {
     mask-size: 113%;
-    background-size: 113% 100%;
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      hsl(var(--secondary)) 16%
+    );
+    background-position: left center;
+    background-size: 100% 100%;
   }
 }
