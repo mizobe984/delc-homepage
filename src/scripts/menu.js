@@ -15,6 +15,7 @@ document.addEventListener('astro:page-load', () => {
   const toggle = () => {
     const isOpen = navLinks.classList.toggle('expanded')
     hamburger.classList.toggle('is-open', isOpen)
+    hamburger.setAttribute('aria-expanded', String(isOpen))
     modalOverlay.classList.toggle('is-open', isOpen)
     document.body.classList.toggle('scroll-lock', isOpen)
   }
@@ -31,4 +32,23 @@ document.addEventListener('astro:page-load', () => {
 // メニューを開いたままページ遷移してもスクロール固定が残らないようにする
 document.addEventListener('astro:before-swap', () => {
   document.body.classList.remove('scroll-lock')
+})
+
+// Esc キーでメニューを閉じる
+// (要素は swap で入れ替わるため、リスナーは 1 度だけ登録しイベント時に DOM を参照する)
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'Escape') return
+
+  const hamburger = document.querySelector('.hamburger')
+  if (document.querySelector('.nav-links.expanded') && hamburger) {
+    // SP メニューを閉じてフォーカスを開閉ボタンに戻す
+    hamburger.click()
+    hamburger.focus()
+  } else if (
+    document.activeElement instanceof HTMLElement &&
+    document.activeElement.closest('.pulldown-menu')
+  ) {
+    // PC プルダウン(:focus-within で開く)はフォーカスを外して閉じる
+    document.activeElement.blur()
+  }
 })

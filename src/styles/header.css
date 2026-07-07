@@ -4,24 +4,18 @@
 
 /* ナビゲーションのスタイル */
 .hamburger {
+  /* ウィンドウを基準に画面に固定 */
+  position: fixed;
+  top: 2.2rem;
+  right: 1.5rem;
+  z-index: var(--z-hamburger);
+
   .alignJustify-icon {
-    position: fixed;
     display: flex;
-    padding: 0 0 0.1rem 0.2rem;
-    /* ウィンドウを基準に画面に固定 */
-    top: 2.2rem;
-    right: 1.5rem;
-    z-index: var(--z-hamburger);
   }
 
   .x-icon {
-    position: fixed;
     display: none;
-    padding: 0 0 0.1rem 0.2rem;
-    /* ウィンドウを基準に画面に固定 */
-    top: 2.2rem;
-    right: 1.5rem;
-    z-index: var(--z-hamburger);
   }
 
   &.is-open .alignJustify-icon {
@@ -58,7 +52,6 @@
 .link-format {
   display: flex;
   align-items: center;
-  pointer-events: none;
 }
 
 .expanded {
@@ -191,10 +184,20 @@
     box-shadow: 0px 1px 10px 2px hsl(0, 0%, 57%);
   }
 
+  /* .nav-links の visibility: hidden より詳細度を上げて上書きする */
+  .nav-links.expanded {
+    visibility: visible;
+  }
+
   .nav-links {
     max-height: 0px;
     overflow: hidden;
-    transition: max-height 0.5s ease-out;
+    /* 閉じている間は visibility: hidden でリンクをタブ順序から外す
+       (visibility は閉じアニメーション完了後に切り替わる) */
+    visibility: hidden;
+    transition:
+      max-height 0.5s ease-out,
+      visibility 0.5s ease-out;
 
     position: fixed;
     top: 0;

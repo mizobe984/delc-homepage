@@ -1,13 +1,19 @@
 ---
-import IconButton from './IconButton.astro'
+import { AlignJustify, X } from 'lucide-astro'
 import '../styles/header.css'
 ---
 
-<div class="hamburger relative">
-  <div class="alignJustify-icon">
-    <IconButton iconName="AlignJustify" />
-  </div>
-  <div class="x-icon">
-    <IconButton iconName="X" />
-  </div>
-</div>
+<button
+  type="button"
+  class="hamburger inline-flex h-10 items-center justify-center rounded-md bg-background px-3 py-2 text-black shadow-md transition-colors hover:bg-popover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+  aria-expanded="false"
+  aria-controls="global-nav"
+  aria-label="メニュー"
+>
+  <span class="alignJustify-icon">
+    <AlignJustify size={20} aria-hidden="true" />
+  </span>
+  <span class="x-icon">
+    <X size={20} aria-hidden="true" />
+  </span>
+</button>
