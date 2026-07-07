@@ -9,10 +9,12 @@ import { ChevronRight } from 'lucide-astro'
  */
 const { variant, className, href } = Astro.props
 
+// inline-flex + 固定幅(w-52)で、親要素の幅に引き伸ばされないようにする。
+// className を後ろに置くことで呼び出し側から幅などを上書き可能
 const classes = cn(
   buttonVariants({ variant }),
+  'group relative inline-flex w-52 px-8',
   className,
-  'group relative flex px-8',
 )
 
 const Tag = href ? 'a' : 'button'
