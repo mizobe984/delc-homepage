@@ -4,47 +4,53 @@
 @property --hero-sky-1 {
   syntax: '<color>';
   inherits: false;
-  initial-value: hsl(205 50% 96%);
+  initial-value: hsl(205 32% 98%);
 }
+
 @property --hero-sky-2 {
   syntax: '<color>';
   inherits: false;
-  initial-value: hsl(200 38% 98%);
+  initial-value: hsl(200 22% 99%);
 }
 
 .hero-sky {
-  --hero-sky-1: hsl(205 50% 96%);
-  --hero-sky-2: hsl(200 38% 98%);
+  --hero-sky-1: hsl(205 32% 98%);
+  --hero-sky-2: hsl(200 22% 99%);
   background: linear-gradient(to bottom, var(--hero-sky-1), var(--hero-sky-2));
   animation: heroSky 90s ease-in-out infinite;
 }
 
+/* ほぼ白の中に一日の色みがほんのり残る程度。明度を高く・彩度を低く抑えている */
 @keyframes heroSky {
   /* 日中(澄んだ淡い青) — ここから開始 */
   0%,
   100% {
-    --hero-sky-1: hsl(205 50% 96%);
-    --hero-sky-2: hsl(200 38% 98%);
+    --hero-sky-1: hsl(205 32% 98%);
+    --hero-sky-2: hsl(200 22% 99%);
   }
+
   /* 黄金(琥珀色の地平) */
   24% {
-    --hero-sky-1: hsl(210 36% 96%);
-    --hero-sky-2: hsl(42 62% 94%);
+    --hero-sky-1: hsl(210 24% 98%);
+    --hero-sky-2: hsl(42 42% 97%);
   }
+
   /* 夕暮れ(薄紫 + 橙の地平) */
   46% {
-    --hero-sky-1: hsl(255 32% 96%);
-    --hero-sky-2: hsl(18 52% 94%);
+    --hero-sky-1: hsl(255 22% 98%);
+    --hero-sky-2: hsl(18 36% 97%);
   }
+
   /* 宵(青みがかった藤色) */
   66% {
-    --hero-sky-1: hsl(230 28% 95%);
-    --hero-sky-2: hsl(250 22% 96%);
+    --hero-sky-1: hsl(230 18% 98%);
+    --hero-sky-2: hsl(250 15% 98%);
   }
+
   /* 夜明け(淡い青空 + 桃色の地平) */
   85% {
-    --hero-sky-1: hsl(216 40% 96%);
-    --hero-sky-2: hsl(28 58% 95%);
+    --hero-sky-1: hsl(216 26% 98%);
+    --hero-sky-2: hsl(28 40% 97%);
   }
 }
 
@@ -60,9 +66,11 @@
     filter: blur(14px);
     transform: scale(1.06);
   }
+
   60% {
     opacity: 1;
   }
+
   100% {
     opacity: 1;
     filter: blur(0);
@@ -75,6 +83,7 @@
   .hero-sky {
     animation: none;
   }
+
   .hero-logo-focus {
     animation: none;
   }
