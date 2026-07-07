@@ -31,11 +31,11 @@
     z-index: 9002;
   }
 
-  .open-icon {
+  &.is-open .alignJustify-icon {
     display: none;
   }
 
-  .close-icon {
+  &.is-open .x-icon {
     display: flex;
   }
 }
@@ -91,10 +91,6 @@
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-}
-
-.open {
-  display: grid !important;
 }
 
 @media screen and (min-width: 920px) {
@@ -174,10 +170,13 @@
     opacity: 0;
     transition:
       height 0.3s ease,
-      opacity 0.3s ease background-color 0.3s ease;
+      opacity 0.3s ease,
+      background-color 0.3s ease;
   }
 
-  .links-detail.active {
+  /* PC のプルダウン開閉は JS ではなく :hover / :focus-within で制御(キーボード操作にも対応) */
+  .pulldown-menu:hover .links-detail,
+  .pulldown-menu:focus-within .links-detail {
     height: 45px;
     opacity: 1;
   }
@@ -279,10 +278,5 @@
 
   .menu-bottom-space {
     height: 40px;
-  }
-
-  .open-links-detail {
-    height: 200px;
-    opacity: 1;
   }
 }

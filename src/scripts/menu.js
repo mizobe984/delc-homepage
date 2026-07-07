@@ -1,26 +1,10 @@
+// ハンバーガーメニューの開閉(SP)
+// 開閉アニメーションは CSS の transition に委ね、JS は is-open / expanded の付け外しのみ行う
 document.addEventListener('astro:page-load', () => {
-  const element = document.querySelector('.hamburger')
+  const hamburger = document.querySelector('.hamburger')
+  const navLinks = document.querySelector('.nav-links')
+  if (!hamburger || !navLinks) return
 
-  const toggle = (modalOverlay) => {
-    document.querySelector('.nav-links').classList.toggle('expanded')
-
-    const alignJustify_icon = element.querySelector('.alignJustify-icon')
-    const x_icon = element.querySelector('.x-icon')
-    alignJustify_icon.classList.toggle('open-icon')
-    x_icon.classList.toggle('close-icon')
-
-    if (alignJustify_icon.classList.contains('open-icon')) {
-      modalOverlay.style.display = 'flex'
-      document.body.style.overflow = 'hidden'
-    } else {
-      setTimeout(() => {
-        modalOverlay.style.display = 'none'
-        document.body.style.overflow = 'auto'
-      }, 450)
-    }
-  }
-
-  // モーダル要素を取得
   let modalOverlay = document.querySelector('.modal-overlay')
   if (!modalOverlay) {
     modalOverlay = document.createElement('div')
@@ -28,44 +12,23 @@ document.addEventListener('astro:page-load', () => {
     document.body.appendChild(modalOverlay)
   }
 
-  element.addEventListener('click', () => toggle(modalOverlay))
+  const toggle = () => {
+    const isOpen = navLinks.classList.toggle('expanded')
+    hamburger.classList.toggle('is-open', isOpen)
+    modalOverlay.classList.toggle('is-open', isOpen)
+    document.body.classList.toggle('scroll-lock', isOpen)
+  }
+
+  hamburger.addEventListener('click', toggle)
 
   modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) {
-      toggle(modalOverlay)
+      toggle()
     }
   })
 })
 
-/*SP処理*/
-document.addEventListener('astro:page-load', () => {
-  const main = document.querySelectorAll('.pulldown-menu')
-  const item = Array.from(main)
-
-  item.forEach(function (element) {
-    /*PC処理*/
-    element.addEventListener(
-      'mouseover',
-      function () {
-        const detail = element.querySelector('.links-detail')
-        if (detail && window.innerWidth >= 920) {
-          detail.classList.add('open')
-          detail.classList.add('active')
-        }
-      },
-      false,
-    )
-
-    element.addEventListener(
-      'mouseout',
-      function () {
-        const detail = element.querySelector('.links-detail')
-        if (detail && window.innerWidth >= 920) {
-          detail.classList.remove('open')
-          detail.classList.remove('active')
-        }
-      },
-      false,
-    )
-  })
+// メニューを開いたままページ遷移してもスクロール固定が残らないようにする
+document.addEventListener('astro:before-swap', () => {
+  document.body.classList.remove('scroll-lock')
 })
