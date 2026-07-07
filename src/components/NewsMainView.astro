@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets'
 import '../styles/news.css'
 import {
   Card,
@@ -19,11 +20,20 @@ const DescArticleLists = await getSortedPosts()
       <Card className="card-fixed border-0 shadow-lg">
         <a href={'/posts/' + entry.slug}>
           <CardHeader>
-            <img
-              src={entry.data?.image?.url || '/images/branding.svg'}
-              alt={entry.data?.image?.alt || '株式会社デルク'}
-              class="fixed-image"
-            />
+            {entry.data.image ? (
+              <Image
+                src={entry.data.image.url}
+                alt={entry.data.image.alt}
+                width={640}
+                class="fixed-image"
+              />
+            ) : (
+              <img
+                src="/images/branding.svg"
+                alt="株式会社デルク"
+                class="fixed-image"
+              />
+            )}
           </CardHeader>
           <CardContent className="space-y-1">
             <CardTitle>{entry.data.title}</CardTitle>

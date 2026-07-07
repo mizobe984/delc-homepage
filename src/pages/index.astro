@@ -1,4 +1,5 @@
 ---
+import { getImage } from 'astro:assets'
 import Button from '@/components/Button.astro'
 
 import '@/styles/globals.css'
@@ -8,9 +9,13 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 import NewsList from '../components/NewsList.astro'
 import ServiceCards from '@/components/ServiceCards.astro'
+import contactImage from '@/assets/images/contact.jpg'
 
 const pageTitle = 'DELC'
 const tabTitle = 'DELC(株式会社デルク)'
+
+// CSS background-image は <Image /> を使えないため getImage() で最適化した URL を使う
+const contactBg = await getImage({ src: contactImage, width: 1280 })
 ---
 
 <BaseLayout pageTitle={pageTitle} tabTitle={tabTitle}>
@@ -97,7 +102,8 @@ const tabTitle = 'DELC(株式会社デルク)'
       </div>
     </div>
     <div
-      class="ml-4 mt-6 h-full w-11/12 max-w-[40rem] rounded-3xl bg-[url('/images/contact.jpg')] bg-cover bg-left bg-no-repeat shadow-md"
+      class="ml-4 mt-6 h-full w-11/12 max-w-[40rem] rounded-3xl bg-cover bg-left bg-no-repeat shadow-md"
+      style={`background-image: url(${contactBg.src});`}
     >
     </div>
   </div>

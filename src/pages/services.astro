@@ -4,8 +4,9 @@ import '@/styles/baseTopPageTextBox.css'
 import '@/styles/services.css'
 import WithSideMenuLayout from '@/layouts/WithSideMenuLayout.astro'
 
-import localDebugImage from '/public/images/debug.jpg'
-import localSesImage from '/public/images/ses.jpg'
+import { Image } from 'astro:assets'
+import debugImage from '@/assets/images/debug.jpg'
+import sesImage from '@/assets/images/ses.jpg'
 
 import type { SideMenuParams } from '@/lib/types'
 import { serviceMenus, breadcrumbs } from '@/lib/navigation'
@@ -29,7 +30,7 @@ const params: SideMenuParams = {
     <section class="pp-category">
       <h1 id="debug">デバッグサービス事業</h1>
 
-      <img src={localDebugImage.src} />
+      <Image src={debugImage} alt="デバッグ作業の様子" width={1024} />
 
       <h2>サービス概要</h2>
       <p>
@@ -68,7 +69,7 @@ const params: SideMenuParams = {
 
     <section class="pp-category">
       <h1 id="ses">SES事業</h1>
-      <img src={localSesImage.src} />
+      <Image src={sesImage} alt="エンジニアの作業風景" width={1024} />
 
       <h2>サービス概要</h2>
       <p>
