@@ -17,6 +17,12 @@ const tabTitle = 'DELC(株式会社デルク)'
 
 // CSS background-image は <Image /> を使えないため getImage() で最適化した URL を使う
 const contactBg = await getImage({ src: contactImage, width: 1280 })
+
+// セクション共通レイアウト。高さを揃えるための min-h は、最も背の高い
+// CONTACT セクションの実測値に合わせた値(SP: 35rem / PC: 33rem)。
+// 固定高さではなく min-h + 中央寄せなので、コンテンツが増えても溢れない
+const sectionClass =
+  'flex min-h-[35rem] flex-col justify-center px-6 py-10 md:min-h-[33rem] md:px-10'
 ---
 
 <BaseLayout pageTitle={pageTitle} tabTitle={tabTitle} fullWidthMain>
@@ -29,7 +35,7 @@ const contactBg = await getImage({ src: contactImage, width: 1280 })
     </p>
   </Fragment>
 
-  <section class="bg-secondary px-6 py-10 md:px-10">
+  <section class:list={[sectionClass, 'bg-secondary']}>
     <SectionHeader jp="お知らせ" en="NEWS" />
     <NewsList />
     <div class="ml-6 mt-8">
@@ -38,7 +44,10 @@ const contactBg = await getImage({ src: contactImage, width: 1280 })
   </section>
 
   <section
-    class="relative overflow-clip bg-primary px-6 py-16 text-primary-foreground md:px-10"
+    class:list={[
+      sectionClass,
+      'relative overflow-clip bg-primary text-primary-foreground',
+    ]}
   >
     <div
       class="logo-image pointer-events-none bg-gradient-to-b from-accent-foreground/90 via-accent-foreground to-accent-foreground"
@@ -61,12 +70,12 @@ const contactBg = await getImage({ src: contactImage, width: 1280 })
     </div>
   </section>
 
-  <section class="px-6 py-16 md:px-10">
+  <section class:list={[sectionClass]}>
     <SectionHeader jp="事業案内" en="SERVICES" />
     <ServiceCards />
   </section>
 
-  <section class="relative overflow-clip bg-secondary px-6 py-16 md:px-10">
+  <section class:list={[sectionClass, 'relative overflow-clip bg-secondary']}>
     <div
       class="logo-image pointer-events-none bg-gradient-to-b from-background/90 via-background to-background"
     >
@@ -79,7 +88,7 @@ const contactBg = await getImage({ src: contactImage, width: 1280 })
     </div>
   </section>
 
-  <section class="px-6 py-16 md:px-10">
+  <section class:list={[sectionClass]}>
     <div class="grid items-center gap-8 md:grid-cols-2">
       <div class="animate-fadeInUp">
         <SectionHeader jp="お問い合わせ" en="CONTACT" />
