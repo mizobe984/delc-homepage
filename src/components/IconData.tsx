@@ -4,9 +4,12 @@ import { Presentation } from 'lucide-astro'
 import { UserSearch } from 'lucide-astro'
 import { Mail } from 'lucide-astro'
 
+// lucide-astro のアイコンコンポーネント型(全アイコン共通)
+type LucideIcon = typeof House
+
 export interface IconData {
   name: string
-  icon: any
+  icon: LucideIcon
 }
 
 export const IconData: IconData[] = [
