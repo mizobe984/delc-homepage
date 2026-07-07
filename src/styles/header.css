@@ -4,20 +4,14 @@
 
 /* ナビゲーションのスタイル */
 .hamburger {
-  /* position: fixed;
-  top: 2.2rem;
-  right: 1.5rem;
-  z-index: 9002; */
-
   .alignJustify-icon {
     position: fixed;
     display: flex;
     padding: 0 0 0.1rem 0.2rem;
     /* ウィンドウを基準に画面に固定 */
     top: 2.2rem;
-    /* 上下の固定位置を上から0pxにする */
     right: 1.5rem;
-    z-index: 9002;
+    z-index: var(--z-hamburger);
   }
 
   .x-icon {
@@ -26,9 +20,8 @@
     padding: 0 0 0.1rem 0.2rem;
     /* ウィンドウを基準に画面に固定 */
     top: 2.2rem;
-    /* 上下の固定位置を上から0pxにする */
     right: 1.5rem;
-    z-index: 9002;
+    z-index: var(--z-hamburger);
   }
 
   &.is-open .alignJustify-icon {
@@ -47,14 +40,13 @@
 }
 
 .nav-links {
-  z-index: 9002;
+  z-index: var(--z-nav);
   top: 5rem;
   right: 0px;
 }
 
 .nav-links a {
   display: block;
-  background-color: hsl(hue, saturation, lightness);
   transition: background-color 0.3s ease;
 }
 
@@ -106,7 +98,7 @@
 
   /*グリッド設定*/
   .nav-links .nav-links-block {
-    z-index: 9003;
+    z-index: var(--z-nav-block);
 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -185,19 +177,6 @@
     display: none;
   }
 
-  html.dark {
-    background-color: #0d0950;
-    color: #fff;
-  }
-
-  .dark .nav-links a {
-    color: #fff;
-  }
-
-  .dli-chevron-down {
-    background-color: #ffffff;
-  }
-
   .nav-links-block .relative {
     display: none;
   }
@@ -205,10 +184,6 @@
 
 @media screen and (max-width: 919px) {
   /*スマホ*/
-
-  .hamburger {
-    z-index: 9004;
-  }
 
   .expanded {
     display: block !important;

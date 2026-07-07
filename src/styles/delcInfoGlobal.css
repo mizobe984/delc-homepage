@@ -4,7 +4,6 @@
 
 .overall-style {
   display: grid;
-  z-index: -1;
 }
 
 .breadcrumb-flex-block {

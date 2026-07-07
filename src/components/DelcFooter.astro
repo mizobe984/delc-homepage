@@ -64,7 +64,9 @@ import BrandingLogo from '@/components/BrandingLogo.astro'
     grid-row: 6;
     grid-column: 1;
 
-    z-index: 100;
+    /* BrandingLogo のラッパー(z-10, 高さ21rem)がこの行まで被さるため、
+       リンクをクリック可能にするには z-10 より手前に置く必要がある */
+    z-index: 20;
 
     margin: 1rem 0 1rem var(--left-margin);
     text-decoration: underline;
