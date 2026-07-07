@@ -95,13 +95,26 @@
   mask-repeat: no-repeat;
   mask-position: right;
 
-  /* 塗りを横方向のフェードにして、ロゴの左端だけを透明にし背景の空に
-     溶け込ませる。フェード帯はロゴ左端付近のごく狭い範囲だけ */
-  background: linear-gradient(
+  /* 塗りを横方向のフェードにして、ロゴの左端だけを透明にし背景の空に溶け込ませる。
+     塗りをロゴと同じ「右寄せ・ロゴ幅基準」に置くことで、ビューポート幅が
+     変わっても溶ける位置がロゴに対して一定になる。
+     ロゴ幅 = 高さ800px × (184/216 = branding.svg のアスペクト) ≈ 682px。
+     contain は高さ基準なので、この幅はビューポート幅に依存せず一定 */
+  background-image: linear-gradient(
     to right,
-    transparent 33%,
-    hsl(var(--secondary)) 39%
+    transparent 0%,
+    hsl(var(--secondary)) 12%
   );
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 682px 100%;
+}
+
+/* xl(高さ 1200px)ではロゴ幅 = 1200 × 184/216 ≈ 1022px */
+@media (min-width: 1280px) {
+  .hero-logo-image {
+    background-size: 1022px 100%;
+  }
 }
 
 .logo-image {
@@ -131,8 +144,11 @@
   }
 
   /* ヒーロー領域が高くなった分、背景の透かしロゴをやや大きく見せる
-     (大きすぎると右側が見切れるため 113% に抑える) */
+     (大きすぎると右側が見切れるため 113% に抑える)。
+     スマホはロゴ幅がビューポート基準(113%)なので、フェードの幅も
+     同じ 113% にしてロゴとの相対位置を保つ */
   .hero-logo-image {
     mask-size: 113%;
+    background-size: 113% 100%;
   }
 }
