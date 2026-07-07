@@ -8,9 +8,13 @@ import BrandingLogo from '@/components/BrandingLogo.astro'
   }
 
   footer {
+    /* relative z-index: スクロール固定の透かしロゴ(z-0)より前面に置き、
+       最下部で footer に被らないようにする。透明な margin だと隙間から
+       ロゴが透けるため、余白は footer-grid の padding-top に寄せている */
+    position: relative;
+    z-index: 10;
     color: hsl(var(--primary-foreground));
     background-color: hsl(var(--primary));
-    margin-top: 2rem;
   }
 
   .footer-grid {
