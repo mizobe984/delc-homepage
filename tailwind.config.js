@@ -73,11 +73,17 @@ module.exports = {
           '0%': { opacity: 0, transform: 'translateY(20px)' },
           '100%': { opacity: 1, transform: 'translateY(0)' },
         },
+        // ヒーロー背景ロゴの控えめな浮遊(±0.5rem の上下 + 1.5% の緩い拡縮)
+        heroFloat: {
+          '0%': { transform: 'translateY(0) scale(1)' },
+          '100%': { transform: 'translateY(-0.5rem) scale(1.015)' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         fadeInUp: 'fadeInUp 1s ease-out',
+        'hero-float': 'heroFloat 9s ease-in-out infinite alternate',
       },
       // フォントスタック: 欧文は Cabin / Open Sans、和文は Noto Sans JP にフォールバック
       fontFamily: {
