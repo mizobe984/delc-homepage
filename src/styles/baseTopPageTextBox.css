@@ -95,12 +95,12 @@
   mask-repeat: no-repeat;
   mask-position: right;
 
-  /* 塗りを横方向のフェードにして、ロゴの左側を透明にし背景の空に溶け込ませる
-     (左=透明 → 右=secondary) */
+  /* 塗りを横方向のフェードにして、ロゴの左端だけを透明にし背景の空に
+     溶け込ませる(左端=透明 → すぐに secondary。効きは控えめ) */
   background: linear-gradient(
     to right,
-    transparent 30%,
-    hsl(var(--secondary)) 75%
+    transparent 33%,
+    hsl(var(--secondary)) 48%
   );
 }
 
