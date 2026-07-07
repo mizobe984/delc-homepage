@@ -96,11 +96,11 @@
   mask-position: right;
 
   /* 塗りを横方向のフェードにして、ロゴの左端だけを透明にし背景の空に
-     溶け込ませる(左端=透明 → すぐに secondary。効きは控えめ) */
+     溶け込ませる。フェード帯はロゴ左端付近のごく狭い範囲だけ */
   background: linear-gradient(
     to right,
     transparent 33%,
-    hsl(var(--secondary)) 48%
+    hsl(var(--secondary)) 39%
   );
 }
 
