@@ -4,18 +4,18 @@
 @property --hero-sky-1 {
   syntax: '<color>';
   inherits: false;
-  initial-value: hsl(205 32% 98%);
+  initial-value: hsl(205 40% 97%);
 }
 
 @property --hero-sky-2 {
   syntax: '<color>';
   inherits: false;
-  initial-value: hsl(200 22% 99%);
+  initial-value: hsl(200 30% 98%);
 }
 
 .hero-sky {
-  --hero-sky-1: hsl(205 32% 98%);
-  --hero-sky-2: hsl(200 22% 99%);
+  --hero-sky-1: hsl(205 40% 97%);
+  --hero-sky-2: hsl(200 30% 98%);
   background: linear-gradient(to bottom, var(--hero-sky-1), var(--hero-sky-2));
   animation: heroSky 90s ease-in-out infinite;
 }
@@ -25,32 +25,32 @@
   /* 日中(澄んだ淡い青) — ここから開始 */
   0%,
   100% {
-    --hero-sky-1: hsl(205 32% 98%);
-    --hero-sky-2: hsl(200 22% 99%);
+    --hero-sky-1: hsl(205 40% 97%);
+    --hero-sky-2: hsl(200 30% 98%);
   }
 
   /* 黄金(琥珀色の地平) */
   24% {
-    --hero-sky-1: hsl(210 24% 98%);
-    --hero-sky-2: hsl(42 42% 97%);
+    --hero-sky-1: hsl(210 30% 97%);
+    --hero-sky-2: hsl(42 52% 96%);
   }
 
   /* 夕暮れ(薄紫 + 橙の地平) */
   46% {
-    --hero-sky-1: hsl(255 22% 98%);
-    --hero-sky-2: hsl(18 36% 97%);
+    --hero-sky-1: hsl(255 27% 97%);
+    --hero-sky-2: hsl(18 44% 96%);
   }
 
   /* 宵(青みがかった藤色) */
   66% {
-    --hero-sky-1: hsl(230 18% 98%);
-    --hero-sky-2: hsl(250 15% 98%);
+    --hero-sky-1: hsl(230 23% 97%);
+    --hero-sky-2: hsl(250 18% 97%);
   }
 
   /* 夜明け(淡い青空 + 桃色の地平) */
   85% {
-    --hero-sky-1: hsl(216 26% 98%);
-    --hero-sky-2: hsl(28 40% 97%);
+    --hero-sky-1: hsl(216 33% 97%);
+    --hero-sky-2: hsl(28 49% 96%);
   }
 }
 
