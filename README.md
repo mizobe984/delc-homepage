@@ -1,63 +1,56 @@
-# 🤩更新方法の備忘録
+# delc-homepage
 
-- FTPクライアントで接続
-  - Cyberduck使った
-  - 接続の仕方は、先にStarServerのサーバー管理ツールとかヘルプとかで情報を取得する
-  - 新規接続 > ftpアカウント名(デフォルトのものがある)+pass > SSL切替
-  - 繋がったら、エクスプローラ的な操作感でファイルを更新できます
+株式会社デルクのコーポレートサイトです。静的サイトとしてビルドし、レンタルサーバー(StarServer)へ FTP でアップロードして公開しています。
 
-# 🤔求人作成ページのリンク
+- 公開サイト: https://delc.co.jp
+- リポジトリのデフォルトブランチ: `feature`
 
-[HERP Hire](https://delc.v1.herp.cloud/ats/p/candidacies)
+## 技術スタック
 
-# 🤔問い合わせページのリンク
+- [Astro](https://astro.build/)(静的ビルド。SSR は使用しない)
+- [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)(一部 React コンポーネント)
+- お知らせ記事は Astro コンテンツコレクション(`src/content/posts/`)で管理
+- お問い合わせフォームは EmailJS、求人ページは HERP の外部サービスを利用
 
-[EmailJS](https://dashboard.emailjs.com/admin)
+## 開発手順
 
-# Astro Starter Kit: Minimal
+Node.js 20 系を使用します。
 
-```sh
-npm create astro@latest -- --template minimal
-```
+| コマンド          | 内容                                   |
+| :---------------- | :------------------------------------- |
+| `npm install`     | 依存関係のインストール                 |
+| `npm run dev`     | 開発サーバーを `localhost:4321` で起動 |
+| `npm run build`   | 本番ビルドを `./dist/` に出力          |
+| `npm run preview` | ビルド結果をローカルで確認             |
+| `npm run lint`    | ESLint によるチェック                  |
+| `npm run format`  | Prettier による整形                    |
+| `npm run check`   | `astro check`(型・構文チェック)        |
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## ディレクトリ構成(抜粋)
 
 ```text
 /
-├── public/
+├── public/            # 最適化不要の静的ファイル(CSS mask 用 SVG など)
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── assets/images/ # astro:assets で最適化する画像
+│   ├── components/    # Astro / React コンポーネント
+│   ├── content/posts/ # お知らせ記事(Markdown)
+│   ├── layouts/       # ページレイアウト
+│   ├── lib/           # ナビゲーション定義・ユーティリティ
+│   ├── pages/         # ルーティング対象のページ
+│   ├── scripts/       # クライアントサイド JS
+│   └── styles/        # グローバル CSS
+└── docs/              # 設計ドキュメント
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+デザイントークン(色・タイポグラフィ・z-index)と CSS の書き方のルールは [docs/design-tokens.md](docs/design-tokens.md) を参照してください。
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## デプロイ手順(FTP)
 
-Any static assets, like images, can be placed in the `public/` directory.
+git push では本番に反映されません。公開は以下の手動作業で行います。
 
-## 🧞 Commands
+1. `npm run build` で `dist/` を生成する
+2. FTP クライアント(Cyberduck など)で StarServer に SSL 接続する
+3. `dist/` の内容をドキュメントルートへアップロードする
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+接続情報は StarServer のサーバー管理ツールで確認してください(このリポジトリには置かない)。運用上の内部メモは gitignore 済みの `docs/*.local.md` に置く運用とします。

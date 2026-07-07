@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# 非公開の運用メモ(公開リポジトリにコミットしない)
+*.local.md
