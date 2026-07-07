@@ -65,13 +65,19 @@ SES事業`,
     url: 'https://www.invoice-kohyo.nta.go.jp/regno-search/detail?selRegNo=7013301035178',
   },
 ]
+
+// 複数行の content は行ごとに <p> にする(旧 <pre> レイアウトの置き換え)
+const companyRows = companyTable.map((item) => ({
+  ...item,
+  lines: item.content.split('\n'),
+}))
 ---
 
 <WithSideMenuLayout {...params}>
   <dl class="mt-6 grid grid-cols-[auto_1fr] text-sm max-md:grid-cols-1">
     {
-      companyTable.map((item, index) => {
-        const border = index === companyTable.length - 1 ? '' : 'border-b'
+      companyRows.map((item, index) => {
+        const border = index === companyRows.length - 1 ? '' : 'border-b'
         return (
           <Fragment>
             <dt
@@ -95,7 +101,7 @@ SES事業`,
                   <ExternalLink />
                 </a>
               ) : (
-                <pre class="font-body">{item.content}</pre>
+                item.lines.map((line) => <p>{line}</p>)
               )}
             </dd>
           </Fragment>

@@ -82,7 +82,6 @@ module.exports = {
         sans: ['Open Sans Variable', 'Noto Sans JP Variable', 'sans-serif'],
         body: ['Cabin Variable', 'Noto Sans JP Variable', 'sans-serif'],
         heading: ['Cabin Variable', 'Noto Sans JP Variable', 'sans-serif'],
-        pre: ['Open Sans Variable', 'Noto Sans JP Variable', 'sans-serif'],
       },
       // タイポグラフィスケール: 見出し h1〜h3 / 本文 / キャプション
       // 和文の可読性のため本文系は line-height を広めに取る
