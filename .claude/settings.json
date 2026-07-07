@@ -1,0 +1,20 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -r '.tool_input.file_path // .tool_response.filePath // empty' | { read -r f; [ -n \"$f\" ] || exit 0; npx prettier --write --ignore-unknown \"$f\" >/dev/null 2>&1 || true; case \"$f\" in *.js|*.jsx|*.ts|*.tsx|*.astro|*.mjs|*.cjs) out=$(npx eslint --fix --no-warn-ignored \"$f\" 2>&1) || { printf '%s\\n' \"$out\" >&2; exit 2; } ;; esac; }",
+            "timeout": 60,
+            "statusMessage": "prettier + eslint 実行中..."
+          }
+        ]
+      }
+    ]
+  }
+}
