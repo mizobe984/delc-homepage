@@ -24,7 +24,8 @@ const { Content } = await post.render()
 
 const props = {
   pageTitle: 'お知らせ',
-  tabTitle: 'お知らせ',
+  tabTitle: `${post.data.title} | 株式会社デルク`,
+  description: `${post.data.title} - 株式会社デルクからのお知らせです。`,
   pageTitleRuby: post.data.pageTitleRuby,
   destinationURLs: [{ url: 'news', ruby: 'お知らせ一覧' }],
 }

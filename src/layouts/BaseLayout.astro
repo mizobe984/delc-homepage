@@ -7,7 +7,13 @@ import '../styles/delcGlobal.css'
 import '../styles/baseTopPageTextBox.css'
 import { ClientRouter } from 'astro:transitions'
 
-const { pageTitle, tabTitle, pageTitleRuby, destinationURLs } = Astro.props
+const { pageTitle, tabTitle, pageTitleRuby, destinationURLs, description } =
+  Astro.props
+
+const DEFAULT_DESCRIPTION =
+  '株式会社デルク(DELC)は、ゲーム・ソフトウェアのデバッグ/品質保証(QA)と SES を主軸とする東京・池袋の企業です。先進的な品質保証とエンジニアリングサポートを通じてデジタル世界をより良くします。'
+const metaDescription = description || DEFAULT_DESCRIPTION
+const canonicalURL = new URL(Astro.url.pathname, Astro.site)
 
 import { Toaster } from '@/components/ui/toaster'
 
@@ -21,10 +27,19 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{tabTitle}</title>
+    <meta name="description" content={metaDescription} />
+    <link rel="canonical" href={canonicalURL} />
+    <meta property="og:site_name" content="株式会社デルク" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={tabTitle} />
+    <meta property="og:description" content={metaDescription} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:locale" content="ja_JP" />
+    <meta name="twitter:card" content="summary" />
     <ClientRouter />
   </head>
   <body class="font-body">
