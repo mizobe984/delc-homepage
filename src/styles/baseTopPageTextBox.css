@@ -1,3 +1,85 @@
+/* ヒーロー背景の空: 日の出→日中→黄金→夕暮れ→夜明けの移ろいをゆっくり穏やかに巡る。
+   @property で <color> を宣言することでグラデーションの色をアニメーションで補間できる
+   (未対応ブラウザは initial-value の日中の空で静止) */
+@property --hero-sky-1 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(205 62% 91%);
+}
+@property --hero-sky-2 {
+  syntax: '<color>';
+  inherits: false;
+  initial-value: hsl(200 45% 96%);
+}
+
+.hero-sky {
+  --hero-sky-1: hsl(205 62% 91%);
+  --hero-sky-2: hsl(200 45% 96%);
+  background: linear-gradient(to bottom, var(--hero-sky-1), var(--hero-sky-2));
+  animation: heroSky 90s ease-in-out infinite;
+}
+
+@keyframes heroSky {
+  /* 夜明け(淡い青空 + 桃色の地平) */
+  0%,
+  100% {
+    --hero-sky-1: hsl(216 45% 91%);
+    --hero-sky-2: hsl(28 72% 90%);
+  }
+  /* 日中(澄んだ淡い青) */
+  28% {
+    --hero-sky-1: hsl(205 62% 91%);
+    --hero-sky-2: hsl(200 45% 96%);
+  }
+  /* 黄金(琥珀色の地平) */
+  52% {
+    --hero-sky-1: hsl(210 42% 90%);
+    --hero-sky-2: hsl(42 78% 89%);
+  }
+  /* 夕暮れ(薄紫 + 橙の地平) */
+  72% {
+    --hero-sky-1: hsl(255 38% 90%);
+    --hero-sky-2: hsl(18 66% 89%);
+  }
+  /* 宵(青みがかった藤色) */
+  88% {
+    --hero-sky-1: hsl(230 34% 89%);
+    --hero-sky-2: hsl(250 26% 91%);
+  }
+}
+
+/* 背景の透かしロゴの入場: 陽炎のようにぼやけて浮いた状態から、
+   ピントが合って元の位置・原寸に収束する(読み込み時に1回だけ) */
+.hero-logo-focus {
+  animation: heroFocusIn 2.2s ease-out both;
+}
+
+@keyframes heroFocusIn {
+  0% {
+    opacity: 0;
+    filter: blur(14px);
+    transform: scale(1.06);
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+/* アニメーションを控える設定では、空は日中で静止・ロゴは即座に確定表示 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-sky {
+    animation: none;
+  }
+  .hero-logo-focus {
+    animation: none;
+  }
+}
+
 .hero-logo-image {
   /* grid-row: 1/5;
     grid-column: 2;
