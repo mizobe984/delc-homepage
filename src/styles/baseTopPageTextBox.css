@@ -91,12 +91,17 @@
   /* width: 100%; */
   /* position: absolute; */
   mask-image: url(/images/branding.svg);
-  /* position: absolute;
-    top: 16%; */
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: right;
-  /* background-color: hsl(var(--secondary)); */
+
+  /* 塗りを横方向のフェードにして、ロゴの左側を透明にし背景の空に溶け込ませる
+     (左=透明 → 右=secondary) */
+  background: linear-gradient(
+    to right,
+    transparent 30%,
+    hsl(var(--secondary)) 75%
+  );
 }
 
 .logo-image {
