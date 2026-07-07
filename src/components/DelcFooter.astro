@@ -20,7 +20,8 @@ import BrandingLogo from '@/components/BrandingLogo.astro'
     gap: 0.5rem;
     background-color: inherit;
     letter-spacing: 0.025rem;
-    padding-top: 2rem;
+    /* 左右 1.5rem は旧 body パディング相当(.expand 廃止に伴い footer 側で確保) */
+    padding: 2rem 1.5rem 0;
   }
 
   .footer-grid p {
@@ -97,7 +98,7 @@ import BrandingLogo from '@/components/BrandingLogo.astro'
   }
 </style>
 
-<footer class="expand">
+<footer>
   <div class="footer-grid">
     <BrandingLogo color="bg-primary-foreground" />
     <p class="subcompany">株式会社デルク</p>

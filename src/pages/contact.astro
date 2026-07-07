@@ -13,8 +13,15 @@ const tabTitle = 'お問い合わせ'
 const destinationURLs = breadcrumbs.contact
 ---
 
-<BaseLayout {pageTitle} {pageTitleRuby} {tabTitle} {destinationURLs}>
-  <div class="expand -mb-32 bg-secondary pb-32 pl-8 pt-8">
+<BaseLayout
+  {pageTitle}
+  {pageTitleRuby}
+  {tabTitle}
+  {destinationURLs}
+  fullWidthMain
+>
+  <!-- pl-14 = 旧 body パディング 1.5rem + pl-8(.expand 廃止に伴う読み替え) -->
+  <div class="-mb-32 bg-secondary pb-32 pl-14 pr-6 pt-8">
     <ContactForm client:load />
   </div>
 </BaseLayout>

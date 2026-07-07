@@ -9,6 +9,7 @@ import BaseLayout from '../layouts/BaseLayout.astro'
 
 import NewsList from '../components/NewsList.astro'
 import ServiceCards from '@/components/ServiceCards.astro'
+import SectionHeader from '@/components/SectionHeader.astro'
 import contactImage from '@/assets/images/contact.jpg'
 
 const pageTitle = 'DELC'
@@ -18,7 +19,7 @@ const tabTitle = 'DELC(株式会社デルク)'
 const contactBg = await getImage({ src: contactImage, width: 1280 })
 ---
 
-<BaseLayout pageTitle={pageTitle} tabTitle={tabTitle}>
+<BaseLayout pageTitle={pageTitle} tabTitle={tabTitle} fullWidthMain>
   <Fragment slot="hero">
     <h1 class="sr-only">株式会社デルク(DELC)</h1>
     <p class="ml-6 font-sans text-xl leading-8 tracking-wider max-md:text-lg">
@@ -28,85 +29,70 @@ const contactBg = await getImage({ src: contactImage, width: 1280 })
     </p>
   </Fragment>
 
-  <div class="news expand">
-    <div class="header">
-      <div class="title-jp">お知らせ</div>
-      <div class="title text-shadow">NEWS</div>
-    </div>
+  <section class="bg-secondary px-6 py-10 md:px-10">
+    <SectionHeader jp="お知らせ" en="NEWS" />
     <NewsList />
-    <div class="ml-6 mt-12">
+    <div class="ml-6 mt-8">
       <Button href="/news" variant="default">VIEW MORE</Button>
     </div>
-  </div>
+  </section>
 
-  <div
-    class="businessContents expand relative overflow-clip bg-primary text-primary-foreground"
+  <section
+    class="relative overflow-clip bg-primary px-6 py-16 text-primary-foreground md:px-10"
   >
-    <div class="flex h-96 animate-fadeInUp space-x-4 rounded-xl px-6">
-      <div class="element-padding absolute z-10">
-        <p class="header">会社情報</p>
-        <p class="header-ruby text-shadow">COMPANY</p>
-        <div class="info ml-6 space-y-4 font-sans tracking-wider">
-          <p>
-            私たちは、デジタル技術の進化を支えることで利便性と快適さを向上させ、社会全体の発展に貢献することを目指します。
-          </p>
-          <p>
-            そのために、卓越した検証サービスやエンジニアリングサポートを提供すると同時に、技術的な課題解決・品質改善に継続的に取り組み、人々の生活を豊かにすべく活動を行います。
-          </p>
-        </div>
-
-        <div class="view-button ml-6 mt-12 text-primary">
-          <Button href="/company" variant="outline">VIEW MORE</Button>
-        </div>
+    <div
+      class="logo-image pointer-events-none bg-gradient-to-b from-accent-foreground/90 via-accent-foreground to-accent-foreground"
+    >
+    </div>
+    <div class="relative z-10 animate-fadeInUp">
+      <SectionHeader jp="会社情報" en="COMPANY" />
+      <div class="ml-6 mt-4 max-w-2xl space-y-4 font-sans tracking-wider">
+        <p>
+          私たちは、デジタル技術の進化を支えることで利便性と快適さを向上させ、社会全体の発展に貢献することを目指します。
+        </p>
+        <p>
+          そのために、卓越した検証サービスやエンジニアリングサポートを提供すると同時に、技術的な課題解決・品質改善に継続的に取り組み、人々の生活を豊かにすべく活動を行います。
+        </p>
       </div>
-      <div
-        class="logo-image bg-gradient-to-b from-accent-foreground/90 via-accent-foreground to-accent-foreground"
-      >
+
+      <div class="ml-6 mt-10 text-primary">
+        <Button href="/company" variant="outline">VIEW MORE</Button>
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="businessContents h-[32rem]">
-    <div class="element-padding">
-      <p class="header">事業案内</p>
-      <p class="header-ruby text-shadow">SERVICES</p>
-    </div>
+  <section class="px-6 py-16 md:px-10">
+    <SectionHeader jp="事業案内" en="SERVICES" />
     <ServiceCards />
-  </div>
+  </section>
 
-  <div
-    class="businessContents expand relative h-[32rem] overflow-clip bg-secondary"
-  >
-    <div class="ml-5 flex animate-fadeInUp items-start space-x-4 rounded-xl">
-      <div class="element-padding absolute">
-        <p class="header">求人情報</p>
-        <p class="header-ruby text-shadow">RECRUIT</p>
-      </div>
-      <div class="view-button z-50 mt-32">
+  <section class="relative overflow-clip bg-secondary px-6 py-16 md:px-10">
+    <div
+      class="logo-image pointer-events-none bg-gradient-to-b from-background/90 via-background to-background"
+    >
+    </div>
+    <div class="relative z-10 animate-fadeInUp">
+      <SectionHeader jp="求人情報" en="RECRUIT" />
+      <div class="ml-6 mt-10">
         <Button href="https://herp.careers/v1/delc">VIEW MORE</Button>
       </div>
-      <div
-        class="logo-image bg-gradient-to-b from-background/90 via-background to-background"
-      >
-      </div>
     </div>
-  </div>
+  </section>
 
-  <div class="businessContents flex h-[32rem] items-start justify-between">
-    <div class="flex animate-fadeInUp items-center space-x-4 rounded-xl">
-      <div class="element-padding">
-        <p class="header">お問い合わせ</p>
-        <p class="header-ruby text-shadow">CONTACT</p>
-
-        <div class="view-button ml-4 mt-8">
+  <section class="px-6 py-16 md:px-10">
+    <div class="grid items-center gap-8 md:grid-cols-2">
+      <div class="animate-fadeInUp">
+        <SectionHeader jp="お問い合わせ" en="CONTACT" />
+        <div class="ml-6 mt-8">
           <Button href="/contact" variant="outline">CLICK HERE</Button>
         </div>
       </div>
+      <!-- 元画像(4752x3168)と同じ 3:2 比率で高さを決める(固定高さの代替) -->
+      <div
+        class="aspect-[3/2] w-full max-w-[40rem] rounded-3xl bg-cover bg-left bg-no-repeat shadow-md"
+        style={`background-image: url(${contactBg.src});`}
+      >
+      </div>
     </div>
-    <div
-      class="ml-4 mt-6 h-full w-11/12 max-w-[40rem] rounded-3xl bg-cover bg-left bg-no-repeat shadow-md"
-      style={`background-image: url(${contactBg.src});`}
-    >
-    </div>
-  </div>
+  </section>
 </BaseLayout>

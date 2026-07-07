@@ -12,7 +12,8 @@ import { serviceLinks } from '@/lib/navigation'
 
 const ts = [
   'flex',
-  'justify-between', // CardTitle の -mr-28 と組み合わせると、一応見出しが1行で収まった
+  'items-center',
+  'justify-between',
   'md:w-[28rem]',
   'pt-5',
   'mt-3',
@@ -31,15 +32,15 @@ const ts = [
       )
       return (
         <Card className={cn(...ts, mlIndent)}>
-          <div>
+          <div class="min-w-0 flex-1">
             <CardContent>
-              <CardTitle className="text-lg font-normal -mr-28">
+              <CardTitle className="text-lg font-normal">
                 {data.title}
               </CardTitle>
               <CardDescription>{data.description}</CardDescription>
             </CardContent>
           </div>
-          <CardFooter>
+          <CardFooter className="shrink-0">
             <Button
               variant="default"
               className="text-primary-foreground"

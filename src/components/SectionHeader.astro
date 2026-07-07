@@ -1,0 +1,9 @@
+---
+// トップページ各セクション共通の見出し(日本語ラベル + 英字タイトル)
+const { jp, en } = Astro.props
+---
+
+<div class="leading-normal">
+  <p class="ml-1 text-lg">{jp}</p>
+  <h2 class="text-[40px] font-bold text-shadow">{en}</h2>
+</div>

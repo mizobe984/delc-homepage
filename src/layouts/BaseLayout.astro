@@ -7,8 +7,14 @@ import '../styles/delcGlobal.css'
 import '../styles/baseTopPageTextBox.css'
 import { ClientRouter } from 'astro:transitions'
 
-const { pageTitle, tabTitle, pageTitleRuby, destinationURLs, description } =
-  Astro.props
+const {
+  pageTitle,
+  tabTitle,
+  pageTitleRuby,
+  destinationURLs,
+  description,
+  fullWidthMain,
+} = Astro.props
 
 const DEFAULT_DESCRIPTION =
   '株式会社デルク(DELC)は、ゲーム・ソフトウェアのデバッグ/品質保証(QA)と SES を主軸とする東京・池袋の企業です。先進的な品質保証とエンジニアリングサポートを通じてデジタル世界をより良くします。'
@@ -47,16 +53,14 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
 
     <!-- HERO SECTION -->
     <div
-      class="expand relative h-[32rem] overflow-clip border-b border-b-secondary xl:h-[44rem]"
+      class="relative flex min-h-[32rem] flex-col justify-between overflow-clip border-b border-b-secondary px-6 xl:min-h-[44rem]"
     >
       <div
-        class="hero-logo-image absolute left-0 top-24 h-[800px] min-w-full bg-gradient-to-t from-secondary to-secondary/90 max-md:left-1/4 max-md:top-8 xl:top-12 xl:h-[1200px]"
+        class="hero-logo-image pointer-events-none absolute left-0 top-24 h-[800px] min-w-full bg-gradient-to-t from-secondary to-secondary/90 max-md:left-1/4 max-md:top-8 xl:top-12 xl:h-[1200px]"
       >
       </div>
       <BrandingLogo />
-      <div
-        class="absolute bottom-0 z-40 mb-12 ml-12 animate-fadeInUp max-md:ml-6"
-      >
+      <div class="z-40 mb-12 ml-12 animate-fadeInUp max-md:ml-6">
         {
           destinationURLs && destinationURLs.length > 0 && (
             <div class="page-title-block">
@@ -70,7 +74,7 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
       </div>
     </div>
 
-    <div class="home-main-block">
+    <div class:list={['home-main-block', !fullWidthMain && 'px-6']}>
       <slot />
     </div>
 
