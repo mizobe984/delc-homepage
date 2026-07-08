@@ -34,7 +34,7 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
   <head>
     <meta charset="utf-8" />
     <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{tabTitle}</title>
     <meta name="description" content={metaDescription} />
@@ -53,17 +53,11 @@ import BreadCrumb from '@/components/BreadCrumb.astro'
 
     <!-- HERO SECTION -->
     <div
-      class="hero-sky relative flex min-h-[32rem] flex-col justify-between overflow-clip border-b border-b-secondary px-6 xl:min-h-[44rem]"
+      class="hero-sky relative flex min-h-[32rem] flex-col justify-between overflow-clip border-b border-b-secondary xl:min-h-[44rem]"
     >
-      <!-- 透かしロゴ: fixed でスクロールに追従させつつ、モバイルで画面右へはみ出す分
-           (min-w-full × left-1/4 で右へ約25%はみ出し = iOS Safari で横スクロールの原因)を
-           画面いっぱいの fixed ラッパーで overflow-hidden してクリップする。ロゴの可視範囲・
-           サイズ・位置・フェードは従来どおり(切れるのは元々画面外の見えない部分だけ)。 -->
-      <div class="pointer-events-none fixed inset-0 z-0 overflow-hidden">
-        <div
-          class="hero-logo-image hero-logo-focus absolute left-0 top-24 h-[800px] min-w-full max-md:left-1/4 max-md:top-8 xl:top-12 xl:h-[1200px]"
-        >
-        </div>
+      <div
+        class="hero-logo-image hero-logo-focus absolute left-0 top-24 h-[800px] min-w-full max-md:left-1/4 max-md:top-8 xl:top-12 xl:h-[1200px]"
+      >
       </div>
       <BrandingLogo />
       <div class="z-40 mb-12 ml-12 animate-fadeInUp max-md:ml-6">
