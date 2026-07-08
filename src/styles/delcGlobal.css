@@ -7,6 +7,11 @@
 body {
   margin: 0 auto;
   width: 100%;
+  /* 横方向のはみ出しを画面幅で切り、iOS Safari 等で横スクロール(＝左揃えコンテンツが
+     右へずれて見える現象)が発生しないようにするガード。overflow: hidden と違い
+     clip はスクロールコンテナを作らないため、ヘッダの position: sticky を壊さない。
+     未対応の古いブラウザでは無視される(従来どおり)。*/
+  overflow-x: clip;
   line-height: 1.5;
   color: hsl(var(--foreground));
   background-color: hsl(var(--background));
